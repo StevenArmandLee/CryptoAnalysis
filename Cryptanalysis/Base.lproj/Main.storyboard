@@ -47,7 +47,6 @@
         <!--Decrypt View Controller-->
         <scene sceneID="DWG-0y-KHh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rPn-9f-ImD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GbU-T7-gqU" customClass="DecryptViewController" customModule="Cryptanalysis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eny-4c-7f6"/>
@@ -77,6 +76,7 @@
                     <navigationItem key="navigationItem" id="uJg-e4-nfP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPn-9f-ImD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="599" y="150"/>
         </scene>
@@ -144,26 +144,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kea-eY-RhC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cy-bl-0FA">
+                                <rect key="frame" x="0.0" y="57" width="414" height="622"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="segmentedControl" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kea-eY-RhC">
                                 <rect key="frame" x="147" y="28" width="121" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="VvQ-8O-ggh"/>
-                                    <constraint firstAttribute="width" constant="121" id="ujV-HR-he7"/>
-                                </constraints>
                                 <segments>
                                     <segment title="Graphic"/>
                                     <segment title="Info"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeSegment:" destination="8rJ-Kc-sve" eventType="valueChanged" id="zd2-vb-iXx"/>
+                                </connections>
                             </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="jxw-iu-Dzn">
+                                <rect key="frame" x="148" y="633" width="118" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6UF-VA-rH8"/>
+                                    <constraint firstAttribute="width" constant="114" id="X9Z-BD-Bf6"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="characterFrequencyDidChange:" destination="8rJ-Kc-sve" eventType="valueChanged" id="GBj-im-iqG"/>
+                                </connections>
+                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P14-F2-Z3J" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="414" height="561"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kea-eY-RhC" secondAttribute="trailing" constant="126" id="QZA-Rh-M70"/>
-                            <constraint firstItem="Kea-eY-RhC" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="WXr-Ez-itP"/>
-                            <constraint firstItem="Kea-eY-RhC" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="127" id="j5r-l3-tAl"/>
+                            <constraint firstItem="P14-F2-Z3J" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="0qL-8L-o8l"/>
+                            <constraint firstItem="4Cy-bl-0FA" firstAttribute="top" secondItem="Kea-eY-RhC" secondAttribute="bottom" constant="1" id="6w0-PL-Fa3"/>
+                            <constraint firstItem="jxw-iu-Dzn" firstAttribute="top" secondItem="P14-F2-Z3J" secondAttribute="bottom" constant="8" id="AyW-ks-BOW"/>
+                            <constraint firstItem="Kea-eY-RhC" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="127" id="I7a-I7-HQ9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Cy-bl-0FA" secondAttribute="trailing" constant="-20" id="NWA-dW-rep"/>
+                            <constraint firstItem="jxw-iu-Dzn" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="130" id="OA5-xm-OZ0"/>
+                            <constraint firstItem="P14-F2-Z3J" firstAttribute="top" secondItem="Kea-eY-RhC" secondAttribute="bottom" constant="8" id="RcB-wO-DDk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kea-eY-RhC" secondAttribute="trailing" constant="126" id="XcV-jQ-wg4"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="jxw-iu-Dzn" secondAttribute="bottom" constant="24" id="Y3G-cs-6Rq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P14-F2-Z3J" secondAttribute="trailing" constant="-20" id="gSW-FN-B9l"/>
+                            <constraint firstItem="4Cy-bl-0FA" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="ndi-2u-Ksv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jxw-iu-Dzn" secondAttribute="trailing" constant="130" id="r5M-pb-Jp7"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="4Cy-bl-0FA" secondAttribute="bottom" constant="8" id="saY-ny-VGn"/>
+                            <constraint firstItem="Kea-eY-RhC" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="xzM-5f-dVD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="characterFrequencyLength" destination="jxw-iu-Dzn" id="EcG-O4-MFt"/>
+                        <outlet property="chartView" destination="P14-F2-Z3J" id="lmu-cY-5dJ"/>
+                        <outlet property="informationTextView" destination="4Cy-bl-0FA" id="YvK-04-MaF"/>
+                        <outlet property="segmentedControl" destination="Kea-eY-RhC" id="6IL-Ci-fBK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,11 +243,6 @@
                                 <rect key="frame" x="320" y="492" width="53" height="30"/>
                                 <state key="normal" title="Change"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-yz-ZDo">
-                                <rect key="frame" x="69" y="492" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x96-Fj-uZf">
                                 <rect key="frame" x="203" y="492" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -224,6 +255,11 @@
                                 <textInputTraits key="textInputTraits" spellCheckingType="yes"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-yz-ZDo">
+                                <rect key="frame" x="69" y="492" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
