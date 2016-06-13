@@ -144,12 +144,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cy-bl-0FA">
-                                <rect key="frame" x="0.0" y="57" width="414" height="622"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" restorationIdentifier="segmentedControl" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kea-eY-RhC">
                                 <rect key="frame" x="147" y="28" width="121" height="29"/>
                                 <segments>
@@ -160,44 +154,37 @@
                                     <action selector="changeSegment:" destination="8rJ-Kc-sve" eventType="valueChanged" id="zd2-vb-iXx"/>
                                 </connections>
                             </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="jxw-iu-Dzn">
-                                <rect key="frame" x="148" y="633" width="118" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6UF-VA-rH8"/>
-                                    <constraint firstAttribute="width" constant="114" id="X9Z-BD-Bf6"/>
-                                </constraints>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3K9-1H-bGG">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <connections>
-                                    <action selector="characterFrequencyDidChange:" destination="8rJ-Kc-sve" eventType="valueChanged" id="GBj-im-iqG"/>
+                                    <segue destination="ZaV-K4-wXH" kind="embed" id="Cy9-w2-oin"/>
                                 </connections>
-                            </slider>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P14-F2-Z3J" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="64" width="414" height="561"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IAX-6O-fg4">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <connections>
+                                    <segue destination="Rin-E7-QAY" kind="embed" id="dJD-d6-ndp"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="P14-F2-Z3J" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="0qL-8L-o8l"/>
-                            <constraint firstItem="4Cy-bl-0FA" firstAttribute="top" secondItem="Kea-eY-RhC" secondAttribute="bottom" constant="1" id="6w0-PL-Fa3"/>
-                            <constraint firstItem="jxw-iu-Dzn" firstAttribute="top" secondItem="P14-F2-Z3J" secondAttribute="bottom" constant="8" id="AyW-ks-BOW"/>
+                            <constraint firstItem="IAX-6O-fg4" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="8a9-aU-HU7"/>
+                            <constraint firstItem="3K9-1H-bGG" firstAttribute="top" secondItem="Kea-eY-RhC" secondAttribute="bottom" constant="8" id="Aug-bP-51P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IAX-6O-fg4" secondAttribute="trailing" constant="-20" id="DZn-pP-tdK"/>
                             <constraint firstItem="Kea-eY-RhC" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="127" id="I7a-I7-HQ9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Cy-bl-0FA" secondAttribute="trailing" constant="-20" id="NWA-dW-rep"/>
-                            <constraint firstItem="jxw-iu-Dzn" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="130" id="OA5-xm-OZ0"/>
-                            <constraint firstItem="P14-F2-Z3J" firstAttribute="top" secondItem="Kea-eY-RhC" secondAttribute="bottom" constant="8" id="RcB-wO-DDk"/>
+                            <constraint firstItem="IAX-6O-fg4" firstAttribute="top" secondItem="Kea-eY-RhC" secondAttribute="bottom" constant="8" id="Kwo-57-Gbr"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="IAX-6O-fg4" secondAttribute="bottom" id="QHf-6i-dqj"/>
+                            <constraint firstItem="3K9-1H-bGG" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="TV1-rY-lM1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kea-eY-RhC" secondAttribute="trailing" constant="126" id="XcV-jQ-wg4"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="jxw-iu-Dzn" secondAttribute="bottom" constant="24" id="Y3G-cs-6Rq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P14-F2-Z3J" secondAttribute="trailing" constant="-20" id="gSW-FN-B9l"/>
-                            <constraint firstItem="4Cy-bl-0FA" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="ndi-2u-Ksv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jxw-iu-Dzn" secondAttribute="trailing" constant="130" id="r5M-pb-Jp7"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="4Cy-bl-0FA" secondAttribute="bottom" constant="8" id="saY-ny-VGn"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="3K9-1H-bGG" secondAttribute="bottom" id="pK1-vL-YVX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3K9-1H-bGG" secondAttribute="trailing" constant="-20" id="tEF-ds-JiI"/>
                             <constraint firstItem="Kea-eY-RhC" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="xzM-5f-dVD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="characterFrequencyLength" destination="jxw-iu-Dzn" id="EcG-O4-MFt"/>
-                        <outlet property="chartView" destination="P14-F2-Z3J" id="lmu-cY-5dJ"/>
-                        <outlet property="informationTextView" destination="4Cy-bl-0FA" id="YvK-04-MaF"/>
+                        <outlet property="graphViewContainer" destination="3K9-1H-bGG" id="gyJ-ge-tPM"/>
                         <outlet property="segmentedControl" destination="Kea-eY-RhC" id="6IL-Ci-fBK"/>
                     </connections>
                 </viewController>
@@ -364,6 +351,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDg-8a-UhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1256" y="323"/>
+        </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="0D5-FT-NOi">
+            <objects>
+                <viewController id="ZaV-K4-wXH" customClass="GraphViewController" customModule="Cryptanalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lQn-43-rlU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnW-sq-W79" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-wp-kw2">
+                                <rect key="frame" x="148" y="573" width="118" height="31"/>
+                                <connections>
+                                    <action selector="FrequencyLengthDidChange:" destination="ZaV-K4-wXH" eventType="valueChanged" id="qH3-Ex-zUk"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Mr-wp-kw2" firstAttribute="top" secondItem="tnW-sq-W79" secondAttribute="bottom" constant="47" id="2RM-sp-t54"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="5Mr-wp-kw2" secondAttribute="bottom" constant="20" id="cD6-sw-ovz"/>
+                            <constraint firstItem="tnW-sq-W79" firstAttribute="leading" secondItem="lQn-43-rlU" secondAttribute="leadingMargin" constant="-20" id="fJS-Cq-GlW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tnW-sq-W79" secondAttribute="trailing" constant="-20" id="hNV-nh-hUm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Mr-wp-kw2" secondAttribute="trailing" constant="130" id="kl2-Fg-hAN"/>
+                            <constraint firstItem="5Mr-wp-kw2" firstAttribute="top" secondItem="tnW-sq-W79" secondAttribute="bottom" constant="47" id="mNZ-qg-MdZ"/>
+                            <constraint firstItem="tnW-sq-W79" firstAttribute="top" secondItem="lQn-43-rlU" secondAttribute="topMargin" id="pgB-lQ-Nl9"/>
+                            <constraint firstItem="5Mr-wp-kw2" firstAttribute="leading" secondItem="lQn-43-rlU" secondAttribute="leadingMargin" constant="130" id="rJw-x1-zK6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="tnW-sq-W79" id="dC4-ou-egR"/>
+                        <outlet property="frequencyLengthSlider" destination="5Mr-wp-kw2" id="o6T-B8-uAL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddG-jP-Ryz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="-1547.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="v2x-oc-8dJ">
+            <objects>
+                <viewController id="Rin-E7-QAY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LPL-co-pIk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un3-Wj-BCF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Un3-Wj-BCF" firstAttribute="top" secondItem="LPL-co-pIk" secondAttribute="topMargin" id="2xD-Ib-cDk"/>
+                            <constraint firstItem="Un3-Wj-BCF" firstAttribute="leading" secondItem="LPL-co-pIk" secondAttribute="leadingMargin" constant="-20" id="fBY-ct-lkN"/>
+                            <constraint firstItem="Un3-Wj-BCF" firstAttribute="bottom" secondItem="LPL-co-pIk" secondAttribute="bottomMargin" id="hDy-Zw-Kf4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Un3-Wj-BCF" secondAttribute="trailing" constant="-20" id="lvD-hJ-4h7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Li-er-ACa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-1547.5"/>
         </scene>
     </scenes>
     <resources>

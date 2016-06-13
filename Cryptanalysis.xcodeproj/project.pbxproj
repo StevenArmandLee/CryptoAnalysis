@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FB61D0E68E800FE8FFF /* GraphViewController.swift */; };
+		56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */; };
 		561F08ED1D0C663700B9A155 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561F08E61D0C652900B9A155 /* Charts.framework */; };
 		561F08EE1D0C663700B9A155 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 561F08E61D0C652900B9A155 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */; };
@@ -93,6 +95,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		56180FB61D0E68E800FE8FFF /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		561F08DE1D0C652900B9A155 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecryptViewController.swift; sourceTree = "<group>"; };
 		565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionViewContoller.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				56F2F2851CE2FA54007A4C7B /* InputViewController.swift */,
 				565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */,
 				565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */,
+				56180FB61D0E68E800FE8FFF /* GraphViewController.swift */,
+				56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -409,8 +415,10 @@
 				565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */,
 				565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */,
 				565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */,
+				56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */,
 				565507C11D0BECE40054FB95 /* PolyDecryptionModel.swift in Sources */,
 				565507BF1D0BECD00054FB95 /* MonoDecryptionModel.swift in Sources */,
+				56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
