@@ -34,7 +34,7 @@ class PolyDecryptionController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     @IBAction func buttonPressed(sender: UIButton) {
-        let alphanumeric = "0123456789abcdefghijklmnopqrstuvwxyz"
+        let alphanumeric = "abcdefghijklmnopqrstuvwxyz"
         let ctext = globalModifiedText.lowercaseString
         let lengthOfCtext = ctext.characters.count
         
@@ -54,7 +54,7 @@ class PolyDecryptionController: UIViewController
             }
             else{
                 let keyNum = findCharNum(key[indexOfKey])
-                let pchar = alphanumeric.startIndex.advancedBy((ctextNum + keyNum) % 36)
+                let pchar = alphanumeric.startIndex.advancedBy((ctextNum - keyNum) % 26)
                 ptext.append(alphanumeric[pchar])
             }
         }
@@ -66,7 +66,7 @@ class PolyDecryptionController: UIViewController
     
     func findCharNum(c : Character) -> Int
     {
-        let alphanumeric = "0123456789abcdefghijklmnopqrstuvwxyz"
+        let alphanumeric = "abcdefghijklmnopqrstuvwxyz"
         var index = 0
         
         if let idx = alphanumeric.characters.indexOf(c) {
