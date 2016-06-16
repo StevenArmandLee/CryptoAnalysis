@@ -11,8 +11,21 @@ import UIKit
 
 class MonoDecryptionController: UIViewController
 {
+    private var monoDecryption: MonoDecryption = MonoDecryption()
     
+    @IBOutlet var wordFromTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
+    @IBOutlet var wordToTextField: UITextField!
+    @IBAction func changeButtonAction(sender: AnyObject) {
+        if let wordTo = wordToTextField.text{
+            if let wordFrom = wordFromTextField.text{
+                monoDecryption.insertKeyToDictionary(wordFrom, userValue: wordTo)
+                resultTextView.text = monoDecryption.applyReplaceUsingDictionary(globalModifiedText)
+            }
+        }
+        wordFromTextField.text = ""
+        wordToTextField.text = ""
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +33,7 @@ class MonoDecryptionController: UIViewController
         resultTextView.text = globalModifiedText
         resultTextView.layer.borderWidth=1
         resultTextView.layer.borderColor=UIColor.blackColor().CGColor
-        // Do any additional setup after loading the view, typically from a nib.
+        // do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool)
