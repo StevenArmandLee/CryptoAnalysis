@@ -16,6 +16,7 @@
 		565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */; };
 		565507BF1D0BECD00054FB95 /* MonoDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */; };
 		565507C11D0BECE40054FB95 /* PolyDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */; };
+		5679F51F1D0FD1E900B88094 /* Charts in Resources */ = {isa = PBXBuildFile; fileRef = 5679F51E1D0FD1E900B88094 /* Charts */; };
 		56E22FBE1D0D2AED00E16DF8 /* StasticalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */; };
 		56F2F2841CE2FA54007A4C7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */; };
 		56F2F2861CE2FA54007A4C7B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2851CE2FA54007A4C7B /* InputViewController.swift */; };
@@ -103,6 +104,7 @@
 		565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionViewController.swift; sourceTree = "<group>"; };
 		565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionModel.swift; sourceTree = "<group>"; };
 		565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionModel.swift; sourceTree = "<group>"; };
+		5679F51E1D0FD1E900B88094 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Charts; sourceTree = "<group>"; };
 		56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StasticalModel.swift; sourceTree = "<group>"; };
 		56F2F2801CE2FA54007A4C7B /* Cryptanalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptanalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				56F2F2991CE2FA54007A4C7B /* CryptanalysisTests */,
 				56F2F2A41CE2FA54007A4C7B /* CryptanalysisUITests */,
 				56F2F2811CE2FA54007A4C7B /* Products */,
+				5679F51E1D0FD1E900B88094 /* Charts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -383,6 +386,7 @@
 				56F2F2901CE2FA54007A4C7B /* LaunchScreen.storyboard in Resources */,
 				56F2F28D1CE2FA54007A4C7B /* Assets.xcassets in Resources */,
 				56F2F28B1CE2FA54007A4C7B /* Main.storyboard in Resources */,
+				5679F51F1D0FD1E900B88094 /* Charts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

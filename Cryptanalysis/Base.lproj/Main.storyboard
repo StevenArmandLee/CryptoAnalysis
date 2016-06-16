@@ -185,6 +185,7 @@
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="graphViewContainer" destination="3K9-1H-bGG" id="gyJ-ge-tPM"/>
+                        <outlet property="informationViewController" destination="IAX-6O-fg4" id="ePm-CC-1IF"/>
                         <outlet property="segmentedControl" destination="Kea-eY-RhC" id="6IL-Ci-fBK"/>
                     </connections>
                 </viewController>
@@ -356,20 +357,24 @@
         <scene sceneID="0D5-FT-NOi">
             <objects>
                 <viewController id="ZaV-K4-wXH" customClass="GraphViewController" customModule="Cryptanalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Of1-9N-LQW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ovl-9c-mEI"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lQn-43-rlU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnW-sq-W79" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="526"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-wp-kw2">
                                 <rect key="frame" x="148" y="573" width="118" height="31"/>
                                 <connections>
                                     <action selector="FrequencyLengthDidChange:" destination="ZaV-K4-wXH" eventType="valueChanged" id="qH3-Ex-zUk"/>
                                 </connections>
                             </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnW-sq-W79" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -390,12 +395,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddG-jP-Ryz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274" y="-1547.5"/>
+            <point key="canvasLocation" x="378" y="-1545.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="v2x-oc-8dJ">
             <objects>
                 <viewController id="Rin-E7-QAY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fsw-Yw-uMk"/>
+                        <viewControllerLayoutGuide type="bottom" id="2cG-SA-OhK"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LPL-co-pIk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Li-er-ACa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="-1547.5"/>
+            <point key="canvasLocation" x="934" y="-1595.5"/>
         </scene>
     </scenes>
     <resources>

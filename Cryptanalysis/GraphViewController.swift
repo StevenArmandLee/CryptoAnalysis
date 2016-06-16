@@ -14,7 +14,6 @@ class GraphViewController: UIViewController {
     
     
     @IBOutlet var chartView: BarChartView!
-    
     @IBOutlet var frequencyLengthSlider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
