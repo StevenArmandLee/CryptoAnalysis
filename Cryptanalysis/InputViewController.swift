@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import TesseractOCR
 
 
 var globalOriginalText: String=""
 var globalModifiedText: String=""
 
-class InputViewController: UIViewController, UITextViewDelegate {
+class InputViewController: UIViewController, UITextViewDelegate, G8TesseractDelegate {
 
     @IBOutlet weak var originalText: UITextView!
     
@@ -25,6 +26,21 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        
+        
+        
+        var tesseract:G8Tesseract = G8Tesseract(language:"eng")
+        //tesseract.charWhitelist = "0123456789"
+        tesseract.delegate = self
+        tesseract.image = UIImage(named: "test.jpg")
+        tesseract.recognize()
+        
+        print(tesseract.recognizedText)
+       // NSLog("%@", tesseract.recognizedText)
+        
+        
+        
     }
     
     func dismissKeyboard() {
