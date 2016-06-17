@@ -7,19 +7,54 @@
 //
 
 import UIKit
+import Charts
 
 class StatisticalViewController: UIViewController {
 
+    
+    @IBOutlet weak var graphViewContainer: UIView!
+    @IBOutlet weak var informationViewController: UIView!
+    
+   
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+   
     override func viewDidLoad() {
+        graphViewContainer.hidden=false
+        informationViewController.hidden=true
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        
+        
+        //informationTextView.text = getStaticalInformation()
+    }
+    
+    
+    @IBAction func changeSegment(sender: UISegmentedControl) {
+        
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            print("test")
+            graphViewContainer.hidden=false
+            informationViewController.hidden=true
+            
+        case 1:
+            graphViewContainer.hidden=true
+            informationViewController.hidden=false
+        default:
+            break;
+        }
+    }
+    
 
 }
 
