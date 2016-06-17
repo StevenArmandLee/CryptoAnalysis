@@ -38,15 +38,17 @@ class PolyDecryptionModel {
         let lengthOfCtext = ctext.characters.count
         let lengthOfKey = key.characters.count
         var ptext = String()
+        var count = 0
         
         for i in 0..<lengthOfCtext {
             let indexOfCtext = ctext.startIndex.advancedBy(i)
-            let indexOfKey = key.startIndex.advancedBy(i%lengthOfKey)
+            let indexOfKey = key.startIndex.advancedBy((i-count) % lengthOfKey)
             
             let ctextNum = findCharNum(ctext[indexOfCtext])
             
             if ctextNum == -1 {
                 ptext.append(ctext[indexOfCtext])
+                count += 1
             }
             else{
                 let keyNum = findCharNum(key[indexOfKey])
