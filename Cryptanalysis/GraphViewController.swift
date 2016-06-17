@@ -11,7 +11,7 @@ import Charts
 
 class GraphViewController: UIViewController {
     
-    
+    private var stasticalModel: StasticalModel = StasticalModel()
     
     @IBOutlet var chartView: BarChartView!
     @IBOutlet var frequencyLengthSlider: UISlider!
@@ -22,8 +22,8 @@ class GraphViewController: UIViewController {
         chartView.descriptionText = ""
         chartView.animate(xAxisDuration: 2, yAxisDuration: 2)
         chartView.doubleTapToZoomEnabled = false
-        generateChart(Int(frequencyLengthSlider.value))
-        setCharts(getXAxisLabel(), values: getXAxisData(getXAxisLabel()))
+        stasticalModel.generateChart(Int(frequencyLengthSlider.value))
+        setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
         //informationTextView.text = getStaticalInformation()
         
     }
@@ -36,18 +36,18 @@ class GraphViewController: UIViewController {
     override func viewWillAppear(animated: Bool)
     {
         
-        generateChart(Int(frequencyLengthSlider.value))
-        setCharts(getXAxisLabel(), values: getXAxisData(getXAxisLabel()))
+        stasticalModel.generateChart(Int(frequencyLengthSlider.value))
+        setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
         //informationTextView.text = getStaticalInformation()
     }
     
     @IBAction func FrequencyLengthDidChange(sender: UISlider) {
         sender.setValue(Float(lround(Double(frequencyLengthSlider.value))), animated: true)
         
-        if(Int(sender.value) <= trimmedText.characters.count)
+        if(Int(sender.value) <= stasticalModel.getTrimmedText().characters.count)
         {
-            generateChart(Int(frequencyLengthSlider.value))
-            setCharts(getXAxisLabel(), values: getXAxisData(getXAxisLabel()))
+            stasticalModel.generateChart(Int(frequencyLengthSlider.value))
+            setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
         }
     }
     
