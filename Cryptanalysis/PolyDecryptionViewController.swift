@@ -33,49 +33,15 @@ class PolyDecryptionController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    private var model : PolyDecryptionModel = PolyDecryptionModel()
+    
     @IBAction func buttonPressed(sender: UIButton) {
-        let alphanumeric = "abcdefghijklmnopqrstuvwxyz"
+        
         let ctext = globalModifiedText.lowercaseString
-        let lengthOfCtext = ctext.characters.count
-        
         let key = keyField.text!.lowercaseString
-        let lengthOfKey = key.characters.count
-        
-        var ptext = String()
-        
-        for i in 0..<lengthOfCtext {
-            let indexOfCtext = ctext.startIndex.advancedBy(i)
-            let indexOfKey = key.startIndex.advancedBy(i%lengthOfKey)
-            
-            let ctextNum = findCharNum(ctext[indexOfCtext])
-            
-            if ctextNum == -1 {
-                ptext.append(ctext[indexOfCtext])
-            }
-            else{
-                let keyNum = findCharNum(key[indexOfKey])
-                let pchar = alphanumeric.startIndex.advancedBy((ctextNum - keyNum) % 26)
-                ptext.append(alphanumeric[pchar])
-            }
-        }
-        
-        
+        let ptext = model.decryptionButton(ctext, key : key)
         resultTextView.text = ptext
         
-    }
-    
-    func findCharNum(c : Character) -> Int
-    {
-        let alphanumeric = "abcdefghijklmnopqrstuvwxyz"
-        var index = 0
-        
-        if let idx = alphanumeric.characters.indexOf(c) {
-            index = alphanumeric.startIndex.distanceTo(idx)
-        }else {
-            // cannot find the char in the alphanumeric
-            index = -1
-        }
-        
-        return index
     }
 }
