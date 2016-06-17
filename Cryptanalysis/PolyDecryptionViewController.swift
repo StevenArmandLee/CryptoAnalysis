@@ -36,12 +36,11 @@ class PolyDecryptionController: UIViewController
     
     private var model : PolyDecryptionModel = PolyDecryptionModel()
     
+ 
     @IBAction func buttonPressed(sender: UIButton) {
-        
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text!.lowercaseString
         let ptext = model.decryptionButton(ctext, key : key)
         resultTextView.text = ptext
-        
     }
 }

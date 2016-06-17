@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -47,7 +47,6 @@
         <!--Decrypt View Controller-->
         <scene sceneID="DWG-0y-KHh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rPn-9f-ImD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GbU-T7-gqU" customClass="DecryptViewController" customModule="Cryptanalysis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eny-4c-7f6"/>
@@ -77,6 +76,7 @@
                     <navigationItem key="navigationItem" id="uJg-e4-nfP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPn-9f-ImD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="599" y="150"/>
         </scene>
@@ -289,6 +289,9 @@
                                     <constraint firstAttribute="width" constant="53" id="Pv2-xk-ssa"/>
                                 </constraints>
                                 <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="6rU-u3-DXC" eventType="touchUpInside" id="gl3-8s-LDf"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8LV-hb-dMT">
                                 <rect key="frame" x="159" y="564" width="97" height="30"/>
@@ -322,6 +325,7 @@
                     <tabBarItem key="tabBarItem" title="forth" image="first" id="zGO-0d-V6E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="keyField" destination="8LV-hb-dMT" id="2hp-RL-5Tc"/>
                         <outlet property="resultTextView" destination="ERs-9c-eKC" id="9Py-df-PAW"/>
                     </connections>
                 </viewController>
