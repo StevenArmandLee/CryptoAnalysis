@@ -56,26 +56,31 @@ class MonoDecryption
             "h" : "h", "r" : "r",
             "i" : "i", "s" : "s",
             "j" : "j", "t" : "t",
-            ]
+        ]
     }
     
     func insertKeyToDictionary(userKey :String, userValue :String){
         let iterationValue = min(userKey.characters.count, userValue.characters.count)
         
         for i in 0..<iterationValue{
-            let userKeyIndex = userKey.startIndex.advancedBy(i)
-            let userValueIndex = userValue.startIndex.advancedBy(i)
-            dictionary[userKey.substringWithRange(userKeyIndex...userKeyIndex)] = userValue.substringWithRange(userValueIndex...userValueIndex)
+            let userKeyLetter = userKey.substringWithRange(userKey.startIndex.advancedBy(i)...userKey.startIndex.advancedBy(i))
+            let userValueLetter = userValue.substringWithRange(userValue.startIndex.advancedBy(i)...userValue.startIndex.advancedBy(i))
+            dictionary[userKeyLetter] = userValueLetter
         }
     }
     
     func applyReplaceUsingDictionary(globalText :String)->String
     {
-        print(globalText)
         var newGlobalText = ""
         for index in 0..<globalText.characters.count{
             let globalTextIndex = globalText.startIndex.advancedBy(index)
-            newGlobalText += dictionary[globalText.substringWithRange(globalTextIndex...globalTextIndex)]!
+            let letterInGlobalText = globalText.substringWithRange(globalTextIndex...globalTextIndex)
+            if let dictionaryLetter = dictionary[letterInGlobalText]{
+                newGlobalText += dictionaryLetter
+            }
+            else{
+                newGlobalText += letterInGlobalText
+            }
         }
         return newGlobalText
     }
