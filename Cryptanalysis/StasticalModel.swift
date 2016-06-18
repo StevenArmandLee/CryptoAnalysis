@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StasticalModel
+public class StasticalModel
 {
     var data = [String: Double]()
     var trimmedText: String = ""
