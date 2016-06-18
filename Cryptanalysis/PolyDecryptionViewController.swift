@@ -40,7 +40,18 @@ class PolyDecryptionController: UIViewController
     @IBAction func buttonPressed(sender: UIButton) {
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text!.lowercaseString
-        let ptext = model.decryptionButton(ctext, key : key)
-        resultTextView.text = ptext
+        
+        if model.checkKey(key) != false {
+            let ptext = model.decryptionButton(ctext, key : key)
+            resultTextView.text = ptext
+        }
+        else {
+            //TODO put an alert here, the message is "The key must not
+            // contains any symbol or number on it."
+            
+            // and also clear the keyField field
+        }
+        
+        
     }
 }

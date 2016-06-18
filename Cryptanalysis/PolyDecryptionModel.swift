@@ -10,14 +10,14 @@ import Foundation
 
 class PolyDecryptionModel {
     
-    let alphanumeric = "abcdefghijklmnopqrstuvwxyz"
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
     
     func findCharNum(c : Character) -> Int
     {
         var index = 0
         
-        if let idx = alphanumeric.characters.indexOf(c) {
-            index = alphanumeric.startIndex.distanceTo(idx)
+        if let idx = alphabet.characters.indexOf(c) {
+            index = alphabet.startIndex.distanceTo(idx)
         }else {
             // cannot find the char in the alphanumeric
             index = -1
@@ -28,8 +28,8 @@ class PolyDecryptionModel {
     
     func getChar (index : Int) -> Character
     {
-        let pchar = alphanumeric.startIndex.advancedBy(index)
-        return (alphanumeric[pchar])
+        let pchar = alphabet.startIndex.advancedBy(index)
+        return (alphabet[pchar])
     }
     
     func decryptionButton (ctext : String, key : String) -> String
@@ -62,5 +62,20 @@ class PolyDecryptionModel {
         }
         
         return ptext
+    }
+    
+    func checkKey (key : String) -> Bool
+    {
+        for charKey in key.characters {
+            if alphabet.characters.contains(charKey) == false{
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func alert (message : String, title : String){
+       
     }
 }
