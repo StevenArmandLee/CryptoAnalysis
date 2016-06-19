@@ -34,6 +34,13 @@ class MonoDecryptionController: UIViewController
         resultTextView.layer.borderWidth=1
         resultTextView.layer.borderColor=UIColor.blackColor().CGColor
         // do any additional setup after loading the view, typically from a nib.
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func viewWillAppear(animated: Bool)
