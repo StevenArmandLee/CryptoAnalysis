@@ -1,0 +1,15 @@
+PODS:
+  - pop (1.0.9)
+  - TesseractOCRiOS (4.0.0)
+
+DEPENDENCIES:
+  - pop (~> 1.0)
+  - TesseractOCRiOS (~> 4.0.0)
+
+SPEC CHECKSUMS:
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  TesseractOCRiOS: 90638afbe43d082433f2e76b384c7901d23956df
+
+PODFILE CHECKSUM: efb9c4fb228b5f4563385b202895fc41618931f4
+
+COCOAPODS: 1.0.1

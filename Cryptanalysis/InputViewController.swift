@@ -13,34 +13,67 @@ import TesseractOCR
 var globalOriginalText: String=""
 var globalModifiedText: String=""
 
-class InputViewController: UIViewController, UITextViewDelegate, G8TesseractDelegate {
+class InputViewController: UIViewController, UITextViewDelegate, G8TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var originalText: UITextView!
-    
+    var tesseract:G8Tesseract = G8Tesseract(language:"eng")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         originalText.delegate = self
         originalText.layer.borderWidth=1
         originalText.layer.borderColor = UIColor.blackColor().CGColor
-        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        
-        
-        
-        var tesseract:G8Tesseract = G8Tesseract(language:"eng")
-        //tesseract.charWhitelist = "0123456789"
         tesseract.delegate = self
-        tesseract.image = UIImage(named: "test.jpg")
+  
+    }
+    
+    func showCamera(){
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.delegate=self
+        cameraPicker.sourceType = .Camera
+        
+        presentViewController(cameraPicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        dismissViewControllerAnimated(true, completion: nil)
+        scanTextFromPhoto((info[UIImagePickerControllerOriginalImage] as? UIImage)!)
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    func showAlbum(){
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.delegate=self
+        cameraPicker.sourceType = .PhotoLibrary
+        
+        presentViewController(cameraPicker, animated: true, completion: nil)
+    }
+    
+    func scanTextFromPhoto(photo: UIImage){
+        tesseract.image = photo
         tesseract.recognize()
+        globalOriginalText = tesseract.recognizedText
+        globalModifiedText = globalOriginalText
+        originalText.text=globalOriginalText
+    }
+    
+    
+    @IBAction func onCamera(sender: UIButton) {
+        let actionSheet = UIAlertController(title: "Camera", message: nil, preferredStyle: .ActionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .Default, handler: { action in
+            self.showCamera()
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Album", style: .Default, handler: { action in
+            self.showAlbum()
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancle", style: .Cancel, handler: nil))
         
-        print(tesseract.recognizedText)
-       // NSLog("%@", tesseract.recognizedText)
-        
-        
-        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
     }
     
     func dismissKeyboard() {

@@ -20,6 +20,34 @@
                ReferencedContainer = "container:Cryptanalysis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "56F2F2951CE2FA54007A4C7B"
+               BuildableName = "CryptanalysisTests.xctest"
+               BlueprintName = "CryptanalysisTests"
+               ReferencedContainer = "container:Cryptanalysis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "56F2F2A01CE2FA54007A4C7B"
+               BuildableName = "CryptanalysisUITests.xctest"
+               BlueprintName = "CryptanalysisUITests"
+               ReferencedContainer = "container:Cryptanalysis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,26 +56,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56F2F2951CE2FA54007A4C7B"
-               BuildableName = "CryptanalysisTests.xctest"
-               BlueprintName = "CryptanalysisTests"
-               ReferencedContainer = "container:Cryptanalysis.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56F2F2A01CE2FA54007A4C7B"
-               BuildableName = "CryptanalysisUITests.xctest"
-               BlueprintName = "CryptanalysisUITests"
-               ReferencedContainer = "container:Cryptanalysis.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
