@@ -14,6 +14,8 @@
 		565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */; };
 		565507BF1D0BECD00054FB95 /* MonoDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */; };
 		565507C11D0BECE40054FB95 /* PolyDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */; };
+		56CA09001D23FA79009D2C6A /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CA08FF1D23FA52009D2C6A /* GPUImage.framework */; };
+		56CA09011D23FA79009D2C6A /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 56CA08FF1D23FA52009D2C6A /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56DBFA4C1D20FBE0009D16F8 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DBFA4B1D20FBE0009D16F8 /* libstdc++.6.0.9.tbd */; };
 		56F2F2841CE2FA54007A4C7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */; };
 		56F2F2861CE2FA54007A4C7B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2851CE2FA54007A4C7B /* InputViewController.swift */; };
@@ -27,6 +29,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		56CA08FC1D23FA52009D2C6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56CA08F61D23FA52009D2C6A /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		56CA08FE1D23FA52009D2C6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56CA08F61D23FA52009D2C6A /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		56CA09021D23FA79009D2C6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56CA08F61D23FA52009D2C6A /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 		56F2F2971CE2FA54007A4C7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56F2F2781CE2FA54007A4C7B /* Project object */;
@@ -43,6 +66,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		56CA09041D23FA79009D2C6A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				56CA09011D23FA79009D2C6A /* GPUImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0EB12538C4C37E700A416A80 /* Pods_Cryptanalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptanalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33AA6153A8DF2F2312B38EAA /* Pods-Cryptanalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +91,7 @@
 		565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionViewController.swift; sourceTree = "<group>"; };
 		565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionModel.swift; sourceTree = "<group>"; };
 		565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionModel.swift; sourceTree = "<group>"; };
+		56CA08F61D23FA52009D2C6A /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../../Downloads/GPUImage-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
 		56DBFA4B1D20FBE0009D16F8 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		56F2F2801CE2FA54007A4C7B /* Cryptanalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptanalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +117,7 @@
 			files = (
 				56DBFA4C1D20FBE0009D16F8 /* libstdc++.6.0.9.tbd in Frameworks */,
 				481D0C12D99B4313F616D79E /* Pods_Cryptanalysis.framework in Frameworks */,
+				56CA09001D23FA79009D2C6A /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +150,7 @@
 		43626EC36BD3AF269B5C2FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56CA08F61D23FA52009D2C6A /* GPUImage.xcodeproj */,
 				56DBFA4B1D20FBE0009D16F8 /* libstdc++.6.0.9.tbd */,
 				0EB12538C4C37E700A416A80 /* Pods_Cryptanalysis.framework */,
 			);
@@ -137,6 +177,15 @@
 				565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		56CA08F71D23FA52009D2C6A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56CA08FD1D23FA52009D2C6A /* libGPUImage.a */,
+				56CA08FF1D23FA52009D2C6A /* GPUImage.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		56F2F2771CE2FA54007A4C7B = {
@@ -208,10 +257,12 @@
 				56F2F27E1CE2FA54007A4C7B /* Resources */,
 				CCD5E3ADA911015E443085D4 /* [CP] Embed Pods Frameworks */,
 				ACFA6D7DE25F998C6D0112D7 /* [CP] Copy Pods Resources */,
+				56CA09041D23FA79009D2C6A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				56CA09031D23FA79009D2C6A /* PBXTargetDependency */,
 			);
 			name = Cryptanalysis;
 			productName = Cryptanalysis;
@@ -289,6 +340,12 @@
 			mainGroup = 56F2F2771CE2FA54007A4C7B;
 			productRefGroup = 56F2F2811CE2FA54007A4C7B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 56CA08F71D23FA52009D2C6A /* Products */;
+					ProjectRef = 56CA08F61D23FA52009D2C6A /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				56F2F27F1CE2FA54007A4C7B /* Cryptanalysis */,
@@ -297,6 +354,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		56CA08FD1D23FA52009D2C6A /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 56CA08FC1D23FA52009D2C6A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56CA08FF1D23FA52009D2C6A /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 56CA08FE1D23FA52009D2C6A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		56F2F27E1CE2FA54007A4C7B /* Resources */ = {
@@ -410,6 +484,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		56CA09031D23FA79009D2C6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = 56CA09021D23FA79009D2C6A /* PBXContainerItemProxy */;
+		};
 		56F2F2981CE2FA54007A4C7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56F2F27F1CE2FA54007A4C7B /* Cryptanalysis */;

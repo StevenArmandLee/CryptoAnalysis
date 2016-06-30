@@ -8,6 +8,7 @@
 
 import UIKit
 import TesseractOCR
+import GPUImage
 
 
 var globalOriginalText: String=""
@@ -39,7 +40,17 @@ class InputViewController: UIViewController, UITextViewDelegate, G8TesseractDele
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         dismissViewControllerAnimated(true, completion: nil)
-        scanTextFromPhoto((info[UIImagePickerControllerOriginalImage] as? UIImage)!)
+        var image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        //to make threshold on the image
+        var stillImageFilter: GPUImageAdaptiveThresholdFilter = GPUImageAdaptiveThresholdFilter();
+        stillImageFilter.blurRadiusInPixels = 4.0
+        //the end of threshold image
+        var compressedImage = UIImageJPEGRepresentation(image, 0.6)
+        
+        
+        
+       
+        scanTextFromPhoto(stillImageFilter.imageByFilteringImage(UIImage(data: compressedImage!)))
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
