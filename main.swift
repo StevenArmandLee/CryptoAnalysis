@@ -8,73 +8,57 @@
 
 import Foundation
 
-// power/math this will takeint in and outputint, cos the pow function only support doublt
-let pwrInt:(Int,Int)->Int = { a,b in return Int(pow(Double(a),Double(b))) }
+// power/math this will take int in and outputint, cos the pow function only support doublt
+let pwrInt:(Int,Int)->Int = { number,power in return Int(pow(Double(number),Double(power))) }
 
-//gcd function
-/*func gcd(a: Int, b: Int) -> (Int){
-    if a < 1 {
-        return gcdR(-pwrInt((1/a),2),n2: b)
+//normal gcd function to get the greatest common divisor between nmuber a & b
+func gcd(a: Int, b: Int) -> (Int){
+    var (n1, n2) = (abs(a), abs(b))
+    while n2 != 0 {
+        (n1, n2) = (n2, n1 % n2)
     }
-    else if b < 1 {
-        return gcdR(a,n2: -pwrInt((1/b),2))
-    }
-    else {
-        return gcdR(a,n2: b)
-    }
-    
-}*/
+    return n1
+}
 
-//gcd function if the input value is power of negtive 1 (n^-1) please input -n
-func gcdR(n1: Int, n2: Int) -> (Int){
 
-    var (a, b) = (abs(n1), abs(n2))
-    var (x, y, z, e) = (1, 0, 0, 1)
-    while b != 0 {
-        let q = a / b
-        (a, b) = (b, a % b)
-        if b == 0 {
+
+//inverse module ((a^-1) mod b )
+func gcdR(a: Int, b: Int) -> (Int){
+    var (n1, n2) = (abs(b), abs(a))
+    var (a1, b1, a2, b2) = (1, 0, 0, 1)
+    while n2 != 0 {
+        
+        let q = n1 / n2
+        (n1, n2) = (n2, n1 % n2)
+        if n2 == 0 {
             break;
         }
-        (x, y, z, e) = (z, e, x - q * z, y - q * e)
-        print(e)
+        (a1, b1, a2, b2) = (a2, b2, a1 - q * a2, b1 - q * b2)
+        print(b2)
     }
-    var re:Int
-    if n1 < 0{
-        re = e
-        if re < 0{
-            re = re + n2
-        }
-    }
-    else if n2 < 0{
-        re = e
-        if re < 0{
-            re = re + n1
-        }
-    }
-    else {
-        re = a
-    }
-    return re
+    return b + b2
 }
-//fast exponentiation function
+//fast exponentiation function ((a^power) mod b)
 func fastExpo(a: Int, b: Int, pow: Int) ->(Int){
+    //assign a(int)
+    var a = a
+    //convert power to binary in string
     let  str = String(pow, radix: 2)
+    //convert string to char array
     var charArr = [Character](str.characters)
+    //reverse the array
     charArr = charArr.reverse()
-    var va = a
-    var re = 1
+    var result = 1
     for c in charArr{
-        print(va)
         if c == "1"{
-            re = (re * va) % b
+            result = (result * a) % b
         }
-        va = pwrInt(va,2) % b
+        a = pwrInt(a,2) % b
     }
-    return re
+    return result
 }
 
-var gcdNum = gcdR(1394,n2: -337)
+var gcdNum = gcdR(337,b: 1394)
 print("gcd \(gcdNum)")
 //var num = fastExpo(25, b: 123, pow: 166)
 //print("mod \(num)")
