@@ -32,7 +32,7 @@ class PolyDecryptionModel {
         return (alphabet[pchar])
     }
     
-    func decryptionButton (ctext : String, key : String) -> String
+    func decryptionButton (ctext : String, key : String, type : Int) -> String
     {
         
         let lengthOfCtext = ctext.characters.count
@@ -52,9 +52,20 @@ class PolyDecryptionModel {
             else{
                 let indexOfKey = key.startIndex.advancedBy(count % lengthOfKey)
                 let keyNum = findCharNum(key[indexOfKey])
-                var index = ctextNum - keyNum
+                var index = 0
+                
+                if type == 0 {
+                    index = ctextNum - keyNum
+                }
+                else {
+                    index = ctextNum + keyNum
+                }
+                
                 if index < 0 {
                     index = index + 26
+                }
+                else if index >= 26 {
+                    index = index - 26
                 }
                 ptext.append(getChar(index))
                 count += 1
@@ -66,6 +77,10 @@ class PolyDecryptionModel {
     
     func checkKey (key : String) -> Bool
     {
+        if key == "" {
+            return false
+        }
+        
         for charKey in key.characters {
             if alphabet.characters.contains(charKey) == false{
                 return false
@@ -73,9 +88,5 @@ class PolyDecryptionModel {
         }
         
         return true
-    }
-    
-    func alert (message : String, title : String){
-       
     }
 }

@@ -15,6 +15,9 @@ class PolyDecryptionController: UIViewController
     
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet weak var keyField: UITextField!
+    private var model : PolyDecryptionModel = PolyDecryptionModel()
+    @IBOutlet weak var typeOfCipherSegment: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,23 +43,21 @@ class PolyDecryptionController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    private var model : PolyDecryptionModel = PolyDecryptionModel()
-    
  
     @IBAction func buttonPressed(sender: UIButton) {
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text!.lowercaseString
+        let type = typeOfCipherSegment.selectedSegmentIndex
         
         if model.checkKey(key) != false {
-            let ptext = model.decryptionButton(ctext, key : key)
+            let ptext = model.decryptionButton(ctext, key: key, type: type)
             resultTextView.text = ptext
         }
         else {
-            //TODO put an alert here, the message is "The key must not
-            // contains any symbol or number on it."
+            //TODO put an alert here, the message is "The key must not empty
+            // or contains any symbol, space and number on it."
             
-            // and also clear the keyField field
+            // and then clear the keyField field
         }
         
         
