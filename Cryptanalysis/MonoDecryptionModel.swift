@@ -69,8 +69,7 @@ class MonoDecryption
         }
     }
     
-    func applyReplaceUsingDictionary(globalText :String)->String
-    {
+    func applyReplaceUsingDictionary(globalText :String)->String{
         var newGlobalText = ""
         for index in 0..<globalText.characters.count{
             let globalTextIndex = globalText.startIndex.advancedBy(index)
@@ -85,4 +84,23 @@ class MonoDecryption
         return newGlobalText
     }
     
+    func removeDuplicateLetterFromString(string :String)->String{
+        var stringResult = ""
+        for char in string.characters{
+            if (stringResult.rangeOfString(String(char))) == nil{
+                stringResult += String(char)
+            }
+        }
+        return stringResult
+    }
+    
+    func autoFillKeyString(keyString :String)->String{
+        var tempKeyString = keyString.lowercaseString
+        for char in "abcdefghijklmnopqrstuvwxyz".characters{
+            if (tempKeyString.rangeOfString(String(char)) == nil){
+                tempKeyString+=String(char)
+            }
+        }
+        return tempKeyString
+    }
 }

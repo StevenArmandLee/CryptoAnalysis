@@ -13,15 +13,44 @@ class MonoDecryptionController: UIViewController
 {
     private var monoDecryption: MonoDecryption = MonoDecryption()
     
+    @IBOutlet var segmentOutlet: UISegmentedControl!
+    @IBAction func segmentStreamBlock(sender: AnyObject) {
+        
+    }
     @IBOutlet var wordFromTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet var wordToTextField: UITextField!
+    @IBAction func autoFillButtonAction(sender: AnyObject) {
+        let defaultLetters = "abcdefghijklmnopqrstuvwxyz"
+        let wordFrom = wordFromTextField.text!
+        let wordTo = wordToTextField.text!
+        if wordFrom != ""{
+            let uniqueWordFrom = monoDecryption.removeDuplicateLetterFromString(wordFrom)
+            let filledWordFrom = monoDecryption.autoFillKeyString(uniqueWordFrom)
+            wordFromTextField.text = filledWordFrom
+        }else{
+            wordFromTextField.text = defaultLetters
+        }
+        if wordTo != ""{
+            let uniqueWordTo = monoDecryption.removeDuplicateLetterFromString(wordTo)
+            let filledWordTo = monoDecryption.autoFillKeyString(uniqueWordTo)
+            wordToTextField.text = filledWordTo
+        }else{
+            wordToTextField.text = defaultLetters
+        }
+    }
     @IBAction func changeButtonAction(sender: AnyObject) {
-        if let wordTo = wordToTextField.text{
-            if let wordFrom = wordFromTextField.text{
+        let wordFrom = wordFromTextField.text!
+        let wordTo = wordToTextField.text!
+        if wordTo != ""{
+            if wordFrom != ""{
                 monoDecryption.insertKeyToDictionary(wordFrom, userValue: wordTo)
                 resultTextView.text = monoDecryption.applyReplaceUsingDictionary(globalModifiedText)
+            }else{
+                //PRINT IF RIGHT BOX EMPTY
             }
+        }else{
+            //PRINT IF LEFT BOX EMPTY
         }
         wordFromTextField.text = ""
         wordToTextField.text = ""
