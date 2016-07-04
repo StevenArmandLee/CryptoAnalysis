@@ -12,10 +12,18 @@ import UIKit
 class MonoDecryptionController: UIViewController
 {
     private var monoDecryption: MonoDecryption = MonoDecryption()
+    private var optionFlag :Int = 0
     
     @IBOutlet var segmentOutlet: UISegmentedControl!
     @IBAction func segmentStreamBlock(sender: AnyObject) {
-        
+        switch(self.segmentOutlet.selectedSegmentIndex){
+            case 0 : optionFlag = 0
+            break;
+            case 1 : optionFlag = 1
+            break;
+            default : optionFlag = 0
+            break;
+        }
     }
     @IBOutlet var wordFromTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
@@ -44,8 +52,12 @@ class MonoDecryptionController: UIViewController
         let wordTo = wordToTextField.text!
         if wordTo != ""{
             if wordFrom != ""{
-                monoDecryption.insertKeyToDictionary(wordFrom, userValue: wordTo)
-                resultTextView.text = monoDecryption.applyReplaceUsingDictionary(globalModifiedText)
+                if optionFlag == 0{
+                    monoDecryption.insertKeyToDictionaryStream(wordFrom, userValue: wordTo)
+                    resultTextView.text = monoDecryption.applyReplaceUsingDictionaryStream(globalModifiedText)
+                }else if optionFlag == 1{
+                    monoDecryption.insertKeyToDictionaryBlock(wordFrom, userValue: wordTo)
+                    resultTextView.text = monoDecryption.applyReplaceUsingDictionaryBlock(globalModifiedText)                }
             }else{
                 //PRINT IF RIGHT BOX EMPTY
             }
