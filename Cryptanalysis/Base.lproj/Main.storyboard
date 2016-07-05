@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -67,15 +67,28 @@
                                     <segue destination="eQq-md-Elo" kind="show" id="o7h-g2-33d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-Of-efm">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-Of-efm">
                                 <rect key="frame" x="192" y="209" width="30" height="30"/>
                                 <state key="normal" title="poly"/>
                                 <connections>
                                     <segue destination="6rU-u3-DXC" kind="show" id="fyj-vy-3a3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cs8-CM-fPU">
+                                <rect key="frame" x="192" y="267" width="31" height="30"/>
+                                <state key="normal" title="shift"/>
+                                <connections>
+                                    <segue destination="6rU-u3-DXC" kind="show" id="V6k-ZU-Yk5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d6A-2f-YLK" firstAttribute="top" secondItem="Cs8-CM-fPU" secondAttribute="bottom" constant="390" id="LUd-vv-3FJ"/>
+                            <constraint firstItem="Cs8-CM-fPU" firstAttribute="top" secondItem="0nq-Of-efm" secondAttribute="bottom" constant="28" id="c4I-9J-qJ0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cs8-CM-fPU" secondAttribute="trailing" constant="171" id="ndl-3R-tn6"/>
+                            <constraint firstItem="Cs8-CM-fPU" firstAttribute="leading" secondItem="0ma-tc-mmO" secondAttribute="leadingMargin" constant="172" id="q5y-rb-NWP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uJg-e4-nfP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -359,26 +372,56 @@
                                     <action selector="buttonPressed:" destination="6rU-u3-DXC" eventType="touchUpInside" id="gl3-8s-LDf"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sG8-rZ-y9J">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sG8-rZ-y9J">
                                 <rect key="frame" x="69" y="475" width="137" height="29"/>
                                 <segments>
                                     <segment title="Vigenere"/>
                                     <segment title="Baefort"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bh-k5-pGG">
+                                <rect key="frame" x="199" y="580" width="32" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="637-nK-i8V"/>
+                                    <constraint firstAttribute="width" constant="32" id="W28-w9-GWJ"/>
+                                </constraints>
+                                <state key="normal" title="right"/>
+                                <connections>
+                                    <action selector="onShift:" destination="6rU-u3-DXC" eventType="touchUpInside" id="cNJ-HO-AK3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siR-Fl-yTZ">
+                                <rect key="frame" x="60" y="580" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="wNe-1b-kL1"/>
+                                    <constraint firstAttribute="height" constant="30" id="yFB-Kk-LTW"/>
+                                </constraints>
+                                <state key="normal" title="left"/>
+                                <connections>
+                                    <action selector="onShift:" destination="6rU-u3-DXC" eventType="touchUpInside" id="fFY-Wh-EVT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="8LV-hb-dMT" secondAttribute="bottom" constant="137" id="8il-9r-6QZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xcM-aH-mXx" secondAttribute="trailing" constant="35" id="EoK-PQ-GwA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Bh-k5-pGG" secondAttribute="trailing" constant="163" id="GsA-YK-rvX"/>
+                            <constraint firstItem="7Bh-k5-pGG" firstAttribute="leading" secondItem="siR-Fl-yTZ" secondAttribute="trailing" constant="109" id="LHF-bQ-NOC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ERs-9c-eKC" secondAttribute="trailing" constant="-20" id="LkY-Ut-UTA"/>
+                            <constraint firstItem="siR-Fl-yTZ" firstAttribute="top" secondItem="sG8-rZ-y9J" secondAttribute="bottom" constant="77" id="WI2-W6-ORG"/>
                             <constraint firstItem="8LV-hb-dMT" firstAttribute="top" secondItem="ERs-9c-eKC" secondAttribute="bottom" constant="65" id="Z5F-be-PbK"/>
                             <constraint firstItem="8LV-hb-dMT" firstAttribute="top" secondItem="ERs-9c-eKC" secondAttribute="bottom" constant="65" id="Zsa-AT-yqU"/>
                             <constraint firstItem="8LV-hb-dMT" firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="69" id="byi-DH-viy"/>
                             <constraint firstItem="xcM-aH-mXx" firstAttribute="top" secondItem="ERs-9c-eKC" secondAttribute="bottom" constant="65" id="dgT-Yr-Umt"/>
+                            <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="7Bh-k5-pGG" secondAttribute="bottom" constant="77" id="e2Q-Ld-dzj"/>
                             <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="xcM-aH-mXx" secondAttribute="bottom" constant="137" id="kdS-p1-jjh"/>
                             <constraint firstItem="ERs-9c-eKC" firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="-20" id="m5S-IY-gJn"/>
                             <constraint firstItem="ERs-9c-eKC" firstAttribute="top" secondItem="OPD-ly-s5A" secondAttribute="bottom" id="oeT-Zn-qKa"/>
+                            <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="siR-Fl-yTZ" secondAttribute="bottom" constant="77" id="p2D-AF-MST"/>
+                            <constraint firstItem="siR-Fl-yTZ" firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="40" id="te4-fJ-lAB"/>
+                            <constraint firstItem="7Bh-k5-pGG" firstAttribute="leading" secondItem="siR-Fl-yTZ" secondAttribute="trailing" constant="109" id="xt1-8X-970"/>
+                            <constraint firstItem="7Bh-k5-pGG" firstAttribute="top" secondItem="sG8-rZ-y9J" secondAttribute="bottom" constant="77" id="yTQ-kj-ZUE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="forth" image="first" id="zGO-0d-V6E"/>
@@ -471,4 +514,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fyj-vy-3a3"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -44,6 +44,15 @@ class PolyDecryptionController: UIViewController
         // Dispose of any resources that can be recreated.
     }
  
+    
+    
+    @IBAction func onShift(sender: UIButton) {
+        //you can check if the button is left or right by calling the sender
+    }
+    
+    
+    
+    //change the function to onChange
     @IBAction func buttonPressed(sender: UIButton) {
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text!.lowercaseString
