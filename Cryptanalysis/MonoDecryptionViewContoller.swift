@@ -12,16 +12,57 @@ import UIKit
 class MonoDecryptionController: UIViewController
 {
     private var monoDecryption: MonoDecryption = MonoDecryption()
+    private var optionFlag :Int = 0
     
+    @IBOutlet var segmentOutlet: UISegmentedControl!
+    @IBAction func segmentStreamBlock(sender: AnyObject) {
+        switch(self.segmentOutlet.selectedSegmentIndex){
+        case 0 : optionFlag = 0
+        break;
+        case 1 : optionFlag = 1
+        break;
+        default : optionFlag = 0
+        break;
+        }
+    }
     @IBOutlet var wordFromTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet var wordToTextField: UITextField!
+    @IBAction func autoFillButtonAction(sender: AnyObject) {
+        let defaultLetters = "abcdefghijklmnopqrstuvwxyz"
+        let wordFrom = wordFromTextField.text!
+        let wordTo = wordToTextField.text!
+        if wordFrom != ""{
+            let uniqueWordFrom = monoDecryption.removeDuplicateLetterFromString(wordFrom)
+            let filledWordFrom = monoDecryption.autoFillKeyString(uniqueWordFrom)
+            wordFromTextField.text = filledWordFrom
+        }else{
+            wordFromTextField.text = defaultLetters
+        }
+        if wordTo != ""{
+            let uniqueWordTo = monoDecryption.removeDuplicateLetterFromString(wordTo)
+            let filledWordTo = monoDecryption.autoFillKeyString(uniqueWordTo)
+            wordToTextField.text = filledWordTo
+        }else{
+            wordToTextField.text = defaultLetters
+        }
+    }
     @IBAction func changeButtonAction(sender: AnyObject) {
-        if let wordTo = wordToTextField.text{
-            if let wordFrom = wordFromTextField.text{
-                monoDecryption.insertKeyToDictionary(wordFrom, userValue: wordTo)
-                resultTextView.text = monoDecryption.applyReplaceUsingDictionary(globalModifiedText)
+        let wordFrom = wordFromTextField.text!
+        let wordTo = wordToTextField.text!
+        if wordTo != ""{
+            if wordFrom != ""{
+                if optionFlag == 0{
+                    monoDecryption.insertKeyToDictionaryStream(wordFrom, userValue: wordTo)
+                    resultTextView.text = monoDecryption.applyReplaceUsingDictionaryStream(globalModifiedText)
+                }else if optionFlag == 1{
+                    monoDecryption.insertKeyToDictionaryBlock(wordFrom, userValue: wordTo)
+                    resultTextView.text = monoDecryption.applyReplaceUsingDictionaryBlock(globalModifiedText)                }
+            }else{
+                //PRINT IF RIGHT BOX EMPTY
             }
+        }else{
+            //PRINT IF LEFT BOX EMPTY
         }
         wordFromTextField.text = ""
         wordToTextField.text = ""

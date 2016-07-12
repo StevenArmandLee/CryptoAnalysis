@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -235,8 +235,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZH-4i-faE">
-                                <rect key="frame" x="320" y="492" width="53" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZH-4i-faE">
+                                <rect key="frame" x="324" y="484" width="53" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="53" id="3vF-3I-WTK"/>
                                     <constraint firstAttribute="height" constant="30" id="gZm-TJ-40u"/>
@@ -269,6 +269,23 @@
                                 <textInputTraits key="textInputTraits" spellCheckingType="yes"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p09-kJ-W8i">
+                                <rect key="frame" x="127" y="541" width="121" height="29"/>
+                                <segments>
+                                    <segment title="Stream"/>
+                                    <segment title="Block"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentStreamBlock:" destination="eQq-md-Elo" eventType="valueChanged" id="aIt-EY-GqN"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIg-0B-5u8">
+                                <rect key="frame" x="320" y="510" width="60" height="30"/>
+                                <state key="normal" title="Auto Fill"/>
+                                <connections>
+                                    <action selector="autoFillButtonAction:" destination="eQq-md-Elo" eventType="touchUpInside" id="30c-da-1P0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -292,6 +309,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="resultTextView" destination="QhL-uH-p3D" id="OI0-ds-Skx"/>
+                        <outlet property="segmentOutlet" destination="p09-kJ-W8i" id="Faa-0T-cii"/>
                         <outlet property="wordFromTextField" destination="ueT-yz-ZDo" id="bcO-88-2NB"/>
                         <outlet property="wordToTextField" destination="x96-Fj-uZf" id="8IZ-pD-wJC"/>
                     </connections>
