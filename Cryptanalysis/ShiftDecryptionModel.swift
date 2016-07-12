@@ -1,19 +1,28 @@
 //
-//  PolyDecryptionModel.swift
+//  ShiftDecryptionModel.swift
 //  Cryptanalysis
 //
-//  Created by steven lee on 11/6/16.
+//  Created by Branata Kurniawan on 12/7/16.
 //  Copyright © 2016 steven lee. All rights reserved.
 //
 
 import Foundation
 
-class PolyDecryptionModel {
+class ShiftDecryptionModel {
     
+    private var currentOffset = Int()
     let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let numeric = "0123456789"
     
-    func findCharNum(c : Character) -> Int
-    {
+    func ShiftDecryptionModel(){
+        currentOffset = 0
+    }
+    
+    func getCurrentOffset() -> Int {
+        return currentOffset
+    }
+    
+    func findCharNum(c : Character) -> Int {
         var index = 0
         
         if let idx = alphabet.characters.indexOf(c) {
@@ -26,23 +35,32 @@ class PolyDecryptionModel {
         return index
     }
     
-    func getChar (index : Int) -> Character
-    {
+    func getChar (index : Int) -> Character {
         let pchar = alphabet.startIndex.advancedBy(index)
         return (alphabet[pchar])
     }
     
-    func decryptionButton (ctext : String, key : String, type : Int) -> String
-    {
+    func decryptionButton (ctext : String, offset : String, type : String) -> String {
+        
+        let intOffset = Int(offset)
+        
+        if type == "Left" {
+            currentOffset -= intOffset!
+        }
+        else{
+            currentOffset += intOffset!
+        }
+        
+        if currentOffset > 26 || currentOffset < 0{
+            currentOffset = 0
+            return ctext
+        }
         
         let lengthOfCtext = ctext.characters.count
-        let lengthOfKey = key.characters.count
         var ptext = String()
-        var count = 0
         
         for i in 0..<lengthOfCtext {
             let indexOfCtext = ctext.startIndex.advancedBy(i)
-            
             
             let ctextNum = findCharNum(ctext[indexOfCtext])
             
@@ -50,15 +68,14 @@ class PolyDecryptionModel {
                 ptext.append(ctext[indexOfCtext])
             }
             else{
-                let indexOfKey = key.startIndex.advancedBy(count % lengthOfKey)
-                let keyNum = findCharNum(key[indexOfKey])
+                
                 var index = 0
                 
-                if type == 0 {
-                    index = ctextNum - keyNum
+                if type == "Left" {
+                    index = ctextNum - currentOffset
                 }
-                else {
-                    index = ctextNum + keyNum
+                else{
+                    index = ctextNum + currentOffset
                 }
                 
                 if index < 0 {
@@ -68,21 +85,24 @@ class PolyDecryptionModel {
                     index = index - 26
                 }
                 ptext.append(getChar(index))
-                count += 1
             }
         }
         
         return ptext
     }
     
-    func checkKey (key : String) -> Bool
-    {
-        if key == "" {
+    func checkKey (offset : String) -> Bool {
+        
+        if offset == "" {
             return false
         }
         
-        for charKey in key.characters {
-            if alphabet.characters.contains(charKey) == false{
+        if currentOffset > 26{
+            return false
+        }
+        
+        for charKey in offset.characters {
+            if numeric.characters.contains(charKey) == false {
                 return false
             }
         }
