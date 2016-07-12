@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Unknown constraint types" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--third-->
@@ -60,21 +61,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-X0-gSo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-X0-gSo">
                                 <rect key="frame" x="188" y="137" width="39" height="30"/>
                                 <state key="normal" title="Mono"/>
                                 <connections>
                                     <segue destination="eQq-md-Elo" kind="show" id="o7h-g2-33d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-Of-efm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-Of-efm">
                                 <rect key="frame" x="192" y="209" width="30" height="30"/>
                                 <state key="normal" title="poly"/>
                                 <connections>
                                     <segue destination="6rU-u3-DXC" kind="show" id="fyj-vy-3a3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaP-S7-oH4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaP-S7-oH4">
                                 <rect key="frame" x="191" y="270" width="32" height="30"/>
                                 <state key="normal" title="Shift"/>
                                 <connections>
@@ -84,10 +85,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="d6A-2f-YLK" firstAttribute="top" secondItem="Cs8-CM-fPU" secondAttribute="bottom" constant="390" id="LUd-vv-3FJ"/>
-                            <constraint firstItem="Cs8-CM-fPU" firstAttribute="top" secondItem="0nq-Of-efm" secondAttribute="bottom" constant="28" id="c4I-9J-qJ0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Cs8-CM-fPU" secondAttribute="trailing" constant="171" id="ndl-3R-tn6"/>
-                            <constraint firstItem="Cs8-CM-fPU" firstAttribute="leading" secondItem="0ma-tc-mmO" secondAttribute="leadingMargin" constant="172" id="q5y-rb-NWP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0nq-Of-efm" secondAttribute="trailing" constant="172" id="29Q-md-xf9"/>
+                            <constraint firstItem="XaP-S7-oH4" firstAttribute="leading" secondItem="0ma-tc-mmO" secondAttribute="leadingMargin" constant="171" id="4kP-uc-OIc"/>
+                            <constraint firstItem="d6A-2f-YLK" firstAttribute="top" secondItem="XaP-S7-oH4" secondAttribute="bottom" constant="387" id="4v8-2H-UWT"/>
+                            <constraint firstItem="XaP-S7-oH4" firstAttribute="top" secondItem="0nq-Of-efm" secondAttribute="bottom" constant="31" id="65u-DN-0fZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XaP-S7-oH4" secondAttribute="trailing" constant="171" id="6eE-hV-1Ne"/>
+                            <constraint firstItem="wRe-X0-gSo" firstAttribute="top" secondItem="Eny-4c-7f6" secondAttribute="bottom" constant="73" id="DGc-ig-VCB"/>
+                            <constraint firstItem="0nq-Of-efm" firstAttribute="leading" secondItem="0ma-tc-mmO" secondAttribute="leadingMargin" constant="172" id="Gma-oK-5tN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wRe-X0-gSo" secondAttribute="trailing" constant="167" id="J0Y-fW-Sk8"/>
+                            <constraint firstItem="0nq-Of-efm" firstAttribute="top" secondItem="wRe-X0-gSo" secondAttribute="bottom" constant="42" id="bbs-mr-42m"/>
+                            <constraint firstItem="wRe-X0-gSo" firstAttribute="leading" secondItem="0ma-tc-mmO" secondAttribute="leadingMargin" constant="168" id="jjf-YJ-3vR"/>
+                            <constraint firstItem="XaP-S7-oH4" firstAttribute="top" secondItem="0nq-Of-efm" secondAttribute="bottom" constant="31" id="k9e-ro-kIA"/>
+                            <constraint firstItem="0nq-Of-efm" firstAttribute="top" secondItem="wRe-X0-gSo" secondAttribute="bottom" constant="42" id="rjH-ci-hpc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uJg-e4-nfP"/>
@@ -372,49 +381,54 @@
                                     <action selector="buttonPressed:" destination="6rU-u3-DXC" eventType="touchUpInside" id="gl3-8s-LDf"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sG8-rZ-y9J">
-                                <rect key="frame" x="69" y="475" width="137" height="29"/>
-                                <segments>
-                                    <segment title="Vigenere"/>
-                                    <segment title="Baefort"/>
-                                </segments>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJf-49-QCV">
-                                <rect key="frame" x="86" y="571" width="30" height="30"/>
+                                <rect key="frame" x="89" y="571" width="30" height="30"/>
                                 <state key="normal" title="Left"/>
                                 <connections>
-                                    <action selector="onShift:" destination="6rU-u3-DXC" eventType="touchUpInside" id="byL-rC-RJy"/>
+                                    <action selector="onShift:" destination="6rU-u3-DXC" eventType="touchUpInside" id="a0X-CL-bKF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wcc-0K-xMY">
                                 <rect key="frame" x="145" y="571" width="36" height="30"/>
                                 <state key="normal" title="Right"/>
                                 <connections>
-                                    <action selector="onShift:" destination="6rU-u3-DXC" eventType="touchUpInside" id="oU7-IT-sAC"/>
+                                    <action selector="onShift:" destination="6rU-u3-DXC" eventType="touchUpInside" id="Cbc-ib-uYf"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sG8-rZ-y9J">
+                                <rect key="frame" x="69" y="475" width="137" height="29"/>
+                                <segments>
+                                    <segment title="Vigenere"/>
+                                    <segment title="Baefort"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="8LV-hb-dMT" secondAttribute="bottom" constant="137" id="8il-9r-6QZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xcM-aH-mXx" secondAttribute="trailing" constant="35" id="EoK-PQ-GwA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7Bh-k5-pGG" secondAttribute="trailing" constant="163" id="GsA-YK-rvX"/>
-                            <constraint firstItem="7Bh-k5-pGG" firstAttribute="leading" secondItem="siR-Fl-yTZ" secondAttribute="trailing" constant="109" id="LHF-bQ-NOC"/>
+                            <constraint firstItem="sG8-rZ-y9J" firstAttribute="top" secondItem="ERs-9c-eKC" secondAttribute="bottom" constant="20" id="JCd-qc-I9y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ERs-9c-eKC" secondAttribute="trailing" constant="-20" id="LkY-Ut-UTA"/>
-                            <constraint firstItem="siR-Fl-yTZ" firstAttribute="top" secondItem="sG8-rZ-y9J" secondAttribute="bottom" constant="77" id="WI2-W6-ORG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sG8-rZ-y9J" secondAttribute="trailing" constant="188" id="NeM-Fj-lhj"/>
+                            <constraint firstItem="8LV-hb-dMT" firstAttribute="top" secondItem="sG8-rZ-y9J" secondAttribute="bottom" constant="17" id="Nu0-6R-o7l"/>
+                            <constraint firstAttribute="top" secondItem="sG8-rZ-y9J" secondAttribute="bottom" constant="77" id="WI2-W6-ORG"/>
                             <constraint firstItem="8LV-hb-dMT" firstAttribute="top" secondItem="ERs-9c-eKC" secondAttribute="bottom" constant="65" id="Z5F-be-PbK"/>
                             <constraint firstItem="8LV-hb-dMT" firstAttribute="top" secondItem="ERs-9c-eKC" secondAttribute="bottom" constant="65" id="Zsa-AT-yqU"/>
                             <constraint firstItem="8LV-hb-dMT" firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="69" id="byi-DH-viy"/>
                             <constraint firstItem="xcM-aH-mXx" firstAttribute="top" secondItem="ERs-9c-eKC" secondAttribute="bottom" constant="65" id="dgT-Yr-Umt"/>
-                            <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="7Bh-k5-pGG" secondAttribute="bottom" constant="77" id="e2Q-Ld-dzj"/>
                             <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="xcM-aH-mXx" secondAttribute="bottom" constant="137" id="kdS-p1-jjh"/>
                             <constraint firstItem="ERs-9c-eKC" firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="-20" id="m5S-IY-gJn"/>
                             <constraint firstItem="ERs-9c-eKC" firstAttribute="top" secondItem="OPD-ly-s5A" secondAttribute="bottom" id="oeT-Zn-qKa"/>
-                            <constraint firstItem="Jwt-6Q-a7a" firstAttribute="top" secondItem="siR-Fl-yTZ" secondAttribute="bottom" constant="77" id="p2D-AF-MST"/>
-                            <constraint firstItem="siR-Fl-yTZ" firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="40" id="te4-fJ-lAB"/>
-                            <constraint firstItem="7Bh-k5-pGG" firstAttribute="leading" secondItem="siR-Fl-yTZ" secondAttribute="trailing" constant="109" id="xt1-8X-970"/>
-                            <constraint firstItem="7Bh-k5-pGG" firstAttribute="top" secondItem="sG8-rZ-y9J" secondAttribute="bottom" constant="77" id="yTQ-kj-ZUE"/>
+                            <constraint firstItem="sG8-rZ-y9J" firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="49" id="osf-OP-4kB"/>
+                            <constraint firstAttribute="leading" secondItem="NIF-id-eds" secondAttribute="leadingMargin" constant="40" id="te4-fJ-lAB"/>
+                            <constraint firstAttribute="top" secondItem="sG8-rZ-y9J" secondAttribute="bottom" constant="77" id="yTQ-kj-ZUE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WI2-W6-ORG"/>
+                                <exclude reference="yTQ-kj-ZUE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="forth" image="first" id="zGO-0d-V6E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

@@ -45,14 +45,6 @@ class PolyDecryptionController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
-    
-    
-    @IBAction func onShift(sender: UIButton) {
-        //you can check if the button is left or right by calling the sender
-    }
-    
-    
     
     //change the function to onChange
     @IBAction func buttonPressed(sender: UIButton) {
@@ -73,7 +65,7 @@ class PolyDecryptionController: UIViewController
         
         
     }
-    
+
     @IBAction func onShift(sender: UIButton) {
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text
@@ -91,6 +83,6 @@ class PolyDecryptionController: UIViewController
             
             // and then clear the keyField field
         }
-        
     }
+    
 }
