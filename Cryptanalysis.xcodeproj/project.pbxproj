@@ -25,6 +25,7 @@
 		56F2F29B1CE2FA54007A4C7B /* CryptanalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F29A1CE2FA54007A4C7B /* CryptanalysisTests.swift */; };
 		56F2F2A61CE2FA54007A4C7B /* CryptanalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */; };
 		56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2B31CE32269007A4C7B /* ResultViewController.swift */; };
+		83A9C40F1D34BA0E009F0983 /* ShiftDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 56F2F27F1CE2FA54007A4C7B;
 			remoteInfo = Cryptanalysis;
+		};
+		83A9C4061D34B764009F0983 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		83A9C4081D34B764009F0983 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		83A9C40A1D34B764009F0983 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		83A9C40C1D34B764009F0983 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -83,6 +112,7 @@
 		56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptanalysisUITests.swift; sourceTree = "<group>"; };
 		56F2F2A71CE2FA54007A4C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56F2F2B31CE32269007A4C7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDecryptionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +161,7 @@
 				565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */,
 				565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */,
 				56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */,
+				83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -187,6 +218,17 @@
 				56F2F2A71CE2FA54007A4C7B /* Info.plist */,
 			);
 			path = CryptanalysisUITests;
+			sourceTree = "<group>";
+		};
+		83A9C4001D34B764009F0983 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83A9C4071D34B764009F0983 /* Charts.framework */,
+				83A9C4091D34B764009F0983 /* Charts.framework */,
+				83A9C40B1D34B764009F0983 /* Charts.framework */,
+				83A9C40D1D34B764009F0983 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +323,12 @@
 			mainGroup = 56F2F2771CE2FA54007A4C7B;
 			productRefGroup = 56F2F2811CE2FA54007A4C7B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 83A9C4001D34B764009F0983 /* Products */;
+					ProjectRef = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				56F2F27F1CE2FA54007A4C7B /* Cryptanalysis */,
@@ -289,6 +337,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		83A9C4071D34B764009F0983 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 83A9C4061D34B764009F0983 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		83A9C4091D34B764009F0983 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 83A9C4081D34B764009F0983 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		83A9C40B1D34B764009F0983 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 83A9C40A1D34B764009F0983 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		83A9C40D1D34B764009F0983 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 83A9C40C1D34B764009F0983 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		56F2F27E1CE2FA54007A4C7B /* Resources */ = {
@@ -335,6 +414,7 @@
 				565507C11D0BECE40054FB95 /* PolyDecryptionModel.swift in Sources */,
 				565507BF1D0BECD00054FB95 /* MonoDecryptionModel.swift in Sources */,
 				56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */,
+				83A9C40F1D34BA0E009F0983 /* ShiftDecryptionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
