@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FB61D0E68E800FE8FFF /* GraphViewController.swift */; };
 		56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */; };
+		5626339E1D34DE57007429AE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A9C4071D34B764009F0983 /* Charts.framework */; };
+		5626339F1D34DE57007429AE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83A9C4071D34B764009F0983 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */; };
 		565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */; };
 		565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */; };
@@ -29,33 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		56778F2A1D2B549D00A4BD7D /* PBXContainerItemProxy */ = {
+		562633A01D34DE57007429AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
-		};
-		56778F2C1D2B549D00A4BD7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
-			remoteInfo = "Charts-TV";
-		};
-		56778F2E1D2B549D00A4BD7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
-			remoteInfo = "Charts-OSX";
-		};
-		56778F301D2B549D00A4BD7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 568862FD1D23D034006F0E5B /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
-			remoteInfo = ChartsTests;
 		};
 		56F2F2971CE2FA54007A4C7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -108,6 +89,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5626339F1D34DE57007429AE /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5626339E1D34DE57007429AE /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,17 +175,6 @@
 				83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		56778F241D2B549D00A4BD7D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				56778F2B1D2B549D00A4BD7D /* Charts.framework */,
-				56778F2D1D2B549D00A4BD7D /* Charts.framework */,
-				56778F2F1D2B549D00A4BD7D /* Charts.framework */,
-				56778F311D2B549D00A4BD7D /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		56F2F2771CE2FA54007A4C7B = {
@@ -285,6 +257,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				562633A11D34DE57007429AE /* PBXTargetDependency */,
 			);
 			name = Cryptanalysis;
 			productName = Cryptanalysis;
@@ -476,6 +449,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		562633A11D34DE57007429AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 562633A01D34DE57007429AE /* PBXContainerItemProxy */;
+		};
 		56F2F2981CE2FA54007A4C7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56F2F27F1CE2FA54007A4C7B /* Cryptanalysis */;
@@ -600,6 +578,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Cryptanalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.Cryptanalysis;
@@ -615,6 +594,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Cryptanalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.Cryptanalysis;

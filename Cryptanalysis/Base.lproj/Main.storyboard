@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -118,39 +118,130 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MLg-U9-tMt">
-                                <rect key="frame" x="31" y="60" width="353" height="393"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-1e-m2i">
+                                <rect key="frame" x="0.0" y="547" width="210" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="4Ev-7F-rD1"/>
+                                    <constraint firstAttribute="width" constant="46" id="dj8-Li-JGF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="vis-0c-Pxz"/>
+                                    <constraint firstAttribute="height" constant="30" id="yFx-Cd-GRI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="USE PHOTO">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dj8-Li-JGF"/>
+                                        <exclude reference="vis-0c-Pxz"/>
+                                        <exclude reference="4Ev-7F-rD1"/>
+                                        <exclude reference="yFx-Cd-GRI"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LargeBookmark" translatesAutoresizingMaskIntoConstraints="NO" id="pvY-wh-0Iu">
+                                <rect key="frame" x="93" y="0.0" width="228" height="316"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MLg-U9-tMt">
+                                <rect key="frame" x="0.0" y="315" width="414" height="229"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="U0d-j3-fei"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-B5-auX">
-                                <rect key="frame" x="43" y="529" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-B5-auX">
+                                <rect key="frame" x="0.0" y="621" width="414" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="2m8-kO-ZMi"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="cGp-E7-a2i"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="cph-3b-PbG"/>
                                     <constraint firstAttribute="height" constant="30" id="ghU-oc-l0Z"/>
                                 </constraints>
-                                <state key="normal" title="Clear"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="CLEAR TEXT">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2m8-kO-ZMi"/>
+                                        <exclude reference="cGp-E7-a2i"/>
+                                        <exclude reference="cph-3b-PbG"/>
+                                        <exclude reference="ghU-oc-l0Z"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="clearText:" destination="9pv-A4-QxB" eventType="touchUpInside" id="xRe-xz-5Kn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x17-xv-5Dd">
+                                <rect key="frame" x="209" y="547" width="205" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MeV-Ux-YFe"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="TBs-Df-fYT"/>
+                                    <constraint firstAttribute="width" constant="46" id="i2a-hl-ghP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="rju-TB-2e5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="PROCESS">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="i2a-hl-ghP"/>
+                                        <exclude reference="rju-TB-2e5"/>
+                                        <exclude reference="TBs-Df-fYT"/>
+                                        <exclude reference="MeV-Ux-YFe"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="x17-xv-5Dd" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="189" id="14Z-OY-UXC"/>
+                            <constraint firstItem="Mkr-B5-auX" firstAttribute="top" secondItem="sHW-1e-m2i" secondAttribute="bottom" constant="8" id="4JF-jv-BY2"/>
+                            <constraint firstItem="MLg-U9-tMt" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="6on-sp-uLp"/>
+                            <constraint firstItem="x17-xv-5Dd" firstAttribute="top" secondItem="MLg-U9-tMt" secondAttribute="bottom" constant="3" id="9sa-O7-vnd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pvY-wh-0Iu" secondAttribute="trailing" constant="73" id="AlA-kO-gDg"/>
+                            <constraint firstItem="Mkr-B5-auX" firstAttribute="top" secondItem="x17-xv-5Dd" secondAttribute="bottom" constant="8" id="BU9-HU-JO5"/>
+                            <constraint firstItem="Mkr-B5-auX" firstAttribute="top" secondItem="x17-xv-5Dd" secondAttribute="bottom" constant="8" id="Dlu-t9-baF"/>
+                            <constraint firstItem="pvY-wh-0Iu" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="73" id="Gm9-ZU-NV0"/>
+                            <constraint firstItem="MLg-U9-tMt" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="295" id="Gt9-xZ-eGn"/>
+                            <constraint firstItem="Mkr-B5-auX" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="LNo-tb-5sF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Mkr-B5-auX" secondAttribute="trailing" constant="305" id="Mgp-tk-hwM"/>
+                            <constraint firstItem="sHW-1e-m2i" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="OUs-c1-4qT"/>
+                            <constraint firstItem="x17-xv-5Dd" firstAttribute="top" secondItem="MLg-U9-tMt" secondAttribute="bottom" constant="3" id="OzQ-GS-5fm"/>
                             <constraint firstItem="Mkr-B5-auX" firstAttribute="top" secondItem="MLg-U9-tMt" secondAttribute="bottom" constant="76" id="RdF-le-CyQ"/>
                             <constraint firstItem="MLg-U9-tMt" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="11" id="SQm-19-MCq"/>
                             <constraint firstItem="Mkr-B5-auX" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="23" id="WLr-4Y-EXh"/>
+                            <constraint firstItem="x17-xv-5Dd" firstAttribute="top" secondItem="pvY-wh-0Iu" secondAttribute="bottom" constant="231" id="Ygz-58-j4O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MLg-U9-tMt" secondAttribute="trailing" constant="10" id="Zc3-mJ-psX"/>
+                            <constraint firstItem="sHW-1e-m2i" firstAttribute="top" secondItem="MLg-U9-tMt" secondAttribute="bottom" constant="3" id="cSd-nK-Rlw"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Mkr-B5-auX" secondAttribute="bottom" id="k27-v1-iRC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mkr-B5-auX" secondAttribute="trailing" constant="-20" id="rOQ-qK-AGn"/>
                             <constraint firstItem="MLg-U9-tMt" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="40" id="xE6-1N-2sw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sHW-1e-m2i" secondAttribute="trailing" constant="184" id="xoU-MX-hCE"/>
+                            <constraint firstItem="pvY-wh-0Iu" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="y58-PX-cYO"/>
                             <constraint firstItem="Mkr-B5-auX" firstAttribute="top" secondItem="MLg-U9-tMt" secondAttribute="bottom" constant="76" id="zDd-Pq-xAq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MLg-U9-tMt" secondAttribute="trailing" constant="-20" id="zSS-Zm-dcW"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Mkr-B5-auX" secondAttribute="bottom" constant="128" id="zUe-4f-r2v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x17-xv-5Dd" secondAttribute="trailing" constant="-20" id="zs4-63-x25"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SQm-19-MCq"/>
+                                <exclude reference="Zc3-mJ-psX"/>
+                                <exclude reference="xE6-1N-2sw"/>
+                                <exclude reference="Mgp-tk-hwM"/>
+                                <exclude reference="RdF-le-CyQ"/>
+                                <exclude reference="WLr-4Y-EXh"/>
+                                <exclude reference="zDd-Pq-xAq"/>
+                                <exclude reference="zUe-4f-r2v"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
@@ -221,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="-748"/>
+            <point key="canvasLocation" x="472" y="-743"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -535,6 +626,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LargeBookmark" width="226" height="314"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
