@@ -20,6 +20,7 @@ func RandomSentence(paragraph : [String]) ->(String){
 }
 
 func RandomWords(sentence : String) -> (String){
+    let MIN_KEY_LENGTH = 4
     if sentence.isEmpty{
         return "input error"
     }else{
@@ -30,9 +31,8 @@ func RandomWords(sentence : String) -> (String){
     let selector = RandomNum(size)
     
     var result = SymbolRemover(token[selector])
-    //if the random select word is symbol onlt ?, !, }, { .etc
-    //will take another change
-    if result.characters.count == 0{
+   
+    if result.characters.count < MIN_KEY_LENGTH{
         result = RandomWords(sentence)
     }
         return result
@@ -51,19 +51,25 @@ func SymbolRemover(input_string: String) ->(String){
 func RandomNum(max : Int) -> (Int){
     return Int(arc4random_uniform(UInt32(max)))
 }
-/* testing for randomWords
+    
+}
+/*for testing will remove all
+let a = Randomselector()
+    
+// testing for randomWords
 for var i = 0; i < 10; i++ {
-let result = RandomWords("abc")
+
+let result = a.RandomWords("abcd asd asdasfadf a adfdasgag aadsf adsf ad asdf vf gf rtr")
 print(result)
 print(result.characters.count)
 }
-*/
 
-/*testing for RandomSentence
+
+testing for RandomSentence
 let string_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"]
 for var i = 0; i < 10; i++ {
 let result = RandomSentence(string_array)
 print(result)
 }
 */
-}
+
