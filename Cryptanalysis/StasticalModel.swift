@@ -10,6 +10,7 @@ import Foundation
 
 public class StasticalModel
 {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
     var data = [String: Double]()
     var trimmedText: String = ""
     
@@ -17,31 +18,46 @@ public class StasticalModel
     {
         return trimmedText
     }
+    func removeSpecialCharsFromString(text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
+    }
 
-    public func generateChart(lengthOfCharacter: Int)
+    public func generateChart(lengthOfCharacter: Int, isCaseSensitive: Bool, isRemoveSymbol: Bool)
     {
     
         data.removeAll()
     
         trimmedText = globalOriginalText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
-    
-    
-        for  i in 0..<trimmedText.characters.count - (lengthOfCharacter-1)
-            {
-                let xData =  trimmedText.substringWithRange(trimmedText.startIndex.advancedBy(i)..<trimmedText.startIndex.advancedBy(i+lengthOfCharacter)).lowercaseString
-            
-                if(data[xData] == nil)
-                {
-                    data[xData] = 1
-                }
-            
-                else
-                {
-                    data[xData] = data[xData]!+1
-                }
         
-            }
-
+        if(isRemoveSymbol){
+            trimmedText = removeSpecialCharsFromString(trimmedText)
+        }
+        if(!isCaseSensitive){
+            trimmedText = trimmedText.lowercaseString
+        }
+    
+        
+        //this if is a guard so that it will never be end < start
+        if(trimmedText.characters.count >= lengthOfCharacter-1){
+                for  i in 0..<trimmedText.characters.count - (lengthOfCharacter-1)
+                {
+                    let xData =  trimmedText.substringWithRange(trimmedText.startIndex.advancedBy(i)..<trimmedText.startIndex.advancedBy(i+lengthOfCharacter))
+                
+                    if(data[xData] == nil)
+                    {
+                        data[xData] = 1
+                    }
+                    
+                    else
+                    {
+                        data[xData] = data[xData]!+1
+                    }
+                
+                }
+        }
+        
     
     
     }
@@ -63,15 +79,60 @@ public class StasticalModel
         return xAxisData
     }
 
+    func findCharNum(c : Character) -> Int {
+        var index = 0
+        
+        if let idx = alphabet.characters.indexOf(c) {
+            index = alphabet.startIndex.distanceTo(idx)
+        }else {
+            // cannot find the char in the alphanumeric
+            index = -1
+        }
+        
+        return index
+    }
     public func getStaticalInformation()->String
     {
         var staticalInformation: String = ""
-        for(dataLabel, dataInformation) in data
-        {
-            staticalInformation+=dataLabel + "\t\t=\t" + String(Int(dataInformation)) + "\n"
+        var xLabels = getXAxisLabel()
+        for i in 0..<xLabels.count{
+            staticalInformation+=xLabels[i] + "\t\t=\t" + String(Int(data[xLabels[i]]!)) + "\n"
+        }
+        return staticalInformation
+    }
+    
+    
+    func letterFrequency (text : String) -> [Int] {
+        var frequencies = [Int](count: 26, repeatedValue: 0)
+    
+        for ch in text.characters {
+            frequencies[findCharNum(ch)] += 1
         }
     
-        return staticalInformation
+        return frequencies
+    }
+    
+    
+    func roundToPlaces(num : Double, places : Int) -> Double {
+        let divisor = Double(pow(10, Double(places)))
+        return round(num * divisor) / divisor
+    }
+    func calIC(text : String) -> Double {
+        let freq = letterFrequency(text)
+        var ic = 0.0
+        var sum = 0
+        
+        for i in freq {
+            sum += i
+        }
+        
+        for i in freq {
+            let top = Double(i * (i-1))
+            let bottom = Double(sum * (sum-1))
+            ic += top / bottom
+        }
+        
+        return roundToPlaces(ic, places: 6)
     }
 
 }

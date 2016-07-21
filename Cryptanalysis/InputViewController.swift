@@ -22,7 +22,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         originalText.delegate = self
         originalText.layer.borderWidth=1
-        originalText.layer.borderColor = UIColor.blackColor().CGColor
+        originalText.layer.borderColor = UIColor.lightGrayColor().CGColor
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }

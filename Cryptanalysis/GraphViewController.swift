@@ -13,6 +13,8 @@ class GraphViewController: UIViewController {
     
     private var stasticalModel: StasticalModel = StasticalModel()
     
+    @IBOutlet weak var symbolSwitch: UISwitch!
+    @IBOutlet weak var caseSensitiveSwitch: UISwitch!
     @IBOutlet var chartView: BarChartView!
     @IBOutlet var frequencyLengthSlider: UISlider!
     override func viewDidLoad() {
@@ -22,7 +24,7 @@ class GraphViewController: UIViewController {
         chartView.descriptionText = ""
         chartView.animate(xAxisDuration: 2, yAxisDuration: 2)
         chartView.doubleTapToZoomEnabled = false
-        stasticalModel.generateChart(Int(frequencyLengthSlider.value))
+        stasticalModel.generateChart(Int(frequencyLengthSlider.value), isCaseSensitive: caseSensitiveSwitch.on, isRemoveSymbol: symbolSwitch.on)
         setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
         //informationTextView.text = getStaticalInformation()
         
@@ -36,9 +38,9 @@ class GraphViewController: UIViewController {
     override func viewWillAppear(animated: Bool)
     {
         
-        stasticalModel.generateChart(Int(frequencyLengthSlider.value))
+        stasticalModel.generateChart(Int(frequencyLengthSlider.value), isCaseSensitive: caseSensitiveSwitch.on, isRemoveSymbol: symbolSwitch.on)
         setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
-        //informationTextView.text = getStaticalInformation()
+        
     }
     
     @IBAction func FrequencyLengthDidChange(sender: UISlider) {
@@ -46,12 +48,16 @@ class GraphViewController: UIViewController {
         
         if(Int(sender.value) <= stasticalModel.getTrimmedText().characters.count)
         {
-            stasticalModel.generateChart(Int(frequencyLengthSlider.value))
+            stasticalModel.generateChart(Int(frequencyLengthSlider.value), isCaseSensitive: caseSensitiveSwitch.on, isRemoveSymbol: symbolSwitch.on)
             setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
         }
     }
     
     
+    @IBAction func onSwitch(sender: UISwitch) {
+        stasticalModel.generateChart(Int(frequencyLengthSlider.value), isCaseSensitive: caseSensitiveSwitch.on, isRemoveSymbol: symbolSwitch.on)
+        setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
+    }
     
     func setCharts(xAxisLabels: [String], values: [Double])
     {

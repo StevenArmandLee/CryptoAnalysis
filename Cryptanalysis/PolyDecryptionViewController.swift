@@ -12,12 +12,15 @@ import UIKit
 class PolyDecryptionController: UIViewController
 {
     
-    
+    var receivedString = ""
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet weak var keyField: UITextField!
     private var model : PolyDecryptionModel = PolyDecryptionModel()
     @IBOutlet weak var typeOfCipherSegment: UISegmentedControl!
+    @IBOutlet weak var changeButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
     
+    @IBOutlet weak var rightButton: UIButton!
     private var shiftModel : ShiftDecryptionModel = ShiftDecryptionModel()
     
     override func viewDidLoad() {
@@ -39,11 +42,28 @@ class PolyDecryptionController: UIViewController
     override func viewWillAppear(animated: Bool)
     {
         resultTextView.text = globalModifiedText
+        hideElements()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func hideElements(){
+        if receivedString == "Poly"{
+            typeOfCipherSegment.hidden = false
+            changeButton.hidden = false
+            leftButton.hidden = true
+            rightButton.hidden = true
+            
+        }
+        else if receivedString == "Shift"{
+            typeOfCipherSegment.hidden = true
+            changeButton.hidden = true
+            leftButton.hidden = false
+            rightButton.hidden = false
+        }
     }
     
     //change the function to onChange
@@ -82,6 +102,7 @@ class PolyDecryptionController: UIViewController
             // or contains any symbol, space and aplhabet on it."
             
             // and then clear the keyField field
+            
         }
     }
     
