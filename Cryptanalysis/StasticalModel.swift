@@ -13,7 +13,7 @@ public class StasticalModel
     let alphabet = "abcdefghijklmnopqrstuvwxyz"
     var data = [String: Double]()
     var trimmedText: String = ""
-    
+    var polyData = [String: Double]()
     public func getTrimmedText()-> String
     {
         return trimmedText
@@ -133,6 +133,71 @@ public class StasticalModel
         }
         
         return roundToPlaces(ic, places: 6)
+    }
+    
+    func initializeDic() -> [String:Double]{
+        let dictionary:[String:Double] =  [
+            "a" : 0.0, "k" : 0.0, "u" : 0.0,
+            "b" : 0.0, "l" : 0.0, "v" : 0.0,
+            "c" : 0.0, "m" : 0.0, "w" : 0.0,
+            "d" : 0.0, "n" : 0.0, "x" : 0.0,
+            "e" : 0.0, "o" : 0.0, "y" : 0.0,
+            "f" : 0.0, "p" : 0.0, "z" : 0.0,
+            "g" : 0.0, "q" : 0.0,
+            "h" : 0.0, "r" : 0.0,
+            "i" : 0.0, "s" : 0.0,
+            "j" : 0.0, "t" : 0.0,
+            ]
+        
+        
+        
+        return dictionary
+    }
+    func getSubString(text : String, idx : Int, period : Int) -> String {
+        var subString = ""
+        var j = idx
+        while j < text.characters.count {
+            let index = text.startIndex.advancedBy(j)
+            subString.append(text[index])
+            j = j+period
+        }
+        
+        return subString
+    }
+    func getDictionary(text : String, index: Int, period: Int) -> [String:Double]{
+        var dictionary = initializeDic();
+        let subString = getSubString(text, idx: index, period: period)
+    
+        for ch in subString.characters {
+            let tempString = String(ch)
+            let oldVal = dictionary[tempString]
+            dictionary.updateValue(oldVal!+1, forKey: tempString)
+        }
+        print(dictionary)
+        return dictionary
+    }
+    
+    func generatePolyGraph(index: Int, period: Int){
+        trimmedText = globalOriginalText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        polyData = getDictionary(removeSpecialCharsFromString(trimmedText).lowercaseString, index: index, period: period)
+        print(polyData)
+    }
+    
+    func getPolyGraphXLabel() -> [String] {
+        return Array(polyData.keys).sort(<)
+    }
+    
+    public func getPolyXAxisData() -> [Double]{
+        var xAxisLabels = getPolyGraphXLabel()
+        var xAxisData = [Double]()
+        
+        for i in 0..<xAxisLabels.count
+        {
+            xAxisData.append(polyData[xAxisLabels[i]]!)
+        }
+        
+        
+        return xAxisData
     }
 
 }

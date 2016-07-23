@@ -14,6 +14,7 @@ class StatisticalViewController: UIViewController {
     
     @IBOutlet weak var graphViewContainer: UIView!
     @IBOutlet weak var informationViewController: UIView!
+    @IBOutlet weak var ICViewContainer: UIView!
     
    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -21,6 +22,7 @@ class StatisticalViewController: UIViewController {
     override func viewDidLoad() {
         graphViewContainer.hidden=false
         informationViewController.hidden=true
+        ICViewContainer.hidden = true
         super.viewDidLoad()
         
     }
@@ -43,13 +45,18 @@ class StatisticalViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
-            print("test")
             graphViewContainer.hidden=false
             informationViewController.hidden=true
+            ICViewContainer.hidden = true
             
         case 1:
+            ICViewContainer.hidden = false
+            graphViewContainer.hidden=true
+            informationViewController.hidden=true
+        case 2:
             graphViewContainer.hidden=true
             informationViewController.hidden=false
+            ICViewContainer.hidden = true
         default:
             break;
         }

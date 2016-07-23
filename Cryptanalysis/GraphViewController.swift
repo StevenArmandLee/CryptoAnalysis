@@ -19,14 +19,17 @@ class GraphViewController: UIViewController {
     @IBOutlet var frequencyLengthSlider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        // chartView.noDataText = "There is no data being provided"
         chartView.descriptionText = ""
         chartView.animate(xAxisDuration: 2, yAxisDuration: 2)
         chartView.doubleTapToZoomEnabled = false
+        chartView.leftAxis.valueFormatter = NSNumberFormatter()
+        chartView.leftAxis.valueFormatter?.minimumFractionDigits = 0
+        chartView.rightAxis.valueFormatter = NSNumberFormatter()
+        chartView.rightAxis.valueFormatter?.minimumFractionDigits = 0
+        
+        
         stasticalModel.generateChart(Int(frequencyLengthSlider.value), isCaseSensitive: caseSensitiveSwitch.on, isRemoveSymbol: symbolSwitch.on)
         setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
-        //informationTextView.text = getStaticalInformation()
         
     }
     
@@ -56,27 +59,23 @@ class GraphViewController: UIViewController {
     
     @IBAction func onSwitch(sender: UISwitch) {
         stasticalModel.generateChart(Int(frequencyLengthSlider.value), isCaseSensitive: caseSensitiveSwitch.on, isRemoveSymbol: symbolSwitch.on)
+        chartView.animate(xAxisDuration: 0.5, yAxisDuration: 0.5)
         setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
     }
     
     func setCharts(xAxisLabels: [String], values: [Double])
     {
-        
-        
         var dataEntries: [BarChartDataEntry] = []
-        
         for i in 0..<xAxisLabels.count
         {
             dataEntries.append(BarChartDataEntry(value: values[i], xIndex: i))
             
         }
-        
         let charDataSet = BarChartDataSet(yVals: dataEntries, label: "Character Frequency")
         charDataSet.valueFormatter?.minimumFractionDigits = 0
         charDataSet.valueFormatter?.generatesDecimalNumbers=false
         let charData = BarChartData(xVals: xAxisLabels, dataSet: charDataSet)
         chartView.data=charData
-        
     }
     
     
