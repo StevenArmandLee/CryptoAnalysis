@@ -276,7 +276,7 @@
                                     <segment title="Block"/>
                                 </segments>
                                 <connections>
-                                    <action selector="segmentStreamBlock:" destination="eQq-md-Elo" eventType="valueChanged" id="aIt-EY-GqN"/>
+                                    <action selector="segmentStreamBlock:" destination="eQq-md-Elo" eventType="valueChanged" id="95k-fD-0aI"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIg-0B-5u8">
@@ -286,6 +286,23 @@
                                     <action selector="autoFillButtonAction:" destination="eQq-md-Elo" eventType="touchUpInside" id="30c-da-1P0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kE6-zt-GtS">
+                                <rect key="frame" x="324" y="539" width="46" height="30"/>
+                                <state key="normal" title="Affine"/>
+                                <connections>
+                                    <action selector="affineDecryption:" destination="eQq-md-Elo" eventType="touchUpInside" id="Gzt-VP-R5e"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7qY-Xx-hBI">
+                                <rect key="frame" x="127" y="577" width="121" height="29"/>
+                                <segments>
+                                    <segment title="Encrypt"/>
+                                    <segment title="Decrypt"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentEncryptDecrypt:" destination="eQq-md-Elo" eventType="valueChanged" id="Rrq-rO-LcA"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -309,7 +326,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="resultTextView" destination="QhL-uH-p3D" id="OI0-ds-Skx"/>
-                        <outlet property="segmentOutlet" destination="p09-kJ-W8i" id="Faa-0T-cii"/>
+                        <outlet property="segmentOutletAffine" destination="7qY-Xx-hBI" id="WmQ-Qs-uSD"/>
+                        <outlet property="segmentOutletMono" destination="p09-kJ-W8i" id="ccm-ex-ld2"/>
                         <outlet property="wordFromTextField" destination="ueT-yz-ZDo" id="bcO-88-2NB"/>
                         <outlet property="wordToTextField" destination="x96-Fj-uZf" id="8IZ-pD-wJC"/>
                     </connections>
