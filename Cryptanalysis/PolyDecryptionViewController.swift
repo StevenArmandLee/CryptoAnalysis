@@ -71,16 +71,23 @@ class PolyDecryptionController: UIViewController
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text!.lowercaseString
         let type = typeOfCipherSegment.selectedSegmentIndex
-        
-        if model.checkKey(key) != false {
+        if(keyField.text == ""){
+            
+        }
+        else if model.checkKey(key) != false {
             let ptext = model.decryptionButton(ctext, key: key, type: type)
             resultTextView.text = ptext
         }
         else {
-            //TODO put an alert here, the message is "The key must not empty
-            // or contains any symbol, space and number on it."
+            let attributedString = NSAttributedString(string: "Alert", attributes: [
+                NSFontAttributeName : UIFont.systemFontOfSize(20),
+                NSForegroundColorAttributeName : UIColor.redColor()
+                ])
+            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
             
-            // and then clear the keyField field
+            alert.setValue(attributedString, forKey: "attributedTitle")
+            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+            presentViewController(alert, animated: true, completion: nil)
         }
         
         
@@ -91,17 +98,24 @@ class PolyDecryptionController: UIViewController
         let key = keyField.text
         let type = sender.currentTitle
         
-        if shiftModel.checkKey(key!) != false {
+        if(keyField.text == ""){
+        
+    }
+        else if shiftModel.checkKey(key!) != false {
             
             let ptext = shiftModel.decryptionButton(ctext, offset: key!, type: type!)
             resultTextView.text = ptext
         }
         else {
-            //TODO put an alert here, the message is "The key must not
-            // empty, minus integer
-            // or contains any symbol, space and aplhabet on it."
+            let attributedString = NSAttributedString(string: "Alert", attributes: [
+                NSFontAttributeName : UIFont.systemFontOfSize(20),
+                NSForegroundColorAttributeName : UIColor.redColor()
+                ])
+            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
             
-            // and then clear the keyField field
+            alert.setValue(attributedString, forKey: "attributedTitle")
+            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+            presentViewController(alert, animated: true, completion: nil)
             
         }
     }

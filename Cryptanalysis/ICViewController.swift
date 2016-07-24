@@ -71,9 +71,9 @@ class ICViewController: UIViewController, UITextFieldDelegate {
     {
         //Need to calculate keyboard exact size due to Apple suggestions
         self.scrollView.scrollEnabled = true
-        var info : NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        let info : NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
         
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets
@@ -101,9 +101,9 @@ class ICViewController: UIViewController, UITextFieldDelegate {
     func keyboardWillBeHidden(notification: NSNotification)
     {
         //Once keyboard disappears, restore original positions
-        var info : NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        let info : NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets
         self.view.endEditing(true)
@@ -111,7 +111,7 @@ class ICViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func textFieldDidBeginEditing(textField: UITextField!)
+    func textFieldDidBeginEditing(textField: UITextField)
     {
         scrollView.setContentOffset(CGPointMake(0, 250), animated: true)
     }
@@ -136,6 +136,8 @@ class ICViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func onGenerateGraph(sender: AnyObject) {
     
+        
+            view.endEditing(true)
         if (indexField.text != "") && (periodField.text != "") {
             var index = Int(indexField.text!)!
             var period = Int(periodField.text!)!
@@ -152,10 +154,35 @@ class ICViewController: UIViewController, UITextFieldDelegate {
                 setCharts(stasticalModel.getPolyGraphXLabel(), values: stasticalModel.getPolyXAxisData())
             }
             else {
-                //TODO make alert
+                let attributedString = NSAttributedString(string: "Alert", attributes: [
+                    NSFontAttributeName : UIFont.systemFontOfSize(20),
+                    NSForegroundColorAttributeName : UIColor.redColor()
+                    ])
+                let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
+                
+                alert.setValue(attributedString, forKey: "attributedTitle")
+                alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+                presentViewController(alert, animated: true, completion: nil)
             }
         }
+    }
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,replacementString string: String) -> Bool {
         
-       
+        // Create an `NSCharacterSet` set which includes everything *but* the digits
+        let inverseSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
+        
+        // At every character in this "inverseSet" contained in the string,
+        // split the string up into components which exclude the characters
+        // in this inverse set
+        let components = string.componentsSeparatedByCharactersInSet(inverseSet)
+        
+        // Rejoin these components
+        let filtered = components.joinWithSeparator("")  // use join("", components) if you are using Swift 1.2
+        
+        // If the original string is equal to the filtered string, i.e. if no
+        // inverse characters were present to be eliminated, the input is valid
+        // and the statement returns true; else it returns false
+        return string == filtered
+        
     }
 }
