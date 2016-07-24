@@ -36,6 +36,7 @@ class InputViewController: UIViewController, UITextViewDelegate, G8TesseractDele
         cameraPicker.sourceType = .Camera
         
         presentViewController(cameraPicker, animated: true, completion: nil)
+        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
