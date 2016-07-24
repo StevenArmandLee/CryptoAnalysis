@@ -7,12 +7,14 @@
 //
 
 import UIKit
-
+import TesseractOCR
+import GPUImage
 
 var globalOriginalText: String=""
 var globalModifiedText: String=""
 
-class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+
+class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, G8TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var cipherPickerTextField: UITextField!
@@ -20,6 +22,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     @IBOutlet var viewController: UIView!
     @IBOutlet weak var BottomConstraint: NSLayoutConstraint!
     
+    var tesseract:G8Tesseract = G8Tesseract(language:"eng")
     var cipherPickerOption = ["1","2"] //TODO change to name of cipher
     
     override func viewDidLoad() {
@@ -40,10 +43,12 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+        tesseract.delegate = self
+        
         if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
             registerForPreviewingWithDelegate(self, sourceView: view)
         } else {
-            print("#D touch not available")
+        
         }
     }
     
@@ -108,6 +113,66 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         
     }
+    
+    
+    //OCR functions
+    func showCamera(){
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.delegate=self
+        cameraPicker.sourceType = .Camera
+        
+        presentViewController(cameraPicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        dismissViewControllerAnimated(true, completion: nil)
+        print("test")
+        /*
+        var image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        //to make threshold on the image
+        var stillImageFilter: GPUImageAdaptiveThresholdFilter = GPUImageAdaptiveThresholdFilter();
+        stillImageFilter.blurRadiusInPixels = 4.0
+        //the end of threshold image
+        var compressedImage = UIImageJPEGRepresentation(image, 0.6)
+
+        scanTextFromPhoto(stillImageFilter.imageByFilteringImage(UIImage(data: compressedImage!)))
+ */
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    func showAlbum(){
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.delegate=self
+        cameraPicker.sourceType = .PhotoLibrary
+        
+        presentViewController(cameraPicker, animated: true, completion: nil)
+    }
+    
+    func scanTextFromPhoto(photo: UIImage){
+        tesseract.image = photo
+        tesseract.recognize()
+        globalOriginalText = tesseract.recognizedText
+        globalModifiedText = globalOriginalText
+        originalText.text=globalOriginalText
+    }
+    @IBAction func onUsePhoto(sender: UIButton) {
+
+        let actionSheet = UIAlertController(title: "Camera", message: nil, preferredStyle: .ActionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .Default, handler: { action in
+            self.showCamera()
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Album", style: .Default, handler: { action in
+            self.showAlbum()
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancle", style: .Cancel, handler: nil))
+        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+
+    }
+
 }
 
 

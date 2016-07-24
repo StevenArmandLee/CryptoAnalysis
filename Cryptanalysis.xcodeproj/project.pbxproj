@@ -11,6 +11,9 @@
 		56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */; };
 		5626339E1D34DE57007429AE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A9C4071D34B764009F0983 /* Charts.framework */; };
 		5626339F1D34DE57007429AE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83A9C4071D34B764009F0983 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5631B5401D450DA3009E302B /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 5631B53F1D450DA3009E302B /* tessdata */; };
+		5631B5421D4512F8009E302B /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631B5411D4512F8009E302B /* libstdc++.6.0.9.tbd */; };
+		5631B5441D451301009E302B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631B5431D451301009E302B /* CoreImage.framework */; };
 		565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */; };
 		565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */; };
 		565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */; };
@@ -33,6 +36,7 @@
 		56F2F2A61CE2FA54007A4C7B /* CryptanalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */; };
 		56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2B31CE32269007A4C7B /* ResultViewController.swift */; };
 		83A9C40F1D34BA0E009F0983 /* ShiftDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */; };
+		AC40E23DBF05748BFC175D3F /* Pods_Cryptanalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,8 +106,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07B83642C39BA54BA24DFEFD /* Pods-Cryptanalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.release.xcconfig"; sourceTree = "<group>"; };
 		56180FB61D0E68E800FE8FFF /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		5631B5261D450358009E302B /* Cryptanalysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cryptanalysis-Bridging-Header.h"; sourceTree = "<group>"; };
+		5631B53F1D450DA3009E302B /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		5631B5411D4512F8009E302B /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		5631B5431D451301009E302B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecryptViewController.swift; sourceTree = "<group>"; };
 		565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionViewContoller.swift; sourceTree = "<group>"; };
 		565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +142,8 @@
 		56F2F2A71CE2FA54007A4C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56F2F2B31CE32269007A4C7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDecryptionModel.swift; sourceTree = "<group>"; };
+		F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptanalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4A2D0B4BA01330AAE1AB102 /* Pods-Cryptanalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +151,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5631B5441D451301009E302B /* CoreImage.framework in Frameworks */,
+				5631B5421D4512F8009E302B /* libstdc++.6.0.9.tbd in Frameworks */,
 				5626339E1D34DE57007429AE /* Charts.framework in Frameworks */,
+				AC40E23DBF05748BFC175D3F /* Pods_Cryptanalysis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +213,8 @@
 				56F2F2A41CE2FA54007A4C7B /* CryptanalysisUITests */,
 				56F2F2811CE2FA54007A4C7B /* Products */,
 				5679F51E1D0FD1E900B88094 /* Charts */,
+				576C9BF025AB6701EF3DA0B4 /* Pods */,
+				594A58B8166579E49503080F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +231,7 @@
 		56F2F2821CE2FA54007A4C7B /* Cryptanalysis */ = {
 			isa = PBXGroup;
 			children = (
+				5631B53F1D450DA3009E302B /* tessdata */,
 				565507C31D0BEFB20054FB95 /* Models */,
 				565507C21D0BEF8A0054FB95 /* ViewController */,
 				56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */,
@@ -224,6 +241,7 @@
 				56F2F28E1CE2FA54007A4C7B /* LaunchScreen.storyboard */,
 				56F2F2911CE2FA54007A4C7B /* Info.plist */,
 				56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */,
+				5631B5261D450358009E302B /* Cryptanalysis-Bridging-Header.h */,
 			);
 			path = Cryptanalysis;
 			sourceTree = "<group>";
@@ -246,6 +264,25 @@
 			path = CryptanalysisUITests;
 			sourceTree = "<group>";
 		};
+		576C9BF025AB6701EF3DA0B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4A2D0B4BA01330AAE1AB102 /* Pods-Cryptanalysis.debug.xcconfig */,
+				07B83642C39BA54BA24DFEFD /* Pods-Cryptanalysis.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		594A58B8166579E49503080F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5631B5431D451301009E302B /* CoreImage.framework */,
+				5631B5411D4512F8009E302B /* libstdc++.6.0.9.tbd */,
+				F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		83A9C4001D34B764009F0983 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,10 +301,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56F2F2AA1CE2FA54007A4C7B /* Build configuration list for PBXNativeTarget "Cryptanalysis" */;
 			buildPhases = (
+				DCF322BC1D8EC6FD97F46DEB /* [CP] Check Pods Manifest.lock */,
 				56F2F27C1CE2FA54007A4C7B /* Sources */,
 				56F2F27D1CE2FA54007A4C7B /* Frameworks */,
 				56F2F27E1CE2FA54007A4C7B /* Resources */,
 				568863131D23D043006F0E5B /* Embed Frameworks */,
+				0F64EF013CE090292B341DB4 /* [CP] Embed Pods Frameworks */,
+				55BA08D8BD72FFEAFC22688D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -403,6 +443,7 @@
 			files = (
 				56F2F2901CE2FA54007A4C7B /* LaunchScreen.storyboard in Resources */,
 				56F2F28D1CE2FA54007A4C7B /* Assets.xcassets in Resources */,
+				5631B5401D450DA3009E302B /* tessdata in Resources */,
 				56F2F28B1CE2FA54007A4C7B /* Main.storyboard in Resources */,
 				5679F51F1D0FD1E900B88094 /* Charts in Resources */,
 			);
@@ -423,6 +464,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F64EF013CE090292B341DB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55BA08D8BD72FFEAFC22688D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCF322BC1D8EC6FD97F46DEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		56F2F27C1CE2FA54007A4C7B /* Sources */ = {
@@ -527,6 +616,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -573,6 +663,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -593,33 +684,40 @@
 		};
 		56F2F2AB1CE2FA54007A4C7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4A2D0B4BA01330AAE1AB102 /* Pods-Cryptanalysis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Cryptanalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.Cryptanalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cryptanalysis/Cryptanalysis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		56F2F2AC1CE2FA54007A4C7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07B83642C39BA54BA24DFEFD /* Pods-Cryptanalysis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Cryptanalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.Cryptanalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cryptanalysis/Cryptanalysis-Bridging-Header.h";
 			};
 			name = Release;
 		};
