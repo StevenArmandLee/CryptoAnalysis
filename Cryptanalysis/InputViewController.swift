@@ -165,7 +165,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            print("Work Dispatched")
+            //All background running put here
             let tesseract:G8Tesseract = G8Tesseract(language:"eng")
             tesseract.engineMode = .TesseractCubeCombined
             tesseract.pageSegmentationMode = .Auto
@@ -175,6 +175,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
             globalModifiedText = globalOriginalText
             dispatch_async(dispatch_get_main_queue()){
                 [weak self] in
+                //all code when the background finish running put here
                 self!.originalText.text=globalOriginalText
                 self!.removeActivityIndicator()
             }
