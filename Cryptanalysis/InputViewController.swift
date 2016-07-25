@@ -42,7 +42,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         
         let origImage = UIImage(named: "info");
         let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        infoButton.setImage(tintedImage, forState: .Normal)
+        infoButton.setImage(tintedImage, forState: .Disabled)
         infoButton.tintColor = UIColor.redColor() //TODO change the color when disabled, need to decide what color is good
         
         originalText.delegate = self
@@ -60,6 +60,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         processButton.enabled = false
         processButton.backgroundColor = UIColor.lightGrayColor()
         processButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+        infoButton.enabled = false
        
     }
     
@@ -232,6 +233,13 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         self.originalText.editable = true
     }
     
+    @IBAction func onGetCipherText(sender: AnyObject) {
+        let origImage = UIImage(named: "info");
+        let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        infoButton.setImage(tintedImage, forState: .Normal)
+        infoButton.tintColor = UIColor.greenColor()
+        infoButton.enabled = true
+    }
 }
 
 

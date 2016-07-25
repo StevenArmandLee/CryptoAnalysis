@@ -187,18 +187,6 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="dem-uZ-YIb"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llv-4Q-Ntj">
-                                <rect key="frame" x="348" y="473" width="66" height="66"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="66" id="eDu-gA-vdt"/>
-                                </constraints>
-                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                <state key="normal" title="Button" image="info"/>
-                                <connections>
-                                    <action selector="showInfoPopup:" destination="9pv-A4-QxB" eventType="touchUpInside" id="PaM-Hp-y6E"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPj-Jp-h2y">
                                 <rect key="frame" x="209" y="473" width="139" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -221,6 +209,9 @@
                                         <exclude reference="w4E-4h-gFU"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onGetCipherText:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WpS-HJ-OEN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-1e-m2i">
                                 <rect key="frame" x="0.0" y="547" width="210" height="66"/>
@@ -271,6 +262,18 @@
                                 </variation>
                                 <connections>
                                     <action selector="onProcessPhoto:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sOL-ec-19g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llv-4Q-Ntj">
+                                <rect key="frame" x="348" y="473" width="66" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="eDu-gA-vdt"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                <state key="normal" title="Button" image="info"/>
+                                <connections>
+                                    <action selector="showInfoPopup:" destination="9pv-A4-QxB" eventType="touchUpInside" id="PaM-Hp-y6E"/>
                                 </connections>
                             </button>
                         </subviews>
