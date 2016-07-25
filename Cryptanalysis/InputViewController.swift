@@ -21,14 +21,22 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     @IBOutlet weak var originalText: UITextView!
     @IBOutlet var viewController: UIView!
     @IBOutlet weak var BottomConstraint: NSLayoutConstraint!
+    var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var getCipherButton: UIButton!
+    @IBOutlet weak var processButton: UIButton!
+    @IBOutlet weak var clearTextButton: UIButton!
+
+    @IBOutlet weak var usePhotoButton: UIButton!
+   
     
-    var tesseract:G8Tesseract = G8Tesseract(language:"eng")
+    
     var cipherPickerOption = ["1","2"] //TODO change to name of cipher
+    var imageToBeScanned: UIImage = UIImage()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var pickerView = UIPickerView()
+        let pickerView = UIPickerView()
         pickerView.delegate = self
         cipherPickerTextField.inputView = pickerView
         
@@ -43,13 +51,16 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        tesseract.delegate = self
-        
         if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
             registerForPreviewingWithDelegate(self, sourceView: view)
         } else {
         
         }
+        
+        processButton.enabled = false
+        processButton.backgroundColor = UIColor.lightGrayColor()
+        processButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+       
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -126,17 +137,17 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         dismissViewControllerAnimated(true, completion: nil)
-        print("test")
-        /*
-        var image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        let image = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         //to make threshold on the image
-        var stillImageFilter: GPUImageAdaptiveThresholdFilter = GPUImageAdaptiveThresholdFilter();
+        let stillImageFilter: GPUImageAdaptiveThresholdFilter = GPUImageAdaptiveThresholdFilter();
         stillImageFilter.blurRadiusInPixels = 4.0
         //the end of threshold image
-        var compressedImage = UIImageJPEGRepresentation(image, 0.6)
-
-        scanTextFromPhoto(stillImageFilter.imageByFilteringImage(UIImage(data: compressedImage!)))
- */
+        let compressedImage = UIImageJPEGRepresentation(image, 0.6)
+        imageToBeScanned = stillImageFilter.imageByFilteringImage(UIImage(data: compressedImage!))
+        
+        processButton.backgroundColor = UIColor.whiteColor()
+        processButton.enabled = true
+ 
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -150,11 +161,26 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
     }
     
     func scanTextFromPhoto(photo: UIImage){
-        tesseract.image = photo
-        tesseract.recognize()
-        globalOriginalText = tesseract.recognizedText
-        globalModifiedText = globalOriginalText
-        originalText.text=globalOriginalText
+        self.addActivityIndicator()
+        
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            print("Work Dispatched")
+            let tesseract:G8Tesseract = G8Tesseract(language:"eng")
+            tesseract.engineMode = .TesseractCubeCombined
+            tesseract.pageSegmentationMode = .Auto
+            tesseract.image = photo.g8_blackAndWhite()
+            tesseract.recognize()
+            globalOriginalText = tesseract.recognizedText
+            globalModifiedText = globalOriginalText
+            dispatch_async(dispatch_get_main_queue()){
+                [weak self] in
+                self!.originalText.text=globalOriginalText
+                self!.removeActivityIndicator()
+            }
+        }
+       
+        
     }
     @IBAction func onUsePhoto(sender: UIButton) {
 
@@ -173,6 +199,38 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
 
     }
 
+    @IBAction func onProcessPhoto(sender: UIButton) {
+        scanTextFromPhoto(imageToBeScanned)
+    }
+    
+    
+    //activeIndicator functions
+    func addActivityIndicator() {
+        self.getCipherButton.enabled = false
+        self.infoButton.enabled = false
+        self.usePhotoButton.enabled = false
+        self.processButton.enabled = false
+        self.clearTextButton.enabled = false
+        self.originalText.editable = false
+        
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
+        activityIndicator = nil
+        self.getCipherButton.enabled = true
+        self.infoButton.enabled = true
+        self.usePhotoButton.enabled = true
+        self.processButton.enabled = true
+        self.clearTextButton.enabled = true
+        self.originalText.editable = true
+    }
+    
 }
 
 
