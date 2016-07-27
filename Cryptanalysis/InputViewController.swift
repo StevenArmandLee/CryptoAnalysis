@@ -16,6 +16,8 @@ var globalModifiedText: String=""
 
 class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, G8TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    var quizModel: QuizModel = QuizModel()
+    
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var cipherPickerTextField: UITextField!
     @IBOutlet weak var originalText: UITextView!
@@ -30,7 +32,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
    
     
     
-    var cipherPickerOption = ["1","2"] //TODO change to name of cipher
+    var cipherPickerOption = ["Affine","Monoalphabetic","Shift Left","Shift Right","Transposition","Playfair","Vigenere","Beaufort"]
     var imageToBeScanned: UIImage = UIImage()
     
     
@@ -38,7 +40,9 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         super.viewDidLoad()
         let pickerView = UIPickerView()
         pickerView.delegate = self
+        
         cipherPickerTextField.inputView = pickerView
+        
         
         let origImage = UIImage(named: "info");
         let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
@@ -49,6 +53,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         originalText.layer.borderWidth=1
         originalText.layer.borderColor = UIColor.lightGrayColor().CGColor
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
+        pickerView.addGestureRecognizer(tap)
         view.addGestureRecognizer(tap)
         
         if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
@@ -64,6 +69,8 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
        
     }
     
+    
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -78,12 +85,14 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         cipherPickerTextField.text = cipherPickerOption[row]
+        self.view.endEditing(true)
     }
     
     
    
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        
         view.endEditing(true)
     }
     
@@ -105,11 +114,13 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     }
 
     @IBAction func showInfoPopup(sender: UIButton) {
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("informationPopUp") as! popupViewController
-        self.addChildViewController(popOverVC)
-        popOverVC.view.frame = self.view.frame
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMoveToParentViewController(self)
+        
+            let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("informationPopUp") as! popupViewController
+            self.addChildViewController(popOverVC)
+            popOverVC.view.frame = self.view.frame
+            self.view.addSubview(popOverVC.view)
+            popOverVC.didMoveToParentViewController(self)
+        
         
     }
 
@@ -168,7 +179,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //All background running put here
             let tesseract:G8Tesseract = G8Tesseract(language:"eng")
-            tesseract.engineMode = .TesseractCubeCombined
+            tesseract.engineMode = .CubeOnly
             tesseract.pageSegmentationMode = .Auto
             tesseract.image = photo.g8_blackAndWhite()
             tesseract.recognize()
@@ -231,6 +242,11 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         self.processButton.enabled = true
         self.clearTextButton.enabled = true
         self.originalText.editable = true
+        let origImage = UIImage(named: "info");
+        let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        infoButton.setImage(tintedImage, forState: .Normal)
+        infoButton.tintColor = UIColor.greenColor()
+        infoButton.enabled = true
     }
     
     @IBAction func onGetCipherText(sender: AnyObject) {
@@ -239,6 +255,45 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         infoButton.setImage(tintedImage, forState: .Normal)
         infoButton.tintColor = UIColor.greenColor()
         infoButton.enabled = true
+        
+        var cipherType: String = cipherPickerTextField.text!
+
+        print(cipherType)
+        switch cipherType {
+        case cipherPickerOption[0]:
+            quizModel.generateAffineCipher()
+            break;
+        case cipherPickerOption[1]:
+            quizModel.generateMonoalphabetic()
+            break;
+        case cipherPickerOption[2]:
+            quizModel.generateShiftLeftCipher()
+            break;
+        case cipherPickerOption[3]:
+            quizModel.generateShiftRightCipher()
+            break;
+        case cipherPickerOption[4]:
+            quizModel.generateTranspositionCipher()
+            break;
+        case cipherPickerOption[5]:
+            quizModel.generatePlayfairCipher()
+            break;
+        case cipherPickerOption[6]:
+            quizModel.generateVigenereCipher()
+            break;
+        case cipherPickerOption[7]:
+            quizModel.generateBeaufortCipher()
+            break;
+        default:
+            break
+        }
+        
+        
+        originalText.text = quizModel.getCipherText()
+        globalOriginalText = originalText.text
+        globalModifiedText = globalOriginalText
+        print(quizModel.getKeyWord())
+        
     }
 }
 

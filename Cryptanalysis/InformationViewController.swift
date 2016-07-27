@@ -73,7 +73,7 @@ class InformationViewController: UIViewController, UIPageViewControllerDataSourc
             return nil
         }
         index += 1
-        if (index == 3)
+        if (index >= 3)
         {
             return nil
         }

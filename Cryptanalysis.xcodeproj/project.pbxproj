@@ -19,8 +19,6 @@
 		565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */; };
 		565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */; };
 		565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */; };
-		565507BF1D0BECD00054FB95 /* MonoDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */; };
-		565507C11D0BECE40054FB95 /* PolyDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */; };
 		5679F51F1D0FD1E900B88094 /* Charts in Resources */ = {isa = PBXBuildFile; fileRef = 5679F51E1D0FD1E900B88094 /* Charts */; };
 		56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2821D433AC100D56A1F /* popupViewController.swift */; };
 		56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2841D435BE600D56A1F /* ICViewController.swift */; };
@@ -28,6 +26,14 @@
 		56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */; };
 		56D4FD2D1D409A20006CC58A /* InformationContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D4FD2C1D409A20006CC58A /* InformationContentViewController.swift */; };
 		56E22FBE1D0D2AED00E16DF8 /* StasticalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */; };
+		56E3C4FD1D48C0F600E6CD5E /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */; };
+		56E3C50C1D48C61400E6CD5E /* MonoDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C5051D48C61400E6CD5E /* MonoDecryptionModel.swift */; };
+		56E3C50D1D48C61400E6CD5E /* PolyDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C5061D48C61400E6CD5E /* PolyDecryptionModel.swift */; };
+		56E3C50E1D48C61400E6CD5E /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C5071D48C61400E6CD5E /* QuizModel.swift */; };
+		56E3C50F1D48C61400E6CD5E /* AffineDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C5081D48C61400E6CD5E /* AffineDecryptionModel.swift */; };
+		56E3C5101D48C61400E6CD5E /* TranpositionDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C5091D48C61400E6CD5E /* TranpositionDecryptionModel.swift */; };
+		56E3C5111D48C61400E6CD5E /* ShiftDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C50A1D48C61400E6CD5E /* ShiftDecryptionModel.swift */; };
+		56E3C5121D48C61400E6CD5E /* PlayfairDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C50B1D48C61400E6CD5E /* PlayfairDecryptionModel.swift */; };
 		56F2F2841CE2FA54007A4C7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */; };
 		56F2F2861CE2FA54007A4C7B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2851CE2FA54007A4C7B /* InputViewController.swift */; };
 		56F2F2881CE2FA54007A4C7B /* StatisticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2871CE2FA54007A4C7B /* StatisticalViewController.swift */; };
@@ -37,7 +43,6 @@
 		56F2F29B1CE2FA54007A4C7B /* CryptanalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F29A1CE2FA54007A4C7B /* CryptanalysisTests.swift */; };
 		56F2F2A61CE2FA54007A4C7B /* CryptanalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */; };
 		56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2B31CE32269007A4C7B /* ResultViewController.swift */; };
-		83A9C40F1D34BA0E009F0983 /* ShiftDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */; };
 		AC40E23DBF05748BFC175D3F /* Pods_Cryptanalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */; };
 /* End PBXBuildFile section */
 
@@ -141,8 +146,6 @@
 		565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecryptViewController.swift; sourceTree = "<group>"; };
 		565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionViewContoller.swift; sourceTree = "<group>"; };
 		565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionViewController.swift; sourceTree = "<group>"; };
-		565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionModel.swift; sourceTree = "<group>"; };
-		565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionModel.swift; sourceTree = "<group>"; };
 		5679F51E1D0FD1E900B88094 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Charts; sourceTree = "<group>"; };
 		568862FD1D23D034006F0E5B /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		56AEB2821D433AC100D56A1F /* popupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +154,14 @@
 		56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowngTextView.swift; sourceTree = "<group>"; };
 		56D4FD2C1D409A20006CC58A /* InformationContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationContentViewController.swift; sourceTree = "<group>"; };
 		56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StasticalModel.swift; sourceTree = "<group>"; };
+		56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
+		56E3C5051D48C61400E6CD5E /* MonoDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionModel.swift; sourceTree = "<group>"; };
+		56E3C5061D48C61400E6CD5E /* PolyDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionModel.swift; sourceTree = "<group>"; };
+		56E3C5071D48C61400E6CD5E /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
+		56E3C5081D48C61400E6CD5E /* AffineDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffineDecryptionModel.swift; sourceTree = "<group>"; };
+		56E3C5091D48C61400E6CD5E /* TranpositionDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranpositionDecryptionModel.swift; sourceTree = "<group>"; };
+		56E3C50A1D48C61400E6CD5E /* ShiftDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDecryptionModel.swift; sourceTree = "<group>"; };
+		56E3C50B1D48C61400E6CD5E /* PlayfairDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayfairDecryptionModel.swift; sourceTree = "<group>"; };
 		56F2F2801CE2FA54007A4C7B /* Cryptanalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptanalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F2F2851CE2FA54007A4C7B /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +177,6 @@
 		56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptanalysisUITests.swift; sourceTree = "<group>"; };
 		56F2F2A71CE2FA54007A4C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56F2F2B31CE32269007A4C7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDecryptionModel.swift; sourceTree = "<group>"; };
 		F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptanalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2D0B4BA01330AAE1AB102 /* Pods-Cryptanalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,10 +241,15 @@
 		565507C31D0BEFB20054FB95 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */,
-				565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */,
+				56E3C5051D48C61400E6CD5E /* MonoDecryptionModel.swift */,
+				56E3C5061D48C61400E6CD5E /* PolyDecryptionModel.swift */,
+				56E3C5071D48C61400E6CD5E /* QuizModel.swift */,
+				56E3C5081D48C61400E6CD5E /* AffineDecryptionModel.swift */,
+				56E3C5091D48C61400E6CD5E /* TranpositionDecryptionModel.swift */,
+				56E3C50A1D48C61400E6CD5E /* ShiftDecryptionModel.swift */,
+				56E3C50B1D48C61400E6CD5E /* PlayfairDecryptionModel.swift */,
+				56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */,
 				56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */,
-				83A9C40E1D34BA0E009F0983 /* ShiftDecryptionModel.swift */,
 				56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */,
 			);
 			name = Models;
@@ -575,6 +590,7 @@
 			files = (
 				56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */,
 				56D4FD2D1D409A20006CC58A /* InformationContentViewController.swift in Sources */,
+				56E3C4FD1D48C0F600E6CD5E /* CalculatorModel.swift in Sources */,
 				56F2F2881CE2FA54007A4C7B /* StatisticalViewController.swift in Sources */,
 				56F2F2841CE2FA54007A4C7B /* AppDelegate.swift in Sources */,
 				56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */,
@@ -582,15 +598,19 @@
 				56F2F2861CE2FA54007A4C7B /* InputViewController.swift in Sources */,
 				56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */,
 				565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */,
+				56E3C5101D48C61400E6CD5E /* TranpositionDecryptionModel.swift in Sources */,
+				56E3C50C1D48C61400E6CD5E /* MonoDecryptionModel.swift in Sources */,
 				565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */,
 				56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */,
+				56E3C50F1D48C61400E6CD5E /* AffineDecryptionModel.swift in Sources */,
+				56E3C50E1D48C61400E6CD5E /* QuizModel.swift in Sources */,
 				565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */,
+				56E3C5111D48C61400E6CD5E /* ShiftDecryptionModel.swift in Sources */,
+				56E3C5121D48C61400E6CD5E /* PlayfairDecryptionModel.swift in Sources */,
 				56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */,
-				565507C11D0BECE40054FB95 /* PolyDecryptionModel.swift in Sources */,
-				565507BF1D0BECD00054FB95 /* MonoDecryptionModel.swift in Sources */,
 				56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */,
+				56E3C50D1D48C61400E6CD5E /* PolyDecryptionModel.swift in Sources */,
 				56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */,
-				83A9C40F1D34BA0E009F0983 /* ShiftDecryptionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

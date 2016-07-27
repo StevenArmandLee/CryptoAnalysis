@@ -11,7 +11,7 @@ import UIKit
 
 class MonoDecryptionController: UIViewController
 {
-    private var monoDecryption: MonoDecryption = MonoDecryption()
+    private var monoDecryption: MonoDecryptionModel = MonoDecryptionModel()
     private var optionFlag :Int = 0
     
     @IBOutlet var segmentOutlet: UISegmentedControl!

@@ -2,111 +2,67 @@
 //  ShiftDecryptionModel.swift
 //  Cryptanalysis
 //
-//  Created by Branata Kurniawan on 12/7/16.
+//  Created by Joshua Saputra on 27/7/16.
 //  Copyright © 2016 steven lee. All rights reserved.
 //
 
 import Foundation
 
-class ShiftDecryptionModel {
-    
-    private var currentOffset = Int()
-    let alphabet = "abcdefghijklmnopqrstuvwxyz"
-    let numeric = "0123456789"
-    
-    func ShiftDecryptionModel(){
-        currentOffset = 0
-    }
-    
-    func getCurrentOffset() -> Int {
-        return currentOffset
-    }
-    
-    func findCharNum(c : Character) -> Int {
-        var index = 0
+class ShiftDecryptionModel{
+    /***********************************************/
+    /************* SHIFT LEFT CIPHER ***************/
+    /***********************************************/
+    func shiftLeftEncryption(text: String, key: String) -> String {
+        let plainText = text.uppercaseString
+        let lengthOfPtext = plainText.characters.count
+        var ciphertext = String()
         
-        if let idx = alphabet.characters.indexOf(c) {
-            index = alphabet.startIndex.distanceTo(idx)
-        }else {
-            // cannot find the char in the alphanumeric
-            index = -1
-        }
-        
-        return index
-    }
-    
-    func getChar (index : Int) -> Character {
-        let pchar = alphabet.startIndex.advancedBy(index)
-        return (alphabet[pchar])
-    }
-    
-    func decryptionButton (ctext : String, offset : String, type : String) -> String {
-        
-        let intOffset = Int(offset)
-        
-        if type == "Left" {
-            currentOffset -= intOffset!
-        }
-        else{
-            currentOffset += intOffset!
-        }
-        
-        if currentOffset > 26 || currentOffset < 0{
-            currentOffset = 0
-            return ctext
-        }
-        
-        let lengthOfCtext = ctext.characters.count
-        var ptext = String()
-        
-        for i in 0..<lengthOfCtext {
-            let indexOfCtext = ctext.startIndex.advancedBy(i)
+        for i in 0..<lengthOfPtext {
+            let indexOfPtext = plainText.startIndex.advancedBy(i)
             
-            let ctextNum = findCharNum(ctext[indexOfCtext])
-            
-            if ctextNum == -1 {
-                ptext.append(ctext[indexOfCtext])
-            }
-            else{
+            if let ptextNum = alphabet_Translator[plainText[indexOfPtext]]{
+                let keyNum = Int(key)!
                 
-                var index = 0
+                var index = ptextNum + keyNum
                 
-                if type == "Left" {
-                    index = ctextNum - currentOffset
-                }
-                else{
-                    index = ctextNum + currentOffset
-                }
-                
-                if index < 0 {
-                    index = index + 26
-                }
-                else if index >= 26 {
+                if index >= 26 {
                     index = index - 26
                 }
-                ptext.append(getChar(index))
+                ciphertext.append(numeric_Translator[index]!)
+            }else{
+                ciphertext.append(plainText[indexOfPtext])
             }
+            
         }
         
-        return ptext
+        return ciphertext
     }
     
-    func checkKey (offset : String) -> Bool {
+    /***********************************************/
+    /************* SHIFT RIGHT CIPHER **************/
+    /***********************************************/
+    func shiftRightEncryption(text: String, key: String) -> String {
+        let plainText = text.uppercaseString
+        let lengthOfPtext = plainText.characters.count
+        var ciphertext = String()
         
-        if offset == "" {
-            return false
-        }
-        
-        if currentOffset > 26{
-            return false
-        }
-        
-        for charKey in offset.characters {
-            if numeric.characters.contains(charKey) == false {
-                return false
+        for i in 0..<lengthOfPtext {
+            let indexOfPtext = plainText.startIndex.advancedBy(i)
+            
+            if let ptextNum = alphabet_Translator[plainText[indexOfPtext]]{
+                let keyNum = Int(key)!
+                
+                var index = ptextNum - keyNum
+                
+                if index <= -1 {
+                    index = index + 26
+                }
+                ciphertext.append(numeric_Translator[index]!)
+            }else{
+                ciphertext.append(plainText[indexOfPtext])
             }
         }
         
-        return true
+        return ciphertext
     }
 }

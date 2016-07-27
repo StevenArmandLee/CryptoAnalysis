@@ -9,84 +9,78 @@
 import Foundation
 
 class PolyDecryptionModel {
-    
-    let alphabet = "abcdefghijklmnopqrstuvwxyz"
-    
-    func findCharNum(c : Character) -> Int
-    {
-        var index = 0
-        
-        if let idx = alphabet.characters.indexOf(c) {
-            index = alphabet.startIndex.distanceTo(idx)
-        }else {
-            // cannot find the char in the alphanumeric
-            index = -1
-        }
-        
-        return index
-    }
-    
-    func getChar (index : Int) -> Character
-    {
-        let pchar = alphabet.startIndex.advancedBy(index)
-        return (alphabet[pchar])
-    }
-    
-    func decryptionButton (ctext : String, key : String, type : Int) -> String
-    {
-        
-        let lengthOfCtext = ctext.characters.count
+    /***********************************************/
+    /************** VIGENERE CIPHER ****************/
+    /***********************************************/
+    func vigenereEncryption(text: String, key: String) -> String {
+        let plainText = text.uppercaseString
+        let lengthOfPtext = plainText.characters.count
         let lengthOfKey = key.characters.count
-        var ptext = String()
+        var ciphertext = String()
+        let upperKey = key.uppercaseString
         var count = 0
         
-        for i in 0..<lengthOfCtext {
-            let indexOfCtext = ctext.startIndex.advancedBy(i)
+        for i in 0..<lengthOfPtext {
+            let indexOfPtext = plainText.startIndex.advancedBy(i)
             
-            
-            let ctextNum = findCharNum(ctext[indexOfCtext])
-            
-            if ctextNum == -1 {
-                ptext.append(ctext[indexOfCtext])
-            }
-            else{
-                let indexOfKey = key.startIndex.advancedBy(count % lengthOfKey)
-                let keyNum = findCharNum(key[indexOfKey])
-                var index = 0
+            if let ptextNum = alphabet_Translator[plainText[indexOfPtext]] {
                 
-                if type == 0 {
-                    index = ctextNum - keyNum
-                }
-                else {
-                    index = ctextNum + keyNum
-                }
+                let indexOfKey = upperKey.startIndex.advancedBy(count % lengthOfKey)
+                let keyNum = alphabet_Translator[upperKey[indexOfKey]]!
+                var index = ptextNum + keyNum
                 
-                if index < 0 {
-                    index = index + 26
-                }
-                else if index >= 26 {
+                if index >= 26 {
                     index = index - 26
                 }
-                ptext.append(getChar(index))
+                
+                ciphertext.append(numeric_Translator[index]!)
                 count += 1
             }
+            else{
+                 ciphertext.append(plainText[indexOfPtext])
+            }
+            
         }
         
-        return ptext
+        return ciphertext
     }
     
-    func checkKey (key : String) -> Bool
-    {
-        if key == "" {
-            return false
-        }
+    
+    
+    
+    /***********************************************/
+    /************** BEAUFORT CIPHER ****************/
+    /***********************************************/
+    func beaufortEncryption(text: String, key: String) -> String {
+        let plainText = text.uppercaseString
+        let lengthOfPtext = plainText.characters.count
+        let lengthOfKey = key.characters.count
+        let upperKey = key.uppercaseString
+        var ciphertext = String()
+        var count = 0
         
-        for charKey in key.characters {
-            if alphabet.characters.contains(charKey) == false{
-                return false
+        for i in 0..<lengthOfPtext {
+            let indexOfPtext = plainText.startIndex.advancedBy(i)
+            
+            if let ptextNum = alphabet_Translator[plainText[indexOfPtext]] {
+                
+                let indexOfKey = upperKey.startIndex.advancedBy(count % lengthOfKey)
+                let keyNum = alphabet_Translator[upperKey[indexOfKey]]!
+                var index = ptextNum - keyNum
+                
+                if index <= -1 {
+                    index = index + 26
+                }
+                
+                ciphertext.append(numeric_Translator[index]!)
+                count += 1
+            }
+            else{
+                ciphertext.append(plainText[indexOfPtext])
             }
         }
         
-        return true
+        return ciphertext
     }
+    
 }

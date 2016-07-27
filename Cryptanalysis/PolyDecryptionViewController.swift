@@ -68,13 +68,14 @@ class PolyDecryptionController: UIViewController
     
     //change the function to onChange
     @IBAction func buttonPressed(sender: UIButton) {
+        /*
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text!.lowercaseString
         let type = typeOfCipherSegment.selectedSegmentIndex
         if(keyField.text == ""){
             
         }
-        else if model.checkKey(key) != false {
+       else if model.checkKey(key) != false {
             let ptext = model.decryptionButton(ctext, key: key, type: type)
             resultTextView.text = ptext
         }
@@ -90,10 +91,11 @@ class PolyDecryptionController: UIViewController
             presentViewController(alert, animated: true, completion: nil)
         }
         
-        
+        */
     }
 
     @IBAction func onShift(sender: UIButton) {
+        /*
         let ctext = globalModifiedText.lowercaseString
         let key = keyField.text
         let type = sender.currentTitle
@@ -118,6 +120,7 @@ class PolyDecryptionController: UIViewController
             presentViewController(alert, animated: true, completion: nil)
             
         }
+ */
     }
     
 }
