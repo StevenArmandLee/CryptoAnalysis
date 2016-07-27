@@ -1,0 +1,189 @@
+//
+//  QuizModel.swift
+//  Cryptanalysis
+//
+//  Created by Joshua Saputra on 27/7/16.
+//  Copyright © 2016 steven lee. All rights reserved.
+//
+
+import Foundation
+
+class QuizModel{
+    //Encryptor Object
+    private let monoDecryption = MonoDecryption()
+    private let affineCipher = AffineDecryption()
+    private let transpositionCipher = TranspositionCipher()
+    private let playfairCipher = PlayfairCipher()
+    private let polyDecryption = PolyDecryption()
+    private let shiftDecryption = ShiftDecryption()
+    
+    //Source
+    var paragraph :[String] = []
+    
+    //Data
+    var plainText :String = ""
+    var keyWord :String = ""
+    var keyAlpha :Int = -1
+    var keyBeta :Int = -1
+    var cipherText :String = ""
+    
+    
+    //8 Main Functions
+    func generateMonoalphabetic(){
+        //Generate Plaintext and Key
+        plainText = RandomSentence()
+        keyWord = RandomWords(RandomSentence())
+        
+        //Setting Key
+        keyWord = monoDecryption.removeDuplicateLetterFromString(keyWord)
+        keyWord = monoDecryption.autoFillKeyString(keyWord)
+        
+        //Encryption
+        monoDecryption.insertKeyToDictionaryBlock(keyWord, userValue: "abcdefghijklmnopqrstuvwxyz")
+        cipherText = monoDecryption.applyReplaceUsingDictionaryStream(plainText)
+    }
+    
+    func generateVigenereCipher(){
+        //Generate Plaintext and key
+        plainText = RandomSentence()
+        keyWord = RandomWords(RandomSentence())
+        
+        //Encryption
+        cipherText = polyDecryption.vigenereEncryption(plainText, key: keyWord)
+    }
+    
+    func generateBeaufortCipher(){
+        //Generate Plaintext and key
+        plainText = RandomSentence()
+        keyWord = RandomWords(RandomSentence())
+        
+        //Encryption
+        cipherText = polyDecryption.beaufortEncryption(plainText, key: keyWord)    }
+    
+    func generateAffineCipher(){
+        //Generate Plaintext and Keys
+        plainText = RandomSentence()
+        keyAlpha = RandomNum(25)
+        while keyAlpha == 13 || keyAlpha%2 == 0{
+            keyAlpha = RandomNum(25)
+        }
+        keyBeta = RandomNum(25)
+        
+        
+        //Encryption
+        cipherText = affineCipher.applyAffineEncryptionUsingKey(plainText, alphaKey: keyAlpha, betaKey: keyBeta)
+    }
+    
+    func generateShiftLeftCipher(){
+        //Generate PlainText and Keys
+        plainText = RandomSentence()
+        keyAlpha = RandomNum(25)
+        while keyAlpha == 0{
+            keyAlpha = RandomNum(25)
+        }
+        
+        //Encryption
+        cipherText = shiftDecryption.shiftLeftEncryption(plainText, key: String(keyAlpha))
+    }
+    
+    func generateShiftRightCipher(){
+        //Generate PlainText and Keys
+        plainText = RandomSentence()
+        keyAlpha = RandomNum(25)
+        while keyAlpha == 0{
+            keyAlpha = RandomNum(25)
+        }
+        
+        //Encryption
+        cipherText = shiftDecryption.shiftRightEncryption(plainText, key: String(keyAlpha))
+    }
+    
+    func generateTranspositionCipher(){
+        //Generate Plaintext and Key
+        plainText = RandomSentence()
+        keyWord = RandomWords(RandomSentence())
+        
+        //Encryption
+        cipherText = transpositionCipher.transpositionEncryption(plainText, key: keyWord)
+    }
+    
+    func generatePlayfairCipher(){
+        //Generate Plaintext and Key
+        plainText = RandomSentence()
+        keyWord = RandomWords(RandomSentence())
+        
+        //Encryption
+        cipherText = playfairCipher.playFairEncryption(plainText, key: keyWord)
+    }
+    
+    //Accessor
+    func getPlainText()->String{
+        return plainText;
+    }
+    
+    func getKeyWord()->String{
+        return keyWord
+    }
+    
+    func getAlphaKey()->Int{
+        return keyAlpha
+    }
+    
+    func getBetaKey()->Int{
+        return keyBeta
+    }
+    func getCipherText()->String{
+        
+    }
+    
+    
+    
+    //Random Function to choose Paragraph and Word
+    func RandomSentence() ->(String){
+        if(paragraph.isEmpty){
+            return "input error"
+        }else{
+            //paragraph.count is max size of the array
+            let selector = RandomNum(paragraph.count)
+            return paragraph[selector]
+        }
+    }
+    
+    func RandomWords(sentence : String) -> (String){
+        let MIN_KEY_LENGTH = 4
+        if sentence.isEmpty{
+            return "input error"
+        }else{
+            //split string to array string delimiter by space -> " "
+            let delimiter = " "
+            let token = sentence.componentsSeparatedByString(delimiter)
+            let size = token.count
+            let selector = RandomNum(size)
+            
+            var result = SymbolRemover(token[selector])
+            
+            if result.characters.count < MIN_KEY_LENGTH{
+                result = RandomWords(sentence)
+            }
+            return result
+        }
+        
+    }
+    
+    //function to remove all symbols
+    func SymbolRemover(input_string: String) ->(String){
+        let valid_char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        //remove all in valid char except the char in valid_char
+        return String(input_string.characters.filter { String($0).rangeOfCharacterFromSet(NSCharacterSet(charactersInString: valid_char)) != nil })
+    }
+    
+    //random generator wich can set the maximun range
+    func RandomNum(max : Int) -> (Int){
+        return Int(arc4random_uniform(UInt32(max)))
+    }
+    
+    
+    
+    
+    
+}

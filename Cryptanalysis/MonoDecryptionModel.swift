@@ -8,14 +8,16 @@
 
 import Foundation
 
+var alphabet_Translator: [Character:Int] =
+    ["A" : 0, "B" : 1, "C" : 2, "D" : 3, "E" : 4, "F" : 5, "G" : 6, "H" : 7, "I" : 8, "J" : 9, "K" : 10, "L" : 11, "M" : 12, "N" : 13, "O" : 14, "P" : 15, "Q" : 16, "R" : 17, "S" : 18, "T" : 19, "U" : 20, "V" : 21, "W" : 22, "X" : 23, "Y" : 24, "Z" : 25]
+var numeric_Translator: [Int:Character] =  [0 : "A", 1 : "B", 2 : "C", 3 : "D", 4 : "E", 5 : "F", 6 : "G", 7 : "H", 8 : "I", 9 : "J", 10 : "K", 11 : "L", 12 : "M", 13 : "N", 14 : "O", 15 : "P", 16 : "Q", 17 : "R", 18 : "S", 19 : "T", 20 : "U", 21 : "V", 22 : "W", 23 : "X", 24 : "Y", 25 : "Z"]
+
 class MonoDecryption
 {
     
     var dictionaryBlock : [String:String] = [:]
     var dictionaryStream : [String:String] = [:]
-    var alphabet_Translator: [Character:Int] =
-        ["A" : 0, "B" : 1, "C" : 2, "D" : 3, "E" : 4, "F" : 5, "G" : 6, "H" : 7, "I" : 8, "J" : 9, "K" : 10, "L" : 11, "M" : 12, "N" : 13, "O" : 14, "P" : 15, "Q" : 16, "R" : 17, "S" : 18, "T" : 19, "U" : 20, "V" : 21, "W" : 22, "X" : 23, "Y" : 24, "Z" : 25]
-    var numeric_Translator: [Int:Character] =  [0 : "A", 1 : "B", 2 : "C", 3 : "D", 4 : "E", 5 : "F", 6 : "G", 7 : "H", 8 : "I", 9 : "J", 10 : "K", 11 : "L", 12 : "M", 13 : "N", 14 : "O", 15 : "P", 16 : "Q", 17 : "R", 18 : "S", 19 : "T", 20 : "U", 21 : "V", 22 : "W", 23 : "X", 24 : "Y", 25 : "Z"]
+    
     init(){
         dictionaryStream = [
             "a" : "a", "k" : "k", "u" : "u",
@@ -31,6 +33,8 @@ class MonoDecryption
         ]
     }
     
+    //MonoAlphabetic Cipher
+    //---------------------------------------------------------------------------------
     func insertKeyToDictionaryBlock(userKey :String, userValue :String){
         if dictionaryBlock.isEmpty{
             dictionaryBlock[userKey] = userValue
@@ -101,68 +105,7 @@ class MonoDecryption
         }
         return tempKeyString
     }
+    //---------------------------------------------------------------------------------
     
-    func gcdR(dividend: Int, divisor: Int) -> Int{
-        //assign n1 & n2
-        var (n1, n2) = (divisor, dividend)
-        //var all_steps
-        if  divisor < dividend{
-            (n1, n2) = (dividend, divisor)
-        }
-        var (a1, b1, a2, b2) = (1, 0, 0, 1)
-        while n2 != 0 {
-            
-            let quotient = n1 / n2
-            //n1%n2 is the reminder
-            (n1, n2) = (n2, n1 % n2)
-            if n2 == 0 {
-                break;
-            }
-            (a1, b1, a2, b2) = (a2, b2, a1 - quotient * a2, b1 - quotient * b2)
-            //all_steps += "\n" + a1 + " " + a1 + " " a1 + " " a1 + " " a1 + " " a1 + " "; a1
-        }
-        if n1 != 1 {
-            return -1
-        }else{
-            return (divisor+b2)
-        }
-    }
-    func applyAffineEncryptionUsingKey(globalText :String, alphaKey : Int, betaKey :Int)->String{
-        var stringResult = ""
-        for char in globalText.characters{
-            if char != " "{
-                let charInNumberForm = alphabet_Translator[char]
-                var afterEncryptionNumber = alphaKey*(charInNumberForm)! + betaKey
-                afterEncryptionNumber %= 26
-                if(afterEncryptionNumber < 0){
-                    afterEncryptionNumber += 26
-                }
-                stringResult += String(numeric_Translator[afterEncryptionNumber]!)
-            }
-            else{
-                stringResult += String(char)
-            }
-        }
-        return stringResult
-    }
     
-    func applyAffineDecryptionUsingKey(globalText : String, alphaKey :Int, betaKey :Int)->String{
-        var stringResult = ""
-        for char in globalText.characters{
-            if char != " "{
-                let charInNumberForm = alphabet_Translator[char]
-                let newAlphaKey = gcdR(Int(alphaKey), divisor:26)
-                var afterEncryptionNumber = ((charInNumberForm)! - betaKey)*newAlphaKey
-                afterEncryptionNumber %= 26
-                if(afterEncryptionNumber < 0){
-                    afterEncryptionNumber += 26
-                }
-                stringResult += String(numeric_Translator[afterEncryptionNumber]!)
-            }
-            else{
-                stringResult += String(char)
-            }
-        }
-        return stringResult
-    }
 }

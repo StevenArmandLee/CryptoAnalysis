@@ -1,83 +1,75 @@
 //
-//  PolyDecryptionModel.swift
+//  ShiftDecryptionModel.swift
 //  Cryptanalysis
 //
-//  Created by steven lee on 11/6/16.
+//  Created by Joshua Saputra on 27/7/16.
 //  Copyright © 2016 steven lee. All rights reserved.
 //
 
 import Foundation
 
-class PolyDecryption {
+class ShiftDecryption{
     /***********************************************/
-    /************** VIGENERE CIPHER ****************/
+    /************* SHIFT LEFT CIPHER ***************/
     /***********************************************/
-    func vigenereEncryption(text: String, key: String) -> String {
+    func shiftLeftEncryption(text: String, key: String) -> String {
         let plainText = text.uppercaseString
         let lengthOfPtext = plainText.characters.count
-        let lengthOfKey = key.characters.count
         var ciphertext = String()
-        var count = 0
         
         for i in 0..<lengthOfPtext {
             let indexOfPtext = plainText.startIndex.advancedBy(i)
+            
             let ptextNum = alphabet_Translator[plainText[indexOfPtext]]!
             
             if ptextNum == -1 {
                 ciphertext.append(plainText[indexOfPtext])
             }
             else{
-                let indexOfKey = key.startIndex.advancedBy(count % lengthOfKey)
-                let keyNum = alphabet_Translator[key[indexOfKey]]!
-                var index = ptextNum + keyNum
+                
+                let keyNum = Int(key)
+                
+                var index = ptextNum + keyNum!
                 
                 if index >= 26 {
                     index = index - 26
                 }
-                
                 ciphertext.append(numeric_Translator[index]!)
-                count += 1
             }
         }
         
         return ciphertext
     }
     
-    
-    
-    
     /***********************************************/
-    /************** BEAUFORT CIPHER ****************/
+    /************* SHIFT RIGHT CIPHER **************/
     /***********************************************/
-    func beaufortEncryption(text: String, key: String) -> String {
+    func shiftRightEncryption(text: String, key: String) -> String {
         let plainText = text.uppercaseString
         let lengthOfPtext = plainText.characters.count
-        let lengthOfKey = key.characters.count
         var ciphertext = String()
-        var count = 0
         
         for i in 0..<lengthOfPtext {
             let indexOfPtext = plainText.startIndex.advancedBy(i)
-            let ptextNum = alphabet_Translator[plainText[indexOfPtext]]!
+            
+            let ptextNum = alphabet_Translator[text[indexOfPtext]]!
             
             if ptextNum == -1 {
                 ciphertext.append(plainText[indexOfPtext])
             }
             else{
-                let indexOfKey = key.startIndex.advancedBy(count % lengthOfKey)
-                let keyNum = alphabet_Translator[key[indexOfKey]]!
+                
+                let keyNum = Int(key)!
+                
                 var index = ptextNum - keyNum
                 
                 if index <= -1 {
                     index = index + 26
                 }
-                
                 ciphertext.append(numeric_Translator[index]!)
-                count += 1
             }
         }
         
         return ciphertext
     }
-    
 }

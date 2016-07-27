@@ -27,6 +27,11 @@
 		56F2F29B1CE2FA54007A4C7B /* CryptanalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F29A1CE2FA54007A4C7B /* CryptanalysisTests.swift */; };
 		56F2F2A61CE2FA54007A4C7B /* CryptanalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */; };
 		56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2B31CE32269007A4C7B /* ResultViewController.swift */; };
+		8F01D9121D48BD1800294942 /* TranpositionDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F01D9111D48BD1800294942 /* TranpositionDecryptionModel.swift */; };
+		8F01D9181D48BD2600294942 /* ShiftDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F01D9171D48BD2600294942 /* ShiftDecryptionModel.swift */; };
+		8F01D91A1D48BD5C00294942 /* PlayfairDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F01D9191D48BD5C00294942 /* PlayfairDecryptionModel.swift */; };
+		8F631A901D489FFC00BE82DB /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F631A8F1D489FFC00BE82DB /* QuizModel.swift */; };
+		8F631A961D48A68A00BE82DB /* AffineDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F631A951D48A68A00BE82DB /* AffineDecryptionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +155,11 @@
 		56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptanalysisUITests.swift; sourceTree = "<group>"; };
 		56F2F2A71CE2FA54007A4C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56F2F2B31CE32269007A4C7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8F01D9111D48BD1800294942 /* TranpositionDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranpositionDecryptionModel.swift; sourceTree = "<group>"; };
+		8F01D9171D48BD2600294942 /* ShiftDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDecryptionModel.swift; sourceTree = "<group>"; };
+		8F01D9191D48BD5C00294942 /* PlayfairDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayfairDecryptionModel.swift; sourceTree = "<group>"; };
+		8F631A8F1D489FFC00BE82DB /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
+		8F631A951D48A68A00BE82DB /* AffineDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffineDecryptionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +220,11 @@
 				565507BE1D0BECD00054FB95 /* MonoDecryptionModel.swift */,
 				565507C01D0BECE40054FB95 /* PolyDecryptionModel.swift */,
 				56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */,
+				8F631A8F1D489FFC00BE82DB /* QuizModel.swift */,
+				8F631A951D48A68A00BE82DB /* AffineDecryptionModel.swift */,
+				8F01D9111D48BD1800294942 /* TranpositionDecryptionModel.swift */,
+				8F01D9171D48BD2600294942 /* ShiftDecryptionModel.swift */,
+				8F01D9191D48BD5C00294942 /* PlayfairDecryptionModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -489,12 +504,17 @@
 				56E22FBE1D0D2AED00E16DF8 /* StasticalModel.swift in Sources */,
 				56F2F2861CE2FA54007A4C7B /* InputViewController.swift in Sources */,
 				56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */,
+				8F01D9181D48BD2600294942 /* ShiftDecryptionModel.swift in Sources */,
+				8F631A961D48A68A00BE82DB /* AffineDecryptionModel.swift in Sources */,
 				565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */,
+				8F01D9121D48BD1800294942 /* TranpositionDecryptionModel.swift in Sources */,
 				565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */,
+				8F631A901D489FFC00BE82DB /* QuizModel.swift in Sources */,
 				565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */,
 				56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */,
 				565507C11D0BECE40054FB95 /* PolyDecryptionModel.swift in Sources */,
 				565507BF1D0BECD00054FB95 /* MonoDecryptionModel.swift in Sources */,
+				8F01D91A1D48BD5C00294942 /* PlayfairDecryptionModel.swift in Sources */,
 				56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
