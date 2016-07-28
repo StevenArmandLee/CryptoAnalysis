@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -62,10 +62,10 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="W4O-RI-36j"/>
+                                        <exclude reference="eCq-D9-yN5"/>
                                         <exclude reference="gQs-Nl-Xdj"/>
                                         <exclude reference="wen-lZ-iDR"/>
-                                        <exclude reference="eCq-D9-yN5"/>
-                                        <exclude reference="W4O-RI-36j"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -94,10 +94,10 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="eSZ-Ch-VtH"/>
-                                        <exclude reference="dlf-7M-1t9"/>
-                                        <exclude reference="su2-lJ-XdU"/>
                                         <exclude reference="03n-mj-H3K"/>
+                                        <exclude reference="dlf-7M-1t9"/>
+                                        <exclude reference="eSZ-Ch-VtH"/>
+                                        <exclude reference="su2-lJ-XdU"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -121,10 +121,10 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Tuy-1y-2Nu"/>
                                         <exclude reference="dLX-lH-x23"/>
                                         <exclude reference="eRX-32-xSO"/>
                                         <exclude reference="lg2-Er-SW6"/>
-                                        <exclude reference="Tuy-1y-2Nu"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -148,10 +148,10 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="jcK-sI-Zhy"/>
-                                        <exclude reference="gwe-Qc-TcI"/>
-                                        <exclude reference="KPM-cb-OGD"/>
                                         <exclude reference="Daj-QY-dBO"/>
+                                        <exclude reference="KPM-cb-OGD"/>
+                                        <exclude reference="gwe-Qc-TcI"/>
+                                        <exclude reference="jcK-sI-Zhy"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -226,12 +226,12 @@
                                     <segue destination="6rU-u3-DXC" kind="show" id="fyj-vy-3a3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-X0-gSo">
-                                <rect key="frame" x="188" y="137" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-X0-gSo">
+                                <rect key="frame" x="188" y="138" width="39" height="30"/>
                                 <state key="normal" title="Mono"/>
                                 <connections>
                                     <action selector="onButton:" destination="GbU-T7-gqU" eventType="touchUpInside" id="fT2-cu-ODC"/>
-                                    <segue destination="eQq-md-Elo" kind="show" id="o7h-g2-33d"/>
+                                    <segue destination="eQq-md-Elo" kind="show" id="vyV-OM-tXe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -690,16 +690,16 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="1Q0-s8-I1f"/>
                                         <exclude reference="AmW-CF-taO"/>
                                         <exclude reference="BHs-TD-zbA"/>
-                                        <exclude reference="1Q0-s8-I1f"/>
-                                        <exclude reference="rSC-vg-NK4"/>
-                                        <exclude reference="quc-9g-aDs"/>
-                                        <exclude reference="iKW-uY-kU5"/>
                                         <exclude reference="BZg-9v-weI"/>
-                                        <exclude reference="SuG-sh-EEw"/>
                                         <exclude reference="FlG-v1-MVk"/>
                                         <exclude reference="S9v-3X-CbZ"/>
+                                        <exclude reference="SuG-sh-EEw"/>
+                                        <exclude reference="iKW-uY-kU5"/>
+                                        <exclude reference="quc-9g-aDs"/>
+                                        <exclude reference="rSC-vg-NK4"/>
                                     </mask>
                                 </variation>
                             </textField>
@@ -721,12 +721,12 @@
                                 </segments>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="qHl-LJ-mJ5"/>
-                                        <exclude reference="jYT-hl-AP1"/>
+                                        <exclude reference="2cI-CX-yea"/>
+                                        <exclude reference="8Ac-kJ-xbH"/>
                                         <exclude reference="BNA-nr-S0C"/>
                                         <exclude reference="hMx-6k-Tn1"/>
-                                        <exclude reference="8Ac-kJ-xbH"/>
-                                        <exclude reference="2cI-CX-yea"/>
+                                        <exclude reference="jYT-hl-AP1"/>
+                                        <exclude reference="qHl-LJ-mJ5"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -773,16 +773,16 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="D0K-ba-XyA"/>
                                         <exclude reference="7bX-L6-Ozd"/>
-                                        <exclude reference="vU4-tv-96u"/>
+                                        <exclude reference="CWz-Fb-Alj"/>
+                                        <exclude reference="D0K-ba-XyA"/>
+                                        <exclude reference="Nl6-Qn-0EE"/>
+                                        <exclude reference="U3R-Lq-d6m"/>
                                         <exclude reference="cRH-s5-IEK"/>
                                         <exclude reference="jUv-kv-bZp"/>
-                                        <exclude reference="sgq-r6-Bbm"/>
-                                        <exclude reference="CWz-Fb-Alj"/>
                                         <exclude reference="qVn-MW-4kH"/>
-                                        <exclude reference="U3R-Lq-d6m"/>
-                                        <exclude reference="Nl6-Qn-0EE"/>
+                                        <exclude reference="sgq-r6-Bbm"/>
+                                        <exclude reference="vU4-tv-96u"/>
                                     </mask>
                                 </variation>
                             </textView>
@@ -808,25 +808,42 @@
                                 <state key="normal" title="Change"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="suk-u1-dWl"/>
-                                        <exclude reference="suU-E0-XLZ"/>
-                                        <exclude reference="N5t-3N-0wl"/>
                                         <exclude reference="0Ur-7H-Pex"/>
-                                        <exclude reference="h2v-ar-mV1"/>
-                                        <exclude reference="SVh-ad-DAg"/>
-                                        <exclude reference="aFd-YV-EcY"/>
-                                        <exclude reference="KMX-T8-1zS"/>
-                                        <exclude reference="XGp-uu-IJY"/>
-                                        <exclude reference="WvK-mW-T1D"/>
                                         <exclude reference="1pr-BR-b2e"/>
                                         <exclude reference="8W7-Xn-jJM"/>
+                                        <exclude reference="KMX-T8-1zS"/>
+                                        <exclude reference="N5t-3N-0wl"/>
+                                        <exclude reference="SVh-ad-DAg"/>
+                                        <exclude reference="WvK-mW-T1D"/>
+                                        <exclude reference="XGp-uu-IJY"/>
+                                        <exclude reference="aFd-YV-EcY"/>
+                                        <exclude reference="h2v-ar-mV1"/>
                                         <exclude reference="oWc-Ng-Z1z"/>
+                                        <exclude reference="suU-E0-XLZ"/>
+                                        <exclude reference="suk-u1-dWl"/>
                                     </mask>
                                 </variation>
                                 <connections>
                                     <action selector="changeButtonAction:" destination="eQq-md-Elo" eventType="touchUpInside" id="FPU-aI-f8L"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-so-dXg">
+                                <rect key="frame" x="356" y="492" width="46" height="30"/>
+                                <state key="normal" title="Affine"/>
+                                <connections>
+                                    <action selector="affineDecryption:" destination="eQq-md-Elo" eventType="touchUpInside" id="C1d-bZ-Xje"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="abi-rs-XOu">
+                                <rect key="frame" x="147" y="512" width="121" height="29"/>
+                                <segments>
+                                    <segment title="Encrypt"/>
+                                    <segment title="Decrypt"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentEncryptDecrypt:" destination="eQq-md-Elo" eventType="valueChanged" id="Oom-MF-ymS"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.8980392157" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -851,6 +868,8 @@
                     <connections>
                         <outlet property="resultTextView" destination="H3w-Z2-IKT" id="tpV-rt-DVL"/>
                         <outlet property="segmentOutlet" destination="btc-oQ-xdX" id="Lhd-5W-APH"/>
+                        <outlet property="segmentOutletAffine" destination="abi-rs-XOu" id="m2i-Js-GFk"/>
+                        <outlet property="segmentOutletMono" destination="btc-oQ-xdX" id="Duy-Ek-JWU"/>
                         <outlet property="wordFromTextField" destination="li9-y3-OhL" id="3FT-rZ-Zym"/>
                         <outlet property="wordToTextField" destination="1OS-TV-ESA" id="SXc-EA-t2b"/>
                     </connections>
@@ -1463,7 +1482,7 @@
         <image name="second" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5DO-K9-aVW"/>
         <segue reference="mWM-e8-Hc2"/>
+        <segue reference="fyj-vy-3a3"/>
     </inferredMetricsTieBreakers>
 </document>
