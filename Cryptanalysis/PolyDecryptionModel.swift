@@ -45,9 +45,6 @@ class PolyDecryptionModel {
         return ciphertext
     }
     
-    
-    
-    
     /***********************************************/
     /************** BEAUFORT CIPHER ****************/
     /***********************************************/
@@ -83,4 +80,65 @@ class PolyDecryptionModel {
         return ciphertext
     }
     
+    
+    /***********************************************/
+    /************* DECRYPTION BUTTON ***************/
+    /***********************************************/
+    func decryptionButton (ctext : String, key : String, type : Int) -> String
+    {
+        
+        let lengthOfCtext = ctext.characters.count
+        let lengthOfKey = key.characters.count
+        var ptext = String()
+        var count = 0
+        
+        for i in 0..<lengthOfCtext {
+            let indexOfCtext = ctext.startIndex.advancedBy(i)
+            
+            if let ctextNum = alphabet_Translator[ctext[indexOfCtext]] {
+                let indexOfKey = key.startIndex.advancedBy(count % lengthOfKey)
+                let keyNum = alphabet_Translator[key[indexOfKey]]!
+                var index = 0
+                
+                if type == 0 {
+                    index = ctextNum - keyNum
+                }
+                else {
+                    index = ctextNum + keyNum
+                }
+                
+                if index < 0 {
+                    index = index + 26
+                }
+                else if index >= 26 {
+                    index = index - 26
+                }
+                ptext.append(numeric_Translator[index]!)
+                count += 1
+            }
+            else {
+                ptext.append(ctext[indexOfCtext])
+            }
+        }
+        
+        return ptext
+    }
+    
+    /***********************************************/
+    /***************** CHECK KEY *******************/
+    /***********************************************/
+    func checkKey (key : String) -> Bool
+    {
+        if key == "" {
+            return false
+        }
+        
+        for charKey in key.characters {
+            if (alphabet_Translator[charKey] == nil){
+                return false
+            }
+        }
+        
+        return true
+    }
 }

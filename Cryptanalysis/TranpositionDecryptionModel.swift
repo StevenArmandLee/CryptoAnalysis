@@ -8,14 +8,18 @@
 
 import Foundation
 
-class TranspositionCipher{
+class TranspositionDecryptionModel{
+    
+    let numeric = "0123456789"
+    
     /***********************************************/
     /************ TRANSPOSITION CIPHER *************/
     /***********************************************/
     func transpositionEncryption(text: String, key: String) -> String {
         var ciphertext = String()
         
-        var plaintext = text
+        var plaintext = removeSpecialCharsFromString(text)
+        
         let remainder = plaintext.characters.count % key.characters.count
         
         if remainder != 0 {
@@ -56,8 +60,10 @@ class TranspositionCipher{
     // to convert the key into set of different number, the key can be either word or number or can have two/three the same number or letter
     func getKeyTable(key: String) -> [Int] {
         var table = [Int](count: key.characters.count, repeatedValue: 0)
-        var keyMap = Array(key.characters)
-        var sortKey = Array(key.characters)
+        let tempKey = key.uppercaseString
+        
+        var keyMap = Array(tempKey.characters)
+        var sortKey = Array(tempKey.characters)
         
         sortKey = sortKey.sort()
         
@@ -72,5 +78,46 @@ class TranspositionCipher{
         }
         
         return table
+    }
+    
+    func removeSpecialCharsFromString(text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
+    }
+    
+    func checkKey (key : String) -> Bool
+    {
+        if key == "" {
+            return false
+        }
+        
+        for charKey in key.characters {
+            if (alphabet_Translator[charKey] == nil){
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    // decrypt the text using transposition decipher
+    func decryptionButton(text: String, key: String) -> String {
+        
+        var plaintext = String()
+        let ciphertext = removeSpecialCharsFromString(text)
+        
+        let col = ciphertext.characters.count / key.characters.count
+        let keyTable = getKeyTable(key)
+        
+        for i in 0...col-1 {
+            for j in 0...key.characters.count-1 {
+                let cChar = ciphertext.startIndex.advancedBy(col * keyTable[j] + i)
+                plaintext.append(ciphertext[cChar])
+            }
+        }
+        
+        return plaintext
+        
     }
 }

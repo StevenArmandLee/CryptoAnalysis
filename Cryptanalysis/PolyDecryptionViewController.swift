@@ -23,6 +23,10 @@ class PolyDecryptionController: UIViewController
     @IBOutlet weak var rightButton: UIButton!
     private var shiftModel : ShiftDecryptionModel = ShiftDecryptionModel()
     
+    private var transpoModel : TranspositionDecryptionModel = TranspositionDecryptionModel()
+    
+    private var playfairModel : PlayfairDecryptionModel = PlayfairDecryptionModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,9 +72,9 @@ class PolyDecryptionController: UIViewController
     
     //change the function to onChange
     @IBAction func buttonPressed(sender: UIButton) {
-        /*
-        let ctext = globalModifiedText.lowercaseString
-        let key = keyField.text!.lowercaseString
+        
+        let ctext = globalModifiedText.uppercaseString
+        let key = keyField.text!.uppercaseString
         let type = typeOfCipherSegment.selectedSegmentIndex
         if(keyField.text == ""){
             
@@ -91,20 +95,16 @@ class PolyDecryptionController: UIViewController
             presentViewController(alert, animated: true, completion: nil)
         }
         
-        */
     }
 
     @IBAction func onShift(sender: UIButton) {
-        /*
-        let ctext = globalModifiedText.lowercaseString
+        
+        let ctext = globalModifiedText.uppercaseString
+        
         let key = keyField.text
         let type = sender.currentTitle
         
-        if(keyField.text == ""){
-        
-    }
-        else if shiftModel.checkKey(key!) != false {
-            
+        if shiftModel.checkKey(key!) != false {
             let ptext = shiftModel.decryptionButton(ctext, offset: key!, type: type!)
             resultTextView.text = ptext
         }
@@ -120,7 +120,51 @@ class PolyDecryptionController: UIViewController
             presentViewController(alert, animated: true, completion: nil)
             
         }
- */
+    }
+    
+    @IBAction func transpoButton(sender: UIButton) {
+        let ctext = globalModifiedText.uppercaseString
+        let key = keyField.text!.uppercaseString
+        
+        if transpoModel.checkKey(key) != false {
+            let ptext = transpoModel.decryptionButton(ctext, key: key)
+            resultTextView.text = ptext
+        }
+        else {
+            let attributedString = NSAttributedString(string: "Alert", attributes: [
+                NSFontAttributeName : UIFont.systemFontOfSize(20),
+                NSForegroundColorAttributeName : UIColor.redColor()
+                ])
+            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
+            
+            alert.setValue(attributedString, forKey: "attributedTitle")
+            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    @IBAction func playfairButton(sender: UIButton) {
+        let ctext = globalModifiedText.lowercaseString
+        let key = keyField.text!.lowercaseString
+        
+        if playfairModel.checkKey(key) != false {
+            let ptext = playfairModel.decryptionButton(ctext, key: key)
+            resultTextView.text = ptext
+        }
+        else {
+            let attributedString = NSAttributedString(string: "Alert", attributes: [
+                NSFontAttributeName : UIFont.systemFontOfSize(20),
+                NSForegroundColorAttributeName : UIColor.redColor()
+                ])
+            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
+            
+            alert.setValue(attributedString, forKey: "attributedTitle")
+            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        
+        
     }
     
 }
