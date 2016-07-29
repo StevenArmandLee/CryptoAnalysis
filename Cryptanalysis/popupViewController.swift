@@ -10,10 +10,13 @@ import Foundation
 import UIKit
 
 class popupViewController: UIViewController {
-
+    var key = ""
+    
+    @IBOutlet weak var keyLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+        keyLabel.text = key
         self.showAnimate()
     }
     

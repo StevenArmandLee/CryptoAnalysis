@@ -34,7 +34,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     
     var cipherPickerOption = ["Affine","Monoalphabetic","Shift Left","Shift Right","Transposition","Playfair","Vigenere","Beaufort"]
     var imageToBeScanned: UIImage = UIImage()
-    
+    var key = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +116,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     @IBAction func showInfoPopup(sender: UIButton) {
         
             let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("informationPopUp") as! popupViewController
+            popOverVC.key = key
             self.addChildViewController(popOverVC)
             popOverVC.view.frame = self.view.frame
             self.view.addSubview(popOverVC.view)
@@ -128,9 +129,15 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
 
 
 extension InputViewController: UIViewControllerPreviewingDelegate{
+    
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let peekViewController = storyboard?.instantiateViewControllerWithIdentifier("informationPopUp") as! popupViewController
+        if(infoButton.enabled == false)
+        {
+            return nil
+        }
+        let peekViewController = storyboard?.instantiateViewControllerWithIdentifier("keyPopViewController") as! keyPopViewController
         //TODO create new view controller and show the information
+        peekViewController.key = key
         return peekViewController
     }
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
@@ -290,6 +297,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         
         
         originalText.text = quizModel.getCipherText()
+        key = quizModel.getKeyWord()
         globalOriginalText = originalText.text
         globalModifiedText = globalOriginalText
         print(quizModel.getKeyWord())

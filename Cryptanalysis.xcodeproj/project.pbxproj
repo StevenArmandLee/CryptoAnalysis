@@ -16,6 +16,7 @@
 		5631B5441D451301009E302B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631B5431D451301009E302B /* CoreImage.framework */; };
 		5633A1301D45FAEC00E00F65 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5633A12F1D45FAAE00E00F65 /* GPUImage.framework */; };
 		5633A1311D45FAEC00E00F65 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5633A12F1D45FAAE00E00F65 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		564461F21D4B7FA200C6BC8C /* keyPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564461F11D4B7FA200C6BC8C /* keyPopViewController.swift */; };
 		565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */; };
 		565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */; };
 		565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */; };
@@ -24,6 +25,8 @@
 		56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2841D435BE600D56A1F /* ICViewController.swift */; };
 		56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */; };
 		56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */; };
+		56C36E971D49DDD20042A2FD /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C36E961D49DDD20042A2FD /* ToolsViewController.swift */; };
+		56C36E9E1D49DE380042A2FD /* ToolsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C36E9D1D49DE380042A2FD /* ToolsContentViewController.swift */; };
 		56D4FD2D1D409A20006CC58A /* InformationContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D4FD2C1D409A20006CC58A /* InformationContentViewController.swift */; };
 		56E22FBE1D0D2AED00E16DF8 /* StasticalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */; };
 		56E3C4FD1D48C0F600E6CD5E /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */; };
@@ -143,6 +146,7 @@
 		5631B5411D4512F8009E302B /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		5631B5431D451301009E302B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		5633A1261D45FAAE00E00F65 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		564461F11D4B7FA200C6BC8C /* keyPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyPopViewController.swift; sourceTree = "<group>"; };
 		565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecryptViewController.swift; sourceTree = "<group>"; };
 		565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionViewContoller.swift; sourceTree = "<group>"; };
 		565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 		56AEB2841D435BE600D56A1F /* ICViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICViewController.swift; sourceTree = "<group>"; };
 		56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationModel.swift; sourceTree = "<group>"; };
 		56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowngTextView.swift; sourceTree = "<group>"; };
+		56C36E961D49DDD20042A2FD /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
+		56C36E9D1D49DE380042A2FD /* ToolsContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsContentViewController.swift; sourceTree = "<group>"; };
 		56D4FD2C1D409A20006CC58A /* InformationContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationContentViewController.swift; sourceTree = "<group>"; };
 		56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StasticalModel.swift; sourceTree = "<group>"; };
 		56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
@@ -234,6 +240,9 @@
 				56D4FD2C1D409A20006CC58A /* InformationContentViewController.swift */,
 				56AEB2821D433AC100D56A1F /* popupViewController.swift */,
 				56AEB2841D435BE600D56A1F /* ICViewController.swift */,
+				56C36E961D49DDD20042A2FD /* ToolsViewController.swift */,
+				56C36E9D1D49DE380042A2FD /* ToolsContentViewController.swift */,
+				564461F11D4B7FA200C6BC8C /* keyPopViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -595,13 +604,16 @@
 				56F2F2841CE2FA54007A4C7B /* AppDelegate.swift in Sources */,
 				56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */,
 				56E22FBE1D0D2AED00E16DF8 /* StasticalModel.swift in Sources */,
+				56C36E9E1D49DE380042A2FD /* ToolsContentViewController.swift in Sources */,
 				56F2F2861CE2FA54007A4C7B /* InputViewController.swift in Sources */,
 				56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */,
 				565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */,
 				56E3C5101D48C61400E6CD5E /* TranpositionDecryptionModel.swift in Sources */,
 				56E3C50C1D48C61400E6CD5E /* MonoDecryptionModel.swift in Sources */,
+				56C36E971D49DDD20042A2FD /* ToolsViewController.swift in Sources */,
 				565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */,
 				56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */,
+				564461F21D4B7FA200C6BC8C /* keyPopViewController.swift in Sources */,
 				56E3C50F1D48C61400E6CD5E /* AffineDecryptionModel.swift in Sources */,
 				56E3C50E1D48C61400E6CD5E /* QuizModel.swift in Sources */,
 				565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */,
