@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5602C3821D4E21F80097E93E /* AutoDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602C3811D4E21F80097E93E /* AutoDecryptionModel.swift */; };
 		56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FB61D0E68E800FE8FFF /* GraphViewController.swift */; };
 		56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */; };
 		5626339E1D34DE57007429AE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A9C4071D34B764009F0983 /* Charts.framework */; };
@@ -139,6 +140,7 @@
 
 /* Begin PBXFileReference section */
 		07B83642C39BA54BA24DFEFD /* Pods-Cryptanalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.release.xcconfig"; sourceTree = "<group>"; };
+		5602C3811D4E21F80097E93E /* AutoDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDecryptionModel.swift; sourceTree = "<group>"; };
 		56180FB61D0E68E800FE8FFF /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		5631B5261D450358009E302B /* Cryptanalysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cryptanalysis-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */,
 				56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */,
 				56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */,
+				5602C3811D4E21F80097E93E /* AutoDecryptionModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */,
 				56E3C50D1D48C61400E6CD5E /* PolyDecryptionModel.swift in Sources */,
 				56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */,
+				5602C3821D4E21F80097E93E /* AutoDecryptionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

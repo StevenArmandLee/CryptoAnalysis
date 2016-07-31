@@ -12,8 +12,8 @@ class QuizModel{
     //Encryptor Object
     private let monoDecryption = MonoDecryptionModel()
     private let affineCipher = AffineDecryption()
-    private let transpositionCipher = TranspositionCipher()
-    private let playfairCipher = PlayfairCipherModel()
+    private let transpositionCipher = TranspositionDecryptionModel()
+    private let playfairCipher = PlayfairDecryptionModel()
     private let polyDecryption = PolyDecryptionModel()
     private let shiftDecryption = ShiftDecryptionModel()
     
@@ -35,12 +35,13 @@ class QuizModel{
         let keyWordTemp = RandomWords(RandomSentence())
         
         //Setting Key
-        keyWord = monoDecryption.removeDuplicateLetterFromString(keyWord)
+        keyWord = monoDecryption.removeDuplicateLetterFromString(keyWordTemp)
         keyWord = monoDecryption.autoFillKeyString(keyWord)
         
         //Encryption
+        print(keyWord)
         monoDecryption.insertKeyToDictionaryStream(keyWord, userValue: "abcdefghijklmnopqrstuvwxyz")
-        cipherText = monoDecryption.applyReplaceUsingDictionaryStream(plainText).uppercaseString
+        cipherText = monoDecryption.applyReplaceUsingDictionaryStream(plainText).lowercaseString
         monoDecryption.resetDictionary()
         
         keyWord = keyWordTemp
@@ -52,7 +53,7 @@ class QuizModel{
         keyWord = RandomWords(RandomSentence())
         
         //Encryption
-        cipherText = polyDecryption.vigenereEncryption(plainText, key: keyWord)
+        cipherText = polyDecryption.vigenereEncryption(plainText.uppercaseString, key: keyWord).lowercaseString
     }
     
     func generateBeaufortCipher(){
@@ -61,7 +62,8 @@ class QuizModel{
         keyWord = RandomWords(RandomSentence())
         
         //Encryption
-        cipherText = polyDecryption.beaufortEncryption(plainText, key: keyWord)    }
+        cipherText = polyDecryption.beaufortEncryption(plainText.uppercaseString, key: keyWord).lowercaseString
+    }
     
     func generateAffineCipher(){
         //Generate Plaintext and Keys
@@ -74,7 +76,7 @@ class QuizModel{
         keyWord = "\(keyAlpha) and \(keyBeta)"
         
         //Encryption
-        cipherText = affineCipher.applyAffineEncryptionUsingKey(plainText.uppercaseString, alphaKey: keyAlpha, betaKey: keyBeta)
+        cipherText = affineCipher.applyAffineEncryptionUsingKey(plainText.uppercaseString, alphaKey: keyAlpha, betaKey: keyBeta).lowercaseString
     }
     
     func generateShiftLeftCipher(){
@@ -87,7 +89,7 @@ class QuizModel{
         keyWord = "\(keyAlpha)"
         
         //Encryption
-        cipherText = shiftDecryption.shiftLeftEncryption(plainText, key: String(keyAlpha))
+        cipherText = shiftDecryption.shiftLeftEncryption(plainText.uppercaseString, key: String(keyAlpha)).lowercaseString
     }
     
     func generateShiftRightCipher(){
@@ -100,7 +102,7 @@ class QuizModel{
         keyWord = "\(keyAlpha)"
         
         //Encryption
-        cipherText = shiftDecryption.shiftRightEncryption(plainText, key: String(keyAlpha))
+        cipherText = shiftDecryption.shiftRightEncryption(plainText.uppercaseString, key: String(keyAlpha)).lowercaseString
     }
     
     func generateTranspositionCipher(){
@@ -109,7 +111,7 @@ class QuizModel{
         keyWord = RandomWords(RandomSentence())
         
         //Encryption
-        cipherText = transpositionCipher.transpositionEncryption(plainText, key: keyWord)
+        cipherText = transpositionCipher.transpositionEncryption(plainText.uppercaseString, key: keyWord)
     }
     
     func generatePlayfairCipher(){
@@ -118,7 +120,7 @@ class QuizModel{
         keyWord = RandomWords(RandomSentence())
         
         //Encryption
-        cipherText = playfairCipher.playFairEncryption(plainText, key: keyWord)
+        cipherText = playfairCipher.playFairEncryption(plainText.uppercaseString, key: keyWord).lowercaseString
     }
     
     //Accessor

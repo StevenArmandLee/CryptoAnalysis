@@ -21,12 +21,13 @@ class DecryptViewController: UIViewController
    
     
     @IBAction func onButton(sender: UIButton) {
-        if sender.currentTitle == "Substution" || sender.currentTitle == "Affine"{
+        if sender.currentTitle == "Substitution" || sender.currentTitle == "Affine"{
             isMono = true
         }
         else{
             isMono = false
         }
+         decryptionType = sender.currentTitle!
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,13 +35,15 @@ class DecryptViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onDecryptionType(sender: UIButton) {
-        decryptionType = sender.currentTitle!
-    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if isMono == false{
             var polyDecryptoinVC: PolyDecryptionController = (segue.destinationViewController as! PolyDecryptionController)
             polyDecryptoinVC.receivedString = decryptionType
+        }
+        else{
+            var substitutionDecryptoinVC: MonoDecryptionController = (segue.destinationViewController as! MonoDecryptionController)
+            substitutionDecryptoinVC.receivedString = decryptionType
         }
         
         

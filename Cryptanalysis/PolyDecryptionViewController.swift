@@ -23,8 +23,16 @@ class PolyDecryptionController: UIViewController
     @IBOutlet weak var rightButton: UIButton!
     private var shiftModel : ShiftDecryptionModel = ShiftDecryptionModel()
     
+    private var transpoModel : TranspositionDecryptionModel = TranspositionDecryptionModel()
+    
+    private var playfairModel : PlayfairDecryptionModel = PlayfairDecryptionModel()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         resultTextView.text = globalModifiedText
         resultTextView.layer.borderWidth=1
@@ -64,47 +72,36 @@ class PolyDecryptionController: UIViewController
             leftButton.hidden = false
             rightButton.hidden = false
         }
+        else {
+            typeOfCipherSegment.hidden = true
+            changeButton.hidden = false
+            leftButton.hidden = true
+            rightButton.hidden = true
+        }
     }
     
     //change the function to onChange
     @IBAction func buttonPressed(sender: UIButton) {
-        /*
-        let ctext = globalModifiedText.lowercaseString
-        let key = keyField.text!.lowercaseString
-        let type = typeOfCipherSegment.selectedSegmentIndex
-        if(keyField.text == ""){
-            
+        if(receivedString == "Poly") {
+            changePoly()
         }
-       else if model.checkKey(key) != false {
-            let ptext = model.decryptionButton(ctext, key: key, type: type)
-            resultTextView.text = ptext
+        else if receivedString == "Transposition" {
+            changeTranspo()
         }
-        else {
-            let attributedString = NSAttributedString(string: "Alert", attributes: [
-                NSFontAttributeName : UIFont.systemFontOfSize(20),
-                NSForegroundColorAttributeName : UIColor.redColor()
-                ])
-            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
-            
-            alert.setValue(attributedString, forKey: "attributedTitle")
-            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
-            presentViewController(alert, animated: true, completion: nil)
+        else if receivedString == "Playfair" {
+            changePlayfair()
         }
         
-        */
     }
-
+    
     @IBAction func onShift(sender: UIButton) {
-        /*
-        let ctext = globalModifiedText.lowercaseString
+        
+        let ctext = globalModifiedText.uppercaseString
+        
         let key = keyField.text
         let type = sender.currentTitle
         
-        if(keyField.text == ""){
-        
-    }
-        else if shiftModel.checkKey(key!) != false {
-            
+        if shiftModel.checkKey(key!) != false {
             let ptext = shiftModel.decryptionButton(ctext, offset: key!, type: type!)
             resultTextView.text = ptext
         }
@@ -120,7 +117,79 @@ class PolyDecryptionController: UIViewController
             presentViewController(alert, animated: true, completion: nil)
             
         }
- */
     }
     
+    func changePoly()
+    {
+        let ctext = globalModifiedText.uppercaseString
+        let key = keyField.text!.uppercaseString
+        let type = typeOfCipherSegment.selectedSegmentIndex
+        if(keyField.text == ""){
+            
+        }
+        else if model.checkKey(key) != false {
+            let ptext = model.decryptionButton(ctext, key: key, type: type)
+            resultTextView.text = ptext
+        }
+        else {
+            let attributedString = NSAttributedString(string: "Alert", attributes: [
+                NSFontAttributeName : UIFont.systemFontOfSize(20),
+                NSForegroundColorAttributeName : UIColor.redColor()
+                ])
+            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
+            
+            alert.setValue(attributedString, forKey: "attributedTitle")
+            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+
+    }
+    
+    func changeTranspo() {
+        let ctext = globalModifiedText.uppercaseString
+        let key = keyField.text!.uppercaseString
+        
+        if transpoModel.checkKey(key) != false {
+            let ptext = transpoModel.decryptionButton(ctext, key: key)
+            resultTextView.text = ptext
+        }
+        else {
+            let attributedString = NSAttributedString(string: "Alert", attributes: [
+                NSFontAttributeName : UIFont.systemFontOfSize(20),
+                NSForegroundColorAttributeName : UIColor.redColor()
+                ])
+            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
+            
+            alert.setValue(attributedString, forKey: "attributedTitle")
+            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+
+    }
+    
+    func changePlayfair()
+    {
+        let ctext = globalModifiedText.lowercaseString
+        let key = keyField.text!.lowercaseString
+        
+        if playfairModel.checkKey(key) != false {
+            let ptext = playfairModel.decryptionButton(ctext, key: key)
+            resultTextView.text = ptext
+        }
+        else {
+            let attributedString = NSAttributedString(string: "Alert", attributes: [
+                NSFontAttributeName : UIFont.systemFontOfSize(20),
+                NSForegroundColorAttributeName : UIColor.redColor()
+                ])
+            let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
+            
+            alert.setValue(attributedString, forKey: "attributedTitle")
+            alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        
+        
+
+    }
+        
 }

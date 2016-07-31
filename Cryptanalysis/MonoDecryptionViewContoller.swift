@@ -11,20 +11,18 @@ import UIKit
 
 class MonoDecryptionController: UIViewController
 {
+    var receivedString = ""
     private var monoDecryption: MonoDecryptionModel = MonoDecryptionModel()
-    private var optionFlag :Int = 0
+    private var affineDecryption :AffineDecryption = AffineDecryption()
+ 
     
-    @IBOutlet var segmentOutlet: UISegmentedControl!
-    @IBAction func segmentStreamBlock(sender: AnyObject) {
-        switch(self.segmentOutlet.selectedSegmentIndex){
-        case 0 : optionFlag = 0
-        break;
-        case 1 : optionFlag = 1
-        break;
-        default : optionFlag = 0
-        break;
-        }
-    }
+    
+    
+    @IBOutlet weak var autoDecryptionButton: UIButton!
+    @IBOutlet weak var clearKeysButton: UIButton!
+    @IBOutlet weak var autoFillButton: UIButton!
+    @IBOutlet var segmentOutletMono: UISegmentedControl!
+    
     @IBOutlet var wordFromTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet var wordToTextField: UITextField!
@@ -48,14 +46,23 @@ class MonoDecryptionController: UIViewController
         }
     }
     @IBAction func changeButtonAction(sender: AnyObject) {
+        if receivedString == "Substitution"{
+            changeMono()
+        }
+        else {
+            changeAffine()
+        }
+            }
+    
+    func changeMono(){
         let wordFrom = wordFromTextField.text!
         let wordTo = wordToTextField.text!
         if wordTo != ""{
             if wordFrom != ""{
-                if optionFlag == 0{
+                if segmentOutletMono.selectedSegmentIndex == 0{
                     monoDecryption.insertKeyToDictionaryStream(wordFrom, userValue: wordTo)
                     resultTextView.text = monoDecryption.applyReplaceUsingDictionaryStream(globalModifiedText)
-                }else if optionFlag == 1{
+                }else if segmentOutletMono.selectedSegmentIndex == 1{
                     monoDecryption.insertKeyToDictionaryBlock(wordFrom, userValue: wordTo)
                     resultTextView.text = monoDecryption.applyReplaceUsingDictionaryBlock(globalModifiedText)                }
             }else{
@@ -66,11 +73,79 @@ class MonoDecryptionController: UIViewController
         }
         wordFromTextField.text = ""
         wordToTextField.text = ""
+
+    }
+    
+    func changeAffine(){
+        let alphaKey = wordFromTextField.text!
+        let betaKey = wordToTextField.text!
+        if alphaKey != "" && Int(alphaKey) != nil{
+            if betaKey != "" && Int(betaKey) != nil{
+                if Int(alphaKey)! % 2 != 0 && Int(alphaKey)! != 13 && Int(alphaKey)! < 26{
+                    if Int(betaKey)! < 26{
+                        if segmentOutletMono.selectedSegmentIndex == 0{
+                            resultTextView.text = affineDecryption.applyAffineEncryptionUsingKey(resultTextView.text.uppercaseString, alphaKey: Int(alphaKey)!, betaKey :Int(betaKey)!)
+                        }else if segmentOutletMono.selectedSegmentIndex == 1{
+                            resultTextView.text = affineDecryption.applyAffineDecryptionUsingKey(resultTextView.text.uppercaseString, alphaKey: Int(alphaKey)!, betaKey: Int(betaKey)!)
+                        }
+                    }else{
+                        //PRINT BETA KEY CANT EXCEED 26
+                    }
+                }else{
+                    //PRINT ALPHA KEY CANT BE EVEN NUMBER OR 13 OR EXCEED 26
+                }
+            }else{
+                // PRINT IF RIGHT BOX EMPTY OR NOT NUMBER
+            }
+        }else{
+            //PRINT IF LEFT BOX EMPTY OR NOT NUMBER
+        }
+
+    }
+    
+    @IBAction func onChangeSegment(sender: AnyObject) {
+        if(receivedString == "Substitution")
+        {
+            if segmentOutletMono.selectedSegmentIndex == 1
+            {
+                autoFillButton.hidden = true
+            }
+            else if segmentOutletMono.selectedSegmentIndex == 0
+            {
+                autoFillButton.hidden = false
+            }
+        }
+    }
+    func isSubstitution()
+    {
+        segmentOutletMono.setTitle("Stream", forSegmentAtIndex: 0)
+        segmentOutletMono.setTitle("Block", forSegmentAtIndex: 1)
+        
+    }
+    
+    func isAffine()
+    {
+        segmentOutletMono.setTitle("Encrypt", forSegmentAtIndex: 0)
+        segmentOutletMono.setTitle("Decrypt", forSegmentAtIndex: 1)
+        autoFillButton.hidden = true
+        clearKeysButton.hidden = true
+        
+    }
+    
+    func isAffineOrSubstitution(cipherType: String)
+    {
+        if(cipherType == "Substitution")
+        {
+            isSubstitution()
+        }
+        else{
+            isAffine()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isAffineOrSubstitution(receivedString)
         resultTextView.text = globalModifiedText
         resultTextView.layer.borderWidth=1
         resultTextView.layer.borderColor=UIColor.blackColor().CGColor
@@ -93,4 +168,6 @@ class MonoDecryptionController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 }

@@ -46,6 +46,8 @@ class MonoDecryptionModel
                 }else{
                     if key.rangeOfString(userKey) != nil{
                         break
+                    }else{
+                        dictionaryBlock[userKey] = userValue
                     }
                 }
             }
