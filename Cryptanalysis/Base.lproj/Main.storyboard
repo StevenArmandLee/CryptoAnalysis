@@ -226,12 +226,12 @@
                                     <segue destination="6rU-u3-DXC" kind="show" id="fyj-vy-3a3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-X0-gSo">
-                                <rect key="frame" x="188" y="137" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-X0-gSo">
+                                <rect key="frame" x="182" y="138" width="39" height="30"/>
                                 <state key="normal" title="Mono"/>
                                 <connections>
                                     <action selector="onButton:" destination="GbU-T7-gqU" eventType="touchUpInside" id="fT2-cu-ODC"/>
-                                    <segue destination="eQq-md-Elo" kind="show" id="o7h-g2-33d"/>
+                                    <segue destination="eQq-md-Elo" kind="show" id="4Et-qB-9NL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwI-55-LM2">
@@ -246,6 +246,13 @@
                                 <state key="normal" title="Playfair"/>
                                 <connections>
                                     <segue destination="6rU-u3-DXC" kind="show" id="GTu-Oy-HEE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wp-KI-xYp">
+                                <rect key="frame" x="187" y="450" width="41" height="30"/>
+                                <state key="normal" title="Affine"/>
+                                <connections>
+                                    <segue destination="eQq-md-Elo" kind="show" id="baY-qt-pCb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -270,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPn-9f-ImD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="150"/>
+            <point key="canvasLocation" x="669" y="94"/>
         </scene>
         <!--Input-->
         <scene sceneID="hNz-n2-bh7">
@@ -717,36 +724,6 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="btc-oQ-xdX">
-                                <rect key="frame" x="147" y="372" width="121" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="2cI-CX-yea"/>
-                                    <constraint firstAttribute="height" constant="28" id="8Ac-kJ-xbH"/>
-                                    <constraint firstAttribute="width" constant="121" id="BNA-nr-S0C"/>
-                                    <constraint firstAttribute="width" constant="121" id="SlB-D4-h6x"/>
-                                    <constraint firstAttribute="height" constant="28" id="Z06-mh-bqg"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="hMx-6k-Tn1"/>
-                                    <constraint firstAttribute="height" constant="28" id="jYT-hl-AP1"/>
-                                    <constraint firstAttribute="width" constant="121" id="qHl-LJ-mJ5"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Stream"/>
-                                    <segment title="Block"/>
-                                </segments>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2cI-CX-yea"/>
-                                        <exclude reference="8Ac-kJ-xbH"/>
-                                        <exclude reference="BNA-nr-S0C"/>
-                                        <exclude reference="hMx-6k-Tn1"/>
-                                        <exclude reference="jYT-hl-AP1"/>
-                                        <exclude reference="qHl-LJ-mJ5"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="segmentStreamBlock:" destination="eQq-md-Elo" eventType="valueChanged" id="DBs-8f-eeU"/>
-                                </connections>
-                            </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1OS-TV-ESA">
                                 <rect key="frame" x="226" y="423" width="180" height="30"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -841,6 +818,53 @@
                                     <action selector="changeButtonAction:" destination="eQq-md-Elo" eventType="touchUpInside" id="FPU-aI-f8L"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KP2-Yr-KqF">
+                                <rect key="frame" x="20" y="479" width="127" height="29"/>
+                                <segments>
+                                    <segment title="Encrypt"/>
+                                    <segment title="Decrypt"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentEncryptDecrypt:" destination="eQq-md-Elo" eventType="valueChanged" id="t7m-2V-taB"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBk-Bw-oDt">
+                                <rect key="frame" x="20" y="534" width="41" height="30"/>
+                                <state key="normal" title="Affine"/>
+                                <connections>
+                                    <action selector="affineDecryption:" destination="eQq-md-Elo" eventType="touchUpInside" id="EF2-kB-jTE"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="btc-oQ-xdX">
+                                <rect key="frame" x="154" y="372" width="121" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="2cI-CX-yea"/>
+                                    <constraint firstAttribute="height" constant="28" id="8Ac-kJ-xbH"/>
+                                    <constraint firstAttribute="width" constant="121" id="BNA-nr-S0C"/>
+                                    <constraint firstAttribute="width" constant="121" id="SlB-D4-h6x"/>
+                                    <constraint firstAttribute="height" constant="28" id="Z06-mh-bqg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="hMx-6k-Tn1"/>
+                                    <constraint firstAttribute="height" constant="28" id="jYT-hl-AP1"/>
+                                    <constraint firstAttribute="width" constant="121" id="qHl-LJ-mJ5"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Stream"/>
+                                    <segment title="Block"/>
+                                </segments>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2cI-CX-yea"/>
+                                        <exclude reference="8Ac-kJ-xbH"/>
+                                        <exclude reference="BNA-nr-S0C"/>
+                                        <exclude reference="hMx-6k-Tn1"/>
+                                        <exclude reference="jYT-hl-AP1"/>
+                                        <exclude reference="qHl-LJ-mJ5"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="segmentStreamBlock:" destination="eQq-md-Elo" eventType="valueChanged" id="FDW-Mp-WW6"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.8980392157" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -864,14 +888,15 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="resultTextView" destination="H3w-Z2-IKT" id="tpV-rt-DVL"/>
-                        <outlet property="segmentOutlet" destination="btc-oQ-xdX" id="Lhd-5W-APH"/>
+                        <outlet property="segmentOutletAffine" destination="KP2-Yr-KqF" id="Hya-wI-Ytd"/>
+                        <outlet property="segmentOutletMono" destination="btc-oQ-xdX" id="N1t-Rd-J2a"/>
                         <outlet property="wordFromTextField" destination="li9-y3-OhL" id="3FT-rZ-Zym"/>
                         <outlet property="wordToTextField" destination="1OS-TV-ESA" id="SXc-EA-t2b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nD-5r-JzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="-765"/>
+            <point key="canvasLocation" x="1259" y="-547"/>
         </scene>
         <!--Cipher-->
         <scene sceneID="r2c-Bw-zeZ">
@@ -922,13 +947,6 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-wJ-wWZ">
-                                <rect key="frame" x="0.0" y="64" width="414" height="391"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="yes"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1N-Z9-Qkr">
                                 <rect key="frame" x="291" y="499" width="53" height="30"/>
                                 <constraints>
@@ -981,6 +999,13 @@
                                     <action selector="playfairButton:" destination="6rU-u3-DXC" eventType="touchUpInside" id="QEd-Jr-R4w"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-wJ-wWZ">
+                                <rect key="frame" x="0.0" y="64" width="414" height="391"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="yes"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1038,7 +1063,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDg-8a-UhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1256" y="323"/>
+            <point key="canvasLocation" x="1282" y="324"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="uDl-wQ-4NL">
@@ -1491,7 +1516,8 @@
         <image name="second" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5DO-K9-aVW"/>
         <segue reference="mWM-e8-Hc2"/>
+        <segue reference="5DO-K9-aVW"/>
+        <segue reference="baY-qt-pCb"/>
     </inferredMetricsTieBreakers>
 </document>

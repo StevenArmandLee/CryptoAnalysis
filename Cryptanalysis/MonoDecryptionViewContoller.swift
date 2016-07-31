@@ -12,16 +12,28 @@ import UIKit
 class MonoDecryptionController: UIViewController
 {
     private var monoDecryption: MonoDecryptionModel = MonoDecryptionModel()
-    private var optionFlag :Int = 0
+    private var affineDecryption :AffineDecryption = AffineDecryption()
+    private var optionFlagMono :Int = 0
+    private var optionFlagAffine :Int = 0
     
-    @IBOutlet var segmentOutlet: UISegmentedControl!
+    @IBOutlet var segmentOutletAffine: UISegmentedControl!
+    @IBAction func segmentEncryptDecrypt(sender: AnyObject) {
+        switch(self.segmentOutletAffine.selectedSegmentIndex){
+        case 0 : optionFlagAffine = 0
+        break;
+        case 1 : optionFlagAffine = 1
+        break;
+        default : optionFlagAffine = 0
+        break;
+        }    }
+    @IBOutlet var segmentOutletMono: UISegmentedControl!
     @IBAction func segmentStreamBlock(sender: AnyObject) {
-        switch(self.segmentOutlet.selectedSegmentIndex){
-        case 0 : optionFlag = 0
+        switch(self.segmentOutletMono.selectedSegmentIndex){
+        case 0 : optionFlagMono = 0
         break;
-        case 1 : optionFlag = 1
+        case 1 : optionFlagMono = 1
         break;
-        default : optionFlag = 0
+        default : optionFlagMono = 0
         break;
         }
     }
@@ -52,10 +64,10 @@ class MonoDecryptionController: UIViewController
         let wordTo = wordToTextField.text!
         if wordTo != ""{
             if wordFrom != ""{
-                if optionFlag == 0{
+                if optionFlagMono == 0{
                     monoDecryption.insertKeyToDictionaryStream(wordFrom, userValue: wordTo)
                     resultTextView.text = monoDecryption.applyReplaceUsingDictionaryStream(globalModifiedText)
-                }else if optionFlag == 1{
+                }else if optionFlagMono == 1{
                     monoDecryption.insertKeyToDictionaryBlock(wordFrom, userValue: wordTo)
                     resultTextView.text = monoDecryption.applyReplaceUsingDictionaryBlock(globalModifiedText)                }
             }else{
@@ -68,6 +80,32 @@ class MonoDecryptionController: UIViewController
         wordToTextField.text = ""
     }
     
+    
+    @IBAction func affineDecryption(sender: AnyObject) {
+        let alphaKey = wordFromTextField.text!
+        let betaKey = wordToTextField.text!
+        if alphaKey != "" && Int(alphaKey) != nil{
+            if betaKey != "" && Int(betaKey) != nil{
+                if Int(alphaKey)! % 2 != 0 && Int(alphaKey)! != 13 && Int(alphaKey)! < 26{
+                    if Int(betaKey)! < 26{
+                        if optionFlagAffine == 0{
+                            resultTextView.text = affineDecryption.applyAffineEncryptionUsingKey(resultTextView.text.uppercaseString, alphaKey: Int(alphaKey)!, betaKey :Int(betaKey)!)
+                        }else if optionFlagAffine == 1{
+                            resultTextView.text = affineDecryption.applyAffineDecryptionUsingKey(resultTextView.text.uppercaseString, alphaKey: Int(alphaKey)!, betaKey: Int(betaKey)!)
+                        }
+                    }else{
+                        //PRINT BETA KEY CANT EXCEED 26
+                    }
+                }else{
+                    //PRINT ALPHA KEY CANT BE EVEN NUMBER OR 13 OR EXCEED 26
+                }
+            }else{
+                // PRINT IF RIGHT BOX EMPTY OR NOT NUMBER
+            }
+        }else{
+            //PRINT IF LEFT BOX EMPTY OR NOT NUMBER
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
