@@ -21,7 +21,7 @@ class DecryptViewController: UIViewController
    
     
     @IBAction func onButton(sender: UIButton) {
-        if sender.currentTitle == "Mono"{
+        if sender.currentTitle == "Substution" || sender.currentTitle == "Affine"{
             isMono = true
         }
         else{
