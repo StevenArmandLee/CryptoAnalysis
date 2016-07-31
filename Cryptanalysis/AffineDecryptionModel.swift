@@ -9,6 +9,17 @@
 import Foundation
 
 class AffineDecryption{
+    private var autoAlphaKey = Int()
+    private var autoBetaKey = Int()
+    
+    func getAlphaKey() -> Int {
+        return autoAlphaKey
+    }
+    
+    func getBetaKey() -> Int {
+        return autoBetaKey
+    }
+    
     
     //Affine Cipher
     //---------------------------------------------------------------------------------
@@ -74,5 +85,39 @@ class AffineDecryption{
             }
         }
         return stringResult
+    }
+    
+    //////////////////////////////////////////
+    //////// AFFINE AUTO /////////////////////
+    //////////////////////////////////////////
+    func autoDecryptAffine(str :String) -> String {
+        let arrayOfInt : [Int] = [1,3,5,7,9,11,15,17,19,21,23,25]
+        var bestFitnessScore = 0
+        var bestAlphaKey = -1
+        var bestBetaKey = -1
+        var bestResult = ""
+        for alphaKey in arrayOfInt{
+            for betaKey in 0...25{
+                var fitScore = 0
+                let stringResult = applyAffineDecryptionUsingKey(str, alphaKey: alphaKey, betaKey: betaKey).stringByReplacingOccurrencesOfString(" ", withString: "")
+                
+                for i in 0..<stringResult.characters.count-1{
+                    let bigramInText = stringResult.substringWithRange(stringResult.startIndex.advancedBy(i)..<stringResult.startIndex.advancedBy(i+2))
+                    fitScore += bigramEnglish[bigramInText]!
+                }
+                if fitScore > bestFitnessScore{
+                    bestResult = stringResult
+                    bestFitnessScore = fitScore
+                    bestAlphaKey = alphaKey
+                    bestBetaKey = betaKey
+                }
+            }
+        }
+        
+        autoAlphaKey = bestAlphaKey
+        autoBetaKey = bestBetaKey
+        let result = String(bestAlphaKey) + "and" + String(bestBetaKey)
+        
+        return result
     }
 }

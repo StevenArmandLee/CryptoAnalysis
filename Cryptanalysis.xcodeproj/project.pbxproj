@@ -43,6 +43,7 @@
 		56F2F29B1CE2FA54007A4C7B /* CryptanalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F29A1CE2FA54007A4C7B /* CryptanalysisTests.swift */; };
 		56F2F2A61CE2FA54007A4C7B /* CryptanalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */; };
 		56F2F2B41CE32269007A4C7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2B31CE32269007A4C7B /* ResultViewController.swift */; };
+		83FECEDC1D4E0E79004733DC /* AutoDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FECEDB1D4E0E79004733DC /* AutoDecryptionModel.swift */; };
 		AC40E23DBF05748BFC175D3F /* Pods_Cryptanalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,7 @@
 		56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptanalysisUITests.swift; sourceTree = "<group>"; };
 		56F2F2A71CE2FA54007A4C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56F2F2B31CE32269007A4C7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		83FECEDB1D4E0E79004733DC /* AutoDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDecryptionModel.swift; sourceTree = "<group>"; };
 		F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptanalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2D0B4BA01330AAE1AB102 /* Pods-Cryptanalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +253,7 @@
 				56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */,
 				56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */,
 				56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */,
+				83FECEDB1D4E0E79004733DC /* AutoDecryptionModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */,
 				56E3C50D1D48C61400E6CD5E /* PolyDecryptionModel.swift in Sources */,
 				56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */,
+				83FECEDC1D4E0E79004733DC /* AutoDecryptionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -151,4 +151,23 @@ class ShiftDecryptionModel{
         
         return true
     }
+    
+    func autoDecryptShift(str :String) -> String {
+        var bestFitnessScore = 0
+        var bestShiftKey = -1
+        for shiftKey in 0...25{
+            var fitScore = 0
+            let stringResult = decryptionButton(str, offset: String(shiftKey), type: "Right").stringByReplacingOccurrencesOfString(" ", withString: "")
+            
+            for i in 0..<stringResult.characters.count-1{
+                let bigramInText = stringResult.substringWithRange(stringResult.startIndex.advancedBy(i)..<stringResult.startIndex.advancedBy(i+2))
+                fitScore += bigramEnglish[bigramInText]!
+            }
+            if fitScore > bestFitnessScore{
+                bestFitnessScore = fitScore
+                bestShiftKey = shiftKey
+            }
+        }
+        return String(bestShiftKey)
+    }
 }
