@@ -232,7 +232,7 @@ class PolyDecryptionController: UIViewController
             }
             else if self.receivedString == "Shift" {
              
-                autoDecryptionModel.generateAutoDecryptShift(globalOriginalText)
+                autoDecryptionModel.generateAutoDecryptShift(globalOriginalText.uppercaseString)
             }
             dispatch_async(dispatch_get_main_queue()){
                 [weak self] in

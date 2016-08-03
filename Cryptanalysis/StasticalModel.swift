@@ -106,7 +106,7 @@ public class StasticalModel
         var frequencies = [Int](count: 26, repeatedValue: 0)
     
         for ch in text.characters {
-            frequencies[findCharNum(ch)] += 1
+            frequencies[alphabet_Translator[ch]!] += 1
         }
     
         return frequencies
