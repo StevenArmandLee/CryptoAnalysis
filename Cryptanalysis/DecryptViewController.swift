@@ -15,7 +15,7 @@ class DecryptViewController: UIViewController
     var decryptionType = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
     
    

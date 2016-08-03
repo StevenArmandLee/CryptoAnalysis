@@ -69,7 +69,7 @@ class QuizModel{
         //Generate Plaintext and Keys
         plainText = RandomSentence()
         keyAlpha = RandomNum(25)
-        while keyAlpha == 13 || keyAlpha%2 == 0{
+        while keyAlpha == 13 || keyAlpha%2 == 0 || keyAlpha == 0{
             keyAlpha = RandomNum(25)
         }
         keyBeta = RandomNum(25)

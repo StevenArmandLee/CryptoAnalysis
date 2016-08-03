@@ -37,7 +37,7 @@ class ICViewController: UIViewController, UITextFieldDelegate {
         chartView.animate(xAxisDuration: 2, yAxisDuration: 2)
         setCharts(stasticalModel.getPolyGraphXLabel(), values: stasticalModel.getPolyXAxisData())
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ICViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         

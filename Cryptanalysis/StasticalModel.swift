@@ -30,7 +30,6 @@ public class StasticalModel
         data.removeAll()
     
         trimmedText = globalOriginalText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
-        
         if(isRemoveSymbol){
             trimmedText = removeSpecialCharsFromString(trimmedText)
         }
@@ -103,6 +102,7 @@ public class StasticalModel
     
     
     func letterFrequency (text : String) -> [Int] {
+        
         var frequencies = [Int](count: 26, repeatedValue: 0)
     
         for ch in text.characters {
@@ -118,6 +118,7 @@ public class StasticalModel
         return round(num * divisor) / divisor
     }
     func calIC(text : String) -> Double {
+
         let freq = letterFrequency(text)
         var ic = 0.0
         var sum = 0
@@ -198,6 +199,81 @@ public class StasticalModel
         
         
         return xAxisData
+    }
+    
+    func calIC(text : String, period : Int) -> [Double] {
+        var result = [Double](count: period, repeatedValue: 0)
+        
+        if period == 0 || period == 1 {
+            result = [Double](count: 1, repeatedValue: 0)
+            result[0] = calIC(text)
+            
+            return result
+        }
+        
+        for i in 0...period-1 {
+            let subString = getSubString(text, idx: i, period: period)
+            result[i] = calIC(subString)
+        }
+        
+        return result
+    }
+    
+    // calculate the ic average
+    func getAvgIC (text : String, period : Int) -> String {
+        var textTrimmed = removeSpecialCharsFromString(text)
+        textTrimmed = textTrimmed.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        textTrimmed = textTrimmed.lowercaseString
+        let ic = calIC(textTrimmed, period: period)
+        var stringResult = ""
+        for i in 0..<ic.count {
+            stringResult += "IC = " + String(ic[i]) + "\n"
+        }
+        
+        var sums = 0.0
+        // print the above ic
+        for i in ic {
+            sums += i
+        }
+        
+        let dPeriod = Double(period)
+        
+        stringResult += String(roundToPlaces(sums/dPeriod, places: 3))
+        
+        return stringResult
+    }
+    
+    func getAverageIC (text : String, period : Int) -> Double {
+        var textTrimmed = removeSpecialCharsFromString(text)
+        textTrimmed = textTrimmed.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        textTrimmed = textTrimmed.lowercaseString
+        let ic = calIC(textTrimmed, period: period)
+        var sums = 0.0
+        // print the above ic
+        for i in ic {
+            sums += i
+        }
+        
+        let dPeriod = Double(period)
+        return roundToPlaces(sums/dPeriod, places: 3)
+    }
+
+    
+    func estimatedKeyLength(text : String) -> Int {
+    var keyLength = 0
+    
+    
+    // loop 45 times because the longest word in english is 45 letter
+    for i in 0...45 {
+    
+    let avgIC = getAverageIC(text, period: i)
+    if avgIC >= 0.060 && avgIC <= 0.08 {
+    keyLength = i
+    break
+    }
+    }
+    print (keyLength)
+    return keyLength
     }
 
 }

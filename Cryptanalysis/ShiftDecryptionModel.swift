@@ -9,7 +9,11 @@
 import Foundation
 
 class ShiftDecryptionModel{
-    
+    func removeSpecialCharsFromString(text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
+    }
     private var currentOffset = Int()
     let numeric = "0123456789"
     
@@ -153,11 +157,14 @@ class ShiftDecryptionModel{
     }
     
     func autoDecryptShift(str :String) -> String {
+        var trimmedText = removeSpecialCharsFromString(str)
+        trimmedText = trimmedText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        trimmedText = trimmedText.uppercaseString
         var bestFitnessScore = 0
         var bestShiftKey = -1
         for shiftKey in 0...25{
             var fitScore = 0
-            let stringResult = decryptionButton(str, offset: String(shiftKey), type: "Right").stringByReplacingOccurrencesOfString(" ", withString: "")
+            let stringResult = decryptionButton(trimmedText, offset: String(shiftKey), type: "Right").stringByReplacingOccurrencesOfString(" ", withString: "")
             
             for i in 0..<stringResult.characters.count-1{
                 let bigramInText = stringResult.substringWithRange(stringResult.startIndex.advancedBy(i)..<stringResult.startIndex.advancedBy(i+2))

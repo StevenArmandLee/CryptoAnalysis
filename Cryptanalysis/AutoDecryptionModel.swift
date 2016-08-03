@@ -100,11 +100,13 @@ class AutoDecryptionModel{
 
     func generateAutoDecryptPoly(text: String){
         keyword = polyDecryption.autoDecryptPoly(text)
-        plaintext = polyDecryption.decryptionButton(text, key: keyword, type: <#T##Int#>)
+        plaintext = polyDecryption.decryptionButton(text, key: keyword, type: 0)
     }
     
     func generateAutoDecryptShift(text: String){
         keyRight = shiftDecryption.autoDecryptShift(text)
+        keyLeft = String(26 - Int(keyRight)!)
+        keyword = keyRight + " and " + keyLeft
         plaintext = shiftDecryption.decryptionButton(text, offset: String(keyRight), type:"Right")
     }
     

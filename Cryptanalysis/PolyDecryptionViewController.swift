@@ -12,6 +12,7 @@ import UIKit
 class PolyDecryptionController: UIViewController
 {
     
+    @IBOutlet weak var autoDecryptionButton: UIButton!
     var receivedString = ""
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet weak var keyField: UITextField!
@@ -19,7 +20,7 @@ class PolyDecryptionController: UIViewController
     @IBOutlet weak var typeOfCipherSegment: UISegmentedControl!
     @IBOutlet weak var changeButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
-    
+    var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var rightButton: UIButton!
     private var shiftModel : ShiftDecryptionModel = ShiftDecryptionModel()
     
@@ -78,6 +79,31 @@ class PolyDecryptionController: UIViewController
             leftButton.hidden = true
             rightButton.hidden = true
         }
+    }
+    
+    
+    func addActivityIndicator() {
+        
+        self.leftButton.enabled = false
+        self.rightButton.enabled = false
+        self.changeButton.enabled = false
+        self.typeOfCipherSegment.enabled = false
+        
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
+        activityIndicator = nil
+        self.leftButton.enabled = true
+        self.rightButton.enabled = true
+        self.changeButton.enabled = true
+        self.typeOfCipherSegment.enabled = true
+       
     }
     
     //change the function to onChange
@@ -187,9 +213,50 @@ class PolyDecryptionController: UIViewController
             alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
             presentViewController(alert, animated: true, completion: nil)
         }
-        
-        
-
     }
         
+    @IBAction func onAutoDecryption(sender: AnyObject) {
+        self.addActivityIndicator()
+        var autoDecryptionModel: AutoDecryptionModel = AutoDecryptionModel()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            //All background running put here
+            
+            if(self.receivedString == "Poly") {
+                autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText)
+
+            }
+            else if self.receivedString == "Transposition" {
+            }
+            else if self.receivedString == "Playfair" {
+                autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText)
+            }
+            else if self.receivedString == "Shift" {
+             
+                autoDecryptionModel.generateAutoDecryptShift(globalOriginalText)
+            }
+            dispatch_async(dispatch_get_main_queue()){
+                [weak self] in
+                self?.removeActivityIndicator()
+                let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("informationPopUp") as! popupViewController
+                popOverVC.key = autoDecryptionModel.getKeyword()
+                self!.addChildViewController(popOverVC)
+                popOverVC.view.frame = self!.view.frame
+                self!.view.addSubview(popOverVC.view)
+                popOverVC.didMoveToParentViewController(self)
+                            }
+        }
+    }
+    
+    @IBAction func onSegment(sender: UISegmentedControl) {
+        if receivedString == "Poly" {
+            if typeOfCipherSegment.selectedSegmentIndex == 0 {
+                autoDecryptionButton.hidden = false
+            }
+            else if typeOfCipherSegment.selectedSegmentIndex == 1 {
+                autoDecryptionButton.hidden = true
+            }
+
+        }
+            }
+    
 }

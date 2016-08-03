@@ -16,7 +16,7 @@ class InformationViewController: UIViewController, UIPageViewControllerDataSourc
     var frequencyLabel = ["Monogram","Bigram","Trigram"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        putToPageView()
+       // putToPageView()
        
     }
     

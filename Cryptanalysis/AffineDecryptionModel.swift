@@ -19,7 +19,12 @@ class AffineDecryption{
     func getBetaKey() -> Int {
         return autoBetaKey
     }
-    
+    func removeSpecialCharsFromString(text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
+    }
+
     //Affine Cipher
     //---------------------------------------------------------------------------------
     func gcdR(dividend: Int, divisor: Int) -> Int{
@@ -90,6 +95,9 @@ class AffineDecryption{
     //////// AFFINE AUTO /////////////////////
     //////////////////////////////////////////
     func autoDecryptAffine(str :String) -> String {
+        var trimmedText = removeSpecialCharsFromString(str)
+        trimmedText = trimmedText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        trimmedText = trimmedText.lowercaseString
         let arrayOfInt : [Int] = [1,3,5,7,9,11,15,17,19,21,23,25]
         var bestFitnessScore = 0
         var bestAlphaKey = -1
@@ -98,7 +106,7 @@ class AffineDecryption{
         for alphaKey in arrayOfInt{
             for betaKey in 0...25{
                 var fitScore = 0
-                let stringResult = applyAffineDecryptionUsingKey(str, alphaKey: alphaKey, betaKey: betaKey).stringByReplacingOccurrencesOfString(" ", withString: "")
+                let stringResult = applyAffineDecryptionUsingKey(trimmedText, alphaKey: alphaKey, betaKey: betaKey).stringByReplacingOccurrencesOfString(" ", withString: "")
                 
                 for i in 0..<stringResult.characters.count-1{
                     let bigramInText = stringResult.substringWithRange(stringResult.startIndex.advancedBy(i)..<stringResult.startIndex.advancedBy(i+2))

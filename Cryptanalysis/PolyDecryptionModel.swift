@@ -146,26 +146,36 @@ class PolyDecryptionModel {
     /***************** AUTO POLY *******************/
     /***********************************************/
     func autoDecryptPoly(str :String) -> String{
-        
+        var stasticalModel: StasticalModel = StasticalModel()
         var trimmedText = str.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
         trimmedText = trimmedText.uppercaseString
         let total = trimmedText.characters.count-1
-        var key : [String]
-        var fitnessScore : Int = 0
-        let keyLength = 8
-        var totalRow = (total+1) / keyLength
-        let limit = totalRow * keyLength
+        let keyLength = stasticalModel.estimatedKeyLength(globalOriginalText)
+        print(total)
+        print(keyLength)
+        if keyLength == 0 {
+            return "No Key Found!!"
+        }
+        let totalRow = (total+1) / keyLength
+        print(totalRow)
         var bestBigram: String
-        var bestFitnessScore :Int = 0
+        var bestFitnessScore :UInt64 = 0
+        
+        var bestBigramArray : [String] = [String]()
+        var bestFitnessScoreArray :[UInt64] = [UInt64]()
         for i in 0...keyLength-1{
             bestFitnessScore = 0
             bestBigram = ""
-            for (bigram, value) in bigramEnglish{
-                var fitScore = 0
+            for (bigram, _) in bigramEnglish{
+                var fitScore: UInt64 = 0
                 for j in 0..<totalRow{
-                    let bigramTaken = trimmedText.substringWithRange(trimmedText.startIndex.advancedBy(i+(j*keyLength))...trimmedText.startIndex.advancedBy(i+(j*keyLength)+1))
-                    
-                    fitScore += getFitnessScore(bigramTaken, bigram: bigram)
+                    var bigramTaken :String
+                    if i == keyLength-1{
+                        bigramTaken = trimmedText.substringWithRange(trimmedText.startIndex.advancedBy(i+(j*keyLength))...trimmedText.startIndex.advancedBy(i+(j*keyLength)))+trimmedText.substringWithRange(trimmedText.startIndex.advancedBy(j*keyLength)...trimmedText.startIndex.advancedBy(j*keyLength))
+                    }else{
+                        bigramTaken = trimmedText.substringWithRange(trimmedText.startIndex.advancedBy(i+(j*keyLength))...trimmedText.startIndex.advancedBy(i+(j*keyLength)+1))
+                    }
+                    fitScore += UInt64(getFitnessScore(bigramTaken, bigram: bigram))
                 }
                 if fitScore > bestFitnessScore{
                     bestFitnessScore = fitScore
@@ -173,21 +183,43 @@ class PolyDecryptionModel {
                     
                 }
             }
+            bestBigramArray.append(bestBigram)
+            bestFitnessScoreArray.append(bestFitnessScore)
         }
-        
-        return String("BEST KEY")
+        let key = findKeyPoly(bestBigramArray, fsArray: bestFitnessScoreArray, keyLength:keyLength)
+        return key
     }
     
-    func getFitnessScore(text: String, bigram: String)->Int{
+    func findKeyPoly(bArray: [String], fsArray:[UInt64], keyLength:Int)->String{
+        var stringResult = ""
+        for i in 0...keyLength-1{
+            if i == 0{
+                if fsArray[0] > fsArray[keyLength-1]{
+                    stringResult += String(bArray[0][bArray[0].startIndex.advancedBy(0)])
+                }
+                else{
+                    stringResult += String(bArray[keyLength-1][bArray[keyLength-1].startIndex.advancedBy(1)])
+                }
+            }else{
+                if fsArray[i] > fsArray[i-1]{
+                    stringResult += String(bArray[i][bArray[i].startIndex.advancedBy(0)])
+                }else{
+                    stringResult += String(bArray[i-1][bArray[i-1].startIndex.advancedBy(1)])
+                }
+            }
+        }
+        
+        return stringResult
+    }
+    func getFitnessScore(text: String, bigram: String)->UInt64{
         var textIndex = text.startIndex.advancedBy(0)
         var keyIndex = bigram.startIndex.advancedBy(0)
-        print(text[textIndex])
         var result = String(getPlainText(text[textIndex], key: bigram[keyIndex]))
         textIndex = text.startIndex.advancedBy(1)
         keyIndex = bigram.startIndex.advancedBy(1)
         result += String(getPlainText(text[textIndex], key: bigram[keyIndex]))
         
-        return bigramEnglish[result]!
+        return UInt64(bigramEnglish[result]!)
         
     }
     func getPlainText(chr : Character, key : Character) -> Character{
@@ -197,4 +229,6 @@ class PolyDecryptionModel {
         }
         return numeric_Translator[charResult]!
     }
+    
+    
 }

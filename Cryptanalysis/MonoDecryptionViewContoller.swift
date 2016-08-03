@@ -17,7 +17,7 @@ class MonoDecryptionController: UIViewController
  
     
     
-    
+    var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var autoDecryptionButton: UIButton!
     @IBOutlet weak var clearKeysButton: UIButton!
     @IBOutlet weak var autoFillButton: UIButton!
@@ -102,7 +102,23 @@ class MonoDecryptionController: UIViewController
         }
 
     }
+    func addActivityIndicator() {
+        
+        
+        
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
     
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
+        activityIndicator = nil
+        
+        
+    }
     @IBAction func onChangeSegment(sender: AnyObject) {
         if(receivedString == "Substitution")
         {
@@ -167,6 +183,33 @@ class MonoDecryptionController: UIViewController
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func onAutoDecryption(sender: AnyObject) {
+        self.addActivityIndicator()
+        var autoDecryptionModel: AutoDecryptionModel = AutoDecryptionModel()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            //All background running put here
+            
+            if(self.receivedString == "Affine") {
+                autoDecryptionModel.generateAutoDecryptAffine(globalOriginalText)
+                
+            }
+            
+            dispatch_async(dispatch_get_main_queue()){
+                [weak self] in
+                self?.removeActivityIndicator()
+                let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("informationPopUp") as! popupViewController
+                popOverVC.key = autoDecryptionModel.getKeyword()
+                self!.addChildViewController(popOverVC)
+                popOverVC.view.frame = self!.view.frame
+                self!.view.addSubview(popOverVC.view)
+                popOverVC.didMoveToParentViewController(self)
+            }
+        }
+
+        
     }
     
     
