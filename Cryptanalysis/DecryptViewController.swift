@@ -11,11 +11,13 @@ import UIKit
 
 class DecryptViewController: UIViewController
 {
+    
+    @IBOutlet weak var buttons: UIButton!
     var isMono = false
     var decryptionType = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        buttons.imageView?.contentMode = UIViewContentMode.ScaleToFill
     }
     
    

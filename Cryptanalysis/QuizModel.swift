@@ -18,7 +18,7 @@ class QuizModel{
     private let shiftDecryption = ShiftDecryptionModel()
     
     //Source
-    var paragraph :[String] = ["It could be that\n the deeper they lie inside your heart the harder it becomes to reach out to them","But if you really begin to cherish every moment then wouldnt that make even the most precious moments merely ordinary","Time and gravity are indeed quite similar","Dating a new person every day and breaking up with a new person every day Which one would be more difficult"]
+    var paragraph :[String] = ["It could be that the deeper they lie inside your heart the harder it becomes to reach out to them But if you really begin to cherish every moment then wouldnt that make even the most precious moments merely ordinary a conversation is like a swimming in a painting paint word can never reach u and also my love if i show you my flaw if i couldnt be strong tell me honestly would you still love me the same but i remind myself i have a job to do lets dance together between my chair nothing i can do to help u","Time and gravity are indeed quite similar she was right nher the benefits of a mariage without the nagging responsoblities of a wife and mother. It thus didnt bother at all that after so many years she knew only money, nothing at all really of her husband or her son then i want§ed to go back and look so we can never ever separated from each other forever and kill him do it again and i said he is already dead in the hearth","Dating a new person every day and breaking up with a new person every day Which one would be more difficult I was only nine then too young to fully understand mozart but I watched in awe as the pianist swayed with each note what I remember most though was not What saw on stage basketball whatever skateboarding she stared back with clear blue eyes and a shy smile her hairs locks falling just above her cheeck bones it was this sincere unblemished face that he had fallen in love with so long ago", "I woke up on Saturday morning, not in my bed, but in the hallway I had fallen asleep while watching my father I was immediately embrassed wondering whether or not he had seen me sprawled on the wooden floor I always make sure there is an opening in the room an inch at the door or maybe even at the windows My grandmother taught me that if one dies during sleep the soul needs an exit or it will be forever trapped in the room i stomped on his head 3 times and each time said it was accident little so i satbbed his back out four times then he layed flat and i slit one side oh, the sounds the guys was making were like what you do"]
     
     //Data
     var plainText :String = ""
@@ -39,10 +39,9 @@ class QuizModel{
         keyWord = monoDecryption.autoFillKeyString(keyWord)
         
         //Encryption
-        print(keyWord)
         monoDecryption.insertKeyToDictionaryStream(keyWord, userValue: "abcdefghijklmnopqrstuvwxyz")
         cipherText = monoDecryption.applyReplaceUsingDictionaryStream(plainText).lowercaseString
-        monoDecryption.resetDictionary()
+        monoDecryption.resetStreamDictionary()
         
         keyWord = keyWordTemp
     }
@@ -150,7 +149,7 @@ class QuizModel{
     }
     
     func RandomWords(sentence : String) -> (String){
-        let MIN_KEY_LENGTH = 4
+        let MIN_KEY_LENGTH = 5
         if sentence.isEmpty{
             return "input error"
         }else{

@@ -91,6 +91,9 @@ class AutoDecryptionModel{
     var keyLeft = String()
     var keyRight = String()
     
+    
+    
+    
     func generateAutoDecryptAffine(text: String){
         keyword = affineCipher.autoDecryptAffine(text)
         keyAlpha = affineCipher.getAlphaKey()
@@ -98,8 +101,8 @@ class AutoDecryptionModel{
         plaintext = affineCipher.applyAffineDecryptionUsingKey(text, alphaKey: keyAlpha, betaKey: keyBeta)
     }
 
-    func generateAutoDecryptPoly(text: String){
-        keyword = polyDecryption.autoDecryptPoly(text)
+    func generateAutoDecryptPoly(text: String, isBeaufort: Bool){
+        keyword = polyDecryption.autoDecryptPoly(text, isBeaufort: isBeaufort)
         plaintext = polyDecryption.decryptionButton(text, key: keyword, type: 0)
     }
     

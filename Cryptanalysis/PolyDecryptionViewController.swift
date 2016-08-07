@@ -60,7 +60,7 @@ class PolyDecryptionController: UIViewController
     }
     
     func hideElements(){
-        if receivedString == "Poly"{
+        if receivedString == "Polyalphabetic"{
             typeOfCipherSegment.hidden = false
             changeButton.hidden = false
             leftButton.hidden = true
@@ -108,7 +108,7 @@ class PolyDecryptionController: UIViewController
     
     //change the function to onChange
     @IBAction func buttonPressed(sender: UIButton) {
-        if(receivedString == "Poly") {
+        if(receivedString == "Polyalphabetic") {
             changePoly()
         }
         else if receivedString == "Transposition" {
@@ -221,14 +221,18 @@ class PolyDecryptionController: UIViewController
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //All background running put here
             
-            if(self.receivedString == "Poly") {
-                autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText)
-
+            if(self.receivedString == "Polyalphabetic") {
+                if(self.typeOfCipherSegment.selectedSegmentIndex == 0) {
+                    autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText, isBeaufort: false)
+                }
+                else {
+                    autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText, isBeaufort: true)
+                }
             }
             else if self.receivedString == "Transposition" {
             }
             else if self.receivedString == "Playfair" {
-                autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText)
+               
             }
             else if self.receivedString == "Shift" {
              
@@ -248,13 +252,8 @@ class PolyDecryptionController: UIViewController
     }
     
     @IBAction func onSegment(sender: UISegmentedControl) {
-        if receivedString == "Poly" {
-            if typeOfCipherSegment.selectedSegmentIndex == 0 {
-                autoDecryptionButton.hidden = false
-            }
-            else if typeOfCipherSegment.selectedSegmentIndex == 1 {
-                autoDecryptionButton.hidden = true
-            }
+        if receivedString == "Polyalphabetic" {
+            
 
         }
             }

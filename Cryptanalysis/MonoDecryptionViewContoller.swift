@@ -208,9 +208,36 @@ class MonoDecryptionController: UIViewController
                 popOverVC.didMoveToParentViewController(self)
             }
         }
-
-        
     }
     
+    @IBAction func onClearText(sender: AnyObject) {
+        if segmentOutletMono.selectedSegmentIndex == 0 {
+            monoDecryption.clearStreamDictionary()
+        }
+        else {
+            monoDecryption.clearBlockDictionary()
+        }
+    }
+    
+    
+    @IBAction func onShowKeys(sender: AnyObject) {
+        
+        
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("keysPopUp") as! keyPopUpViewController
+        if(segmentOutletMono.selectedSegmentIndex == 0) {
+            popOverVC.key = monoDecryption.getStreamDictionary()
+        }
+        else {
+            popOverVC.key = monoDecryption.getBlockDictionary()
+        }
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMoveToParentViewController(self)
+
+
+    }
+    
+  
     
 }

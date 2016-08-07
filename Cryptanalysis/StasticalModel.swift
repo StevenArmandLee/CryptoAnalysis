@@ -174,14 +174,12 @@ public class StasticalModel
             let oldVal = dictionary[tempString]
             dictionary.updateValue(oldVal!+1, forKey: tempString)
         }
-        print(dictionary)
         return dictionary
     }
     
     func generatePolyGraph(index: Int, period: Int){
         trimmedText = globalOriginalText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
         polyData = getDictionary(removeSpecialCharsFromString(trimmedText).lowercaseString, index: index, period: period)
-        print(polyData)
     }
     
     func getPolyGraphXLabel() -> [String] {
@@ -246,10 +244,10 @@ public class StasticalModel
     func getAverageIC (text : String, period : Int) -> Double {
         var textTrimmed = removeSpecialCharsFromString(text)
         textTrimmed = textTrimmed.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
-        textTrimmed = textTrimmed.lowercaseString
+        textTrimmed = textTrimmed.uppercaseString
         let ic = calIC(textTrimmed, period: period)
         var sums = 0.0
-        // print the above ic
+        // print the above ic		
         for i in ic {
             sums += i
         }
@@ -260,20 +258,19 @@ public class StasticalModel
 
     
     func estimatedKeyLength(text : String) -> Int {
-    var keyLength = 0
+        var keyLength = 0
     
+        // loop 45 times because the longest word in english is 45 letter
+        for i in 0...45 {
     
-    // loop 45 times because the longest word in english is 45 letter
-    for i in 0...45 {
-    
-    let avgIC = getAverageIC(text, period: i)
-    if avgIC >= 0.060 && avgIC <= 0.08 {
-    keyLength = i
-    break
-    }
-    }
-    print (keyLength)
-    return keyLength
+            let avgIC = getAverageIC(text, period: i)
+            if avgIC >= 0.06 && avgIC <= 0.08 {
+                keyLength = i
+                break
+            }
+        }
+
+        return keyLength
     }
 
 }

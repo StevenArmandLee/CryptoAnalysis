@@ -137,6 +137,36 @@ class ShiftDecryptionModel{
         return ptext
     }
     
+    func shiftRightDecrypt(text: String, offset: Int) -> String {
+        
+        let lengthOfCtext = text.characters.count
+        var ptext = String()
+        
+        for i in 0..<lengthOfCtext {
+            let indexOfCtext = text.startIndex.advancedBy(i)
+            
+            if let ctextNum = alphabet_Translator[text[indexOfCtext]] {
+                var index = 0
+                
+                index = ctextNum + offset
+                
+                if index <= -1 {
+                    index += 26
+                }
+                else if index >= 26 {
+                    index -= 26
+                }
+                ptext.append(numeric_Translator[index]!)
+                
+            }
+            else{
+                ptext.append(text[indexOfCtext])
+            }
+        }
+        
+        return ptext
+    }
+    
     func checkKey (offset : String) -> Bool {
         
         if offset == "" {
@@ -164,7 +194,7 @@ class ShiftDecryptionModel{
         var bestShiftKey = -1
         for shiftKey in 0...25{
             var fitScore = 0
-            let stringResult = decryptionButton(trimmedText, offset: String(shiftKey), type: "Right").stringByReplacingOccurrencesOfString(" ", withString: "")
+            let stringResult = shiftRightDecrypt(trimmedText, offset: shiftKey)
             
             for i in 0..<stringResult.characters.count-1{
                 let bigramInText = stringResult.substringWithRange(stringResult.startIndex.advancedBy(i)..<stringResult.startIndex.advancedBy(i+2))

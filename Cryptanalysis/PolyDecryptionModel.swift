@@ -9,6 +9,12 @@
 import Foundation
 
 class PolyDecryptionModel {
+    
+    func removeSpecialCharsFromString(text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
+    }
     /***********************************************/
     /************** VIGENERE CIPHER ****************/
     /***********************************************/
@@ -100,7 +106,7 @@ class PolyDecryptionModel {
                 let keyNum = alphabet_Translator[key[indexOfKey]]!
                 var index = 0
                 
-                if type == 0 {
+                if type == 0 { 
                     index = ctextNum - keyNum
                 }
                 else {
@@ -145,19 +151,20 @@ class PolyDecryptionModel {
     /***********************************************/
     /***************** AUTO POLY *******************/
     /***********************************************/
-    func autoDecryptPoly(str :String) -> String{
+    func autoDecryptPoly(str :String, isBeaufort: Bool) -> String{
         var stasticalModel: StasticalModel = StasticalModel()
-        var trimmedText = str.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        var trimmedText = removeSpecialCharsFromString(str)
+        if trimmedText.characters.count > 120{
+            trimmedText = trimmedText.substringToIndex(str.startIndex.advancedBy(120))
+        }
+        trimmedText = trimmedText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
         trimmedText = trimmedText.uppercaseString
         let total = trimmedText.characters.count-1
         let keyLength = stasticalModel.estimatedKeyLength(globalOriginalText)
-        print(total)
-        print(keyLength)
         if keyLength == 0 {
             return "No Key Found!!"
         }
         let totalRow = (total+1) / keyLength
-        print(totalRow)
         var bestBigram: String
         var bestFitnessScore :UInt64 = 0
         
@@ -175,7 +182,7 @@ class PolyDecryptionModel {
                     }else{
                         bigramTaken = trimmedText.substringWithRange(trimmedText.startIndex.advancedBy(i+(j*keyLength))...trimmedText.startIndex.advancedBy(i+(j*keyLength)+1))
                     }
-                    fitScore += UInt64(getFitnessScore(bigramTaken, bigram: bigram))
+                    fitScore += UInt64(getFitnessScore(bigramTaken, bigram: bigram, isBeaufort: isBeaufort))
                 }
                 if fitScore > bestFitnessScore{
                     bestFitnessScore = fitScore
@@ -211,21 +218,29 @@ class PolyDecryptionModel {
         
         return stringResult
     }
-    func getFitnessScore(text: String, bigram: String)->UInt64{
+    func getFitnessScore(text: String, bigram: String, isBeaufort: Bool)->UInt64{
         var textIndex = text.startIndex.advancedBy(0)
         var keyIndex = bigram.startIndex.advancedBy(0)
-        var result = String(getPlainText(text[textIndex], key: bigram[keyIndex]))
+        var result = String(getPlainText(text[textIndex], key: bigram[keyIndex], isBeaufort: isBeaufort))
         textIndex = text.startIndex.advancedBy(1)
         keyIndex = bigram.startIndex.advancedBy(1)
-        result += String(getPlainText(text[textIndex], key: bigram[keyIndex]))
+        result += String(getPlainText(text[textIndex], key: bigram[keyIndex], isBeaufort: isBeaufort))
         
         return UInt64(bigramEnglish[result]!)
         
     }
-    func getPlainText(chr : Character, key : Character) -> Character{
-        var charResult = alphabet_Translator[chr]! - alphabet_Translator[key]!
+    func getPlainText(chr : Character, key : Character, isBeaufort: Bool) -> Character{
+        var charResult : Int
+        if isBeaufort {
+            charResult = alphabet_Translator[chr]! + alphabet_Translator[key]!
+        }
+        else {
+            charResult = alphabet_Translator[chr]! - alphabet_Translator[key]!
+        }
         if charResult < 0 {
             charResult+=26
+        }else if charResult > 25{
+            charResult-=26
         }
         return numeric_Translator[charResult]!
     }

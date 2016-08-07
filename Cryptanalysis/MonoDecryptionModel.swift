@@ -18,6 +18,7 @@ class MonoDecryptionModel
     var dictionaryBlock : [String:String] = [:]
     var dictionaryStream : [String:String] = [:]
     
+    
     init(){
         dictionaryStream = [
             "a" : "a", "k" : "k", "u" : "u",
@@ -31,6 +32,14 @@ class MonoDecryptionModel
             "i" : "i", "s" : "s",
             "j" : "j", "t" : "t",
         ]
+    }
+    
+    func clearStreamDictionary() {
+        dictionaryStream.removeAll()
+    }
+    
+    func clearBlockDictionary() {
+        dictionaryBlock.removeAll()
     }
     
     //MonoAlphabetic Cipher
@@ -108,7 +117,7 @@ class MonoDecryptionModel
         return tempKeyString
     }
     
-    func resetDictionary(){
+    func resetStreamDictionary(){
         dictionaryStream = [
             "a" : "a", "k" : "k", "u" : "u",
             "b" : "b", "l" : "l", "v" : "v",
@@ -122,6 +131,35 @@ class MonoDecryptionModel
             "j" : "j", "t" : "t",
         ]
     }
+    func resetBlockDictionary(){
+        dictionaryBlock.removeAll()
+    }
+    
+    
+    func getSortedStreamDictionary() -> [String] {
+        return Array(dictionaryStream.keys).sort(<)
+    }
+    func getSortedBlockDictionary() -> [String] {
+        return Array(dictionaryBlock.keys).sort(<)
+    }
+    
+    func getStreamDictionary() -> String {
+        var dictionary = ""
+        var keyDictionary = getSortedStreamDictionary()
+        for i in 0..<dictionaryStream.count {
+            dictionary += keyDictionary[i] + " = " + dictionaryStream[keyDictionary[i]]! + "\n"
+        }
+        return dictionary
+    }
+    func getBlockDictionary() -> String{
+        var dictionary = ""
+        var keyDictionary = getSortedBlockDictionary()
+        for i in 0..<dictionaryBlock.count {
+            dictionary += keyDictionary[i] + " = " + dictionaryBlock[keyDictionary[i]]! + "\n"
+        }
+        return dictionary
+    }
+
     //---------------------------------------------------------------------------------
     
     

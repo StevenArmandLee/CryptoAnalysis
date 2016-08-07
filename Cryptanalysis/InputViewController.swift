@@ -265,7 +265,6 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         
         var cipherType: String = cipherPickerTextField.text!
 
-        print(cipherType)
         switch cipherType {
         case cipherPickerOption[0]:
             quizModel.generateAffineCipher()
@@ -300,7 +299,6 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         key = quizModel.getKeyWord()
         globalOriginalText = originalText.text
         globalModifiedText = globalOriginalText
-        print(quizModel.getKeyWord())
         
     }
 }
