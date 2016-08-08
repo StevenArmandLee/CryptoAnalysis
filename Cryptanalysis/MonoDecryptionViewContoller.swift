@@ -23,6 +23,7 @@ class MonoDecryptionController: UIViewController
     @IBOutlet weak var autoFillButton: UIButton!
     @IBOutlet var segmentOutletMono: UISegmentedControl!
     
+    @IBOutlet weak var showKeysButton: UIButton!
     @IBOutlet var wordFromTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet var wordToTextField: UITextField!
@@ -145,6 +146,8 @@ class MonoDecryptionController: UIViewController
         segmentOutletMono.setTitle("Decrypt", forSegmentAtIndex: 1)
         autoFillButton.hidden = true
         clearKeysButton.hidden = true
+        showKeysButton.hidden = true
+        
         
     }
     
@@ -161,6 +164,8 @@ class MonoDecryptionController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        wordFromTextField.autocorrectionType = .No
+        wordToTextField.autocorrectionType = .No
         isAffineOrSubstitution(receivedString)
         resultTextView.text = globalModifiedText
         resultTextView.layer.borderWidth=1

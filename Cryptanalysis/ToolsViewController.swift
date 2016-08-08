@@ -15,6 +15,8 @@ class ToolsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -24,10 +26,18 @@ class ToolsViewController: UIViewController {
             }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var toolsContentVC: ToolsContentViewController = (segue.destinationViewController as! ToolsContentViewController)
-        toolsContentVC.receivedText = resultText
+        if (resultText != "Transpo Tool" && resultText != "Playfair Tool")
+        {
+            var toolsContentVC: ToolsContentViewController = (segue.destinationViewController as! ToolsContentViewController)
+            toolsContentVC.receivedText = resultText
+        }
+        
     }
-    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        
+        view.endEditing(true)
+    }
     
     
 }

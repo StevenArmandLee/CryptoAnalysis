@@ -379,8 +379,11 @@ class PlayfairDecryptionModel{
     
     func decryptionButton(text: String, key: String) -> String {
         var plaintext = String()
-        let tempText = removeSpecialCharsFromString(text)
+        
+        var tempText = removeSpecialCharsFromString(text)
+        tempText = tempText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
         let keyTable = prepareKey(key)
+        
         
         let ciphertext = groupingTheText(tempText)
         
@@ -391,5 +394,21 @@ class PlayfairDecryptionModel{
         return plaintext.uppercaseString
     }
     
+    
+    func analyzePlayfair(text: String) -> String {
+        var result = "\t"
+        
+        var tempText = removeSpecialCharsFromString(text)
+        tempText = tempText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        tempText = tempText.uppercaseString
+        
+        let pairOfText = groupingTheText(tempText)
+        
+        for str in pairOfText {
+            result += str + "\t"
+        }
+        
+        return result
+    }
     
 }

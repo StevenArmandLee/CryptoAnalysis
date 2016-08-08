@@ -9,47 +9,86 @@
 import Foundation
 
 class TranspoToolModel {
-    
-    var column = Int()
-    var row = Int()
-    var keyNum = [Int]()
-    
-    // get column
-    func getColumn() -> Int {
-        return column
+
+    func removeSpecialCharsFromString(text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
     }
     
-    // get row
-    func getRow() -> Int {
-        return row
+    func analyzeByPeriod(text: String, period: Int) -> String{
+        
+        var trimmedText = removeSpecialCharsFromString(text)
+        trimmedText = trimmedText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        trimmedText = trimmedText.uppercaseString
+        
+        var result = ""
+        
+        if period == 1 || period == 0 {
+            result = trimmedText
+            result = addingTab(result)
+            
+            return result
+        }
+        
+        var keyTable = getKeyTable(period)
+        keyTable = swapTheKey(keyTable, int1: period-2, int2: period-1)
+        
+        let table = getTable(trimmedText, keyTable: keyTable)
+        let col = trimmedText.characters.count / period
+        
+        var remainder = trimmedText.characters.count % period
+        
+        for i in 0...col-1 {
+            for str in table {
+                let char = str.startIndex.advancedBy(i)
+                result.append(str[char])
+            }
+        }
+        
+        if remainder != 0 {
+            while remainder != 0 {
+                let char = trimmedText.startIndex.advancedBy(trimmedText.characters.count-remainder)
+                result.append(trimmedText[char])
+                remainder -= 1
+            }
+        }
+        
+        result = addingTab(result)
+        
+        return result
     }
     
-    // get key number
-    func getKeyNum() -> [Int] {
-        return keyNum
-    }
-    
-    // put the Text to table
-    func putTextToTable(text: String, keyLength: String) -> [String]{
+    func addingTab(text: String) -> String{
+        var result = "\t\t"
         
-        let keyTable = getKeyTable(keyLength)
-        let col = text.characters.count / keyTable.count
+        var j = 0
+        var i = 0
+        var checker = false
         
-        column = col
-        row = keyTable.count
-        keyNum = keyTable
+        while checker == false {
+            j += 5
+            
+            if j >= text.characters.count{
+                checker = true
+                break
+            }
+            
+            result += text[text.startIndex.advancedBy(i)...text.startIndex.advancedBy(j-1)]
+            result += "\t\t"
+            i += 5
+        }
         
-        let table = getTable(text, keyTable: keyNum)
-        
-        return table
+        return result
     }
     
     // get the table of text
     func getTable(text: String, keyTable: [Int]) -> [String] {
         var table = [String](count: keyTable.count, repeatedValue: "")
+        let col = text.characters.count / keyTable.count
         
         for i in 0...keyTable.count-1 {
-            for j in 0...column-1 {
+            for j in 0...col-1 {
                 let pChar = text.startIndex.advancedBy(i + j*keyTable.count)
                 table[keyTable[i]].append(text[pChar])
             }
@@ -59,8 +98,8 @@ class TranspoToolModel {
     }
     
     // build a key table
-    func getKeyTable(keyLength: String) -> [Int] {
-        var table = [Int](count: Int(keyLength)!, repeatedValue: 0)
+    func getKeyTable(keyLength: Int) -> [Int] {
+        var table = [Int](count: keyLength, repeatedValue: 0)
         
         
         for i in 0...table.count-1 {
@@ -70,22 +109,10 @@ class TranspoToolModel {
         return table
     }
     
-    // get possible length of the key
-    func possibleKeyLength(text: String) -> [Int] {
-        let len = text.characters.count
-        let index = len / 2
-        var result = [Int]()
-        
-        for i in 2...index {
-            if len % i == 0 {
-                result.append(i)
-            }
-        }
-        return result
-    }
-    
     // func to swap the key value
-    func swapTheKey(int1: Int, int2: Int){
+    func swapTheKey(keyTable: [Int], int1: Int, int2: Int) -> [Int]{
+        
+        var result = keyTable
         var temp1 = Int()
         var temp2 = Int()
         
@@ -98,13 +125,14 @@ class TranspoToolModel {
             temp2 = int1
         }
         
-        for i in 0...keyNum.count-1 {
-            if keyNum[i] == temp1 {
-                keyNum[i] = temp2
+        for i in 0...result.count-1 {
+            if result[i] == temp1 {
+                result[i] = temp2
             }
-            else if keyNum[i] == temp2 {
-                keyNum[i] = temp1
+            else if result[i] == temp2 {
+                result[i] = temp1
             }
         }
+        return result
     }
 }

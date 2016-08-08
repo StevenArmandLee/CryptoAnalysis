@@ -183,6 +183,5 @@ class ICViewController: UIViewController, UITextFieldDelegate {
         // inverse characters were present to be eliminated, the input is valid
         // and the statement returns true; else it returns false
         return string == filtered
-        
     }
 }

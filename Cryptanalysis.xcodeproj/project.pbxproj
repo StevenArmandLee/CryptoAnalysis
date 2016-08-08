@@ -24,6 +24,7 @@
 		568678FC1D570A63009FD468 /* TranspoToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568678FB1D570A63009FD468 /* TranspoToolModel.swift */; };
 		568679031D570A99009FD468 /* keyPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568679021D570A99009FD468 /* keyPopUpViewController.swift */; };
 		568679051D570DB4009FD468 /* keyPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568679041D570DB4009FD468 /* keyPopViewController.swift */; };
+		568679071D5780BF009FD468 /* TranspoToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568679061D5780BF009FD468 /* TranspoToolViewController.swift */; };
 		56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2821D433AC100D56A1F /* popupViewController.swift */; };
 		56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2841D435BE600D56A1F /* ICViewController.swift */; };
 		56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */; };
@@ -40,6 +41,7 @@
 		56E3C5101D48C61400E6CD5E /* TranpositionDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C5091D48C61400E6CD5E /* TranpositionDecryptionModel.swift */; };
 		56E3C5111D48C61400E6CD5E /* ShiftDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C50A1D48C61400E6CD5E /* ShiftDecryptionModel.swift */; };
 		56E3C5121D48C61400E6CD5E /* PlayfairDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3C50B1D48C61400E6CD5E /* PlayfairDecryptionModel.swift */; };
+		56ED86B01D585259008ABB25 /* PlayfairToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ED86AF1D585259008ABB25 /* PlayfairToolViewController.swift */; };
 		56F2F2841CE2FA54007A4C7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */; };
 		56F2F2861CE2FA54007A4C7B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2851CE2FA54007A4C7B /* InputViewController.swift */; };
 		56F2F2881CE2FA54007A4C7B /* StatisticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F2F2871CE2FA54007A4C7B /* StatisticalViewController.swift */; };
@@ -157,6 +159,7 @@
 		568678FB1D570A63009FD468 /* TranspoToolModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranspoToolModel.swift; sourceTree = "<group>"; };
 		568679021D570A99009FD468 /* keyPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyPopUpViewController.swift; sourceTree = "<group>"; };
 		568679041D570DB4009FD468 /* keyPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyPopViewController.swift; sourceTree = "<group>"; };
+		568679061D5780BF009FD468 /* TranspoToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranspoToolViewController.swift; sourceTree = "<group>"; };
 		568862FD1D23D034006F0E5B /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		56AEB2821D433AC100D56A1F /* popupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		56AEB2841D435BE600D56A1F /* ICViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +177,7 @@
 		56E3C5091D48C61400E6CD5E /* TranpositionDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranpositionDecryptionModel.swift; sourceTree = "<group>"; };
 		56E3C50A1D48C61400E6CD5E /* ShiftDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftDecryptionModel.swift; sourceTree = "<group>"; };
 		56E3C50B1D48C61400E6CD5E /* PlayfairDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayfairDecryptionModel.swift; sourceTree = "<group>"; };
+		56ED86AF1D585259008ABB25 /* PlayfairToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayfairToolViewController.swift; sourceTree = "<group>"; };
 		56F2F2801CE2FA54007A4C7B /* Cryptanalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptanalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F2F2831CE2FA54007A4C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F2F2851CE2FA54007A4C7B /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 				56C36E961D49DDD20042A2FD /* ToolsViewController.swift */,
 				56C36E9D1D49DE380042A2FD /* ToolsContentViewController.swift */,
 				568679021D570A99009FD468 /* keyPopUpViewController.swift */,
+				568679061D5780BF009FD468 /* TranspoToolViewController.swift */,
+				56ED86AF1D585259008ABB25 /* PlayfairToolViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 			files = (
 				56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */,
 				56D4FD2D1D409A20006CC58A /* InformationContentViewController.swift in Sources */,
+				568679071D5780BF009FD468 /* TranspoToolViewController.swift in Sources */,
 				56E3C4FD1D48C0F600E6CD5E /* CalculatorModel.swift in Sources */,
 				56F2F2881CE2FA54007A4C7B /* StatisticalViewController.swift in Sources */,
 				56F2F2841CE2FA54007A4C7B /* AppDelegate.swift in Sources */,
@@ -627,6 +634,7 @@
 				56E3C50F1D48C61400E6CD5E /* AffineDecryptionModel.swift in Sources */,
 				56E3C50E1D48C61400E6CD5E /* QuizModel.swift in Sources */,
 				565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */,
+				56ED86B01D585259008ABB25 /* PlayfairToolViewController.swift in Sources */,
 				56E3C5111D48C61400E6CD5E /* ShiftDecryptionModel.swift in Sources */,
 				56E3C5121D48C61400E6CD5E /* PlayfairDecryptionModel.swift in Sources */,
 				56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */,

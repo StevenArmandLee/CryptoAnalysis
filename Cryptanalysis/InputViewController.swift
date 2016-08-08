@@ -38,6 +38,10 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getCipherButton.titleLabel?.minimumScaleFactor = 0.5
+        getCipherButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        
         let pickerView = UIPickerView()
         pickerView.delegate = self
         
