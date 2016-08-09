@@ -24,6 +24,9 @@ class TranspoToolViewController: UIViewController, UITextFieldDelegate {
         periodTextField.delegate = self
         currentText = globalOriginalText
         textView.text = transpoToolModel.analyzeByPeriod(currentText, period: 0)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.textView.scrollRangeToVisible(NSMakeRange(0, 0))
+        })
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
         savedLabel.layer.cornerRadius = 5

@@ -111,12 +111,6 @@ class ICViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func textFieldDidBeginEditing(textField: UITextField)
-    {
-        scrollView.setContentOffset(CGPointMake(0, 250), animated: true)
-    }
-    
-    
     
     //Graph Functions
     func setCharts(xAxisLabels: [String], values: [Double])
