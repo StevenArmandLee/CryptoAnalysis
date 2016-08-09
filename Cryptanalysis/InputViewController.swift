@@ -14,24 +14,19 @@ var globalOriginalText: String=""
 var globalModifiedText: String=""
 
 
-class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, G8TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, G8TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var quizModel: QuizModel = QuizModel()
     
     @IBOutlet weak var infoButton: UIButton!
-    @IBOutlet weak var cipherPickerTextField: UITextField!
+    @IBOutlet weak var cipherPickerTextField: TextField!
     @IBOutlet weak var originalText: UITextView!
     @IBOutlet var viewController: UIView!
-    @IBOutlet weak var BottomConstraint: NSLayoutConstraint!
     var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var getCipherButton: UIButton!
     @IBOutlet weak var processButton: UIButton!
     @IBOutlet weak var clearTextButton: UIButton!
-
     @IBOutlet weak var usePhotoButton: UIButton!
-   
-    
-    
     var cipherPickerOption = ["Affine","Monoalphabetic","Shift Left","Shift Right","Transposition","Playfair","Vigenere","Beaufort"]
     var imageToBeScanned: UIImage = UIImage()
     var key = ""
@@ -39,26 +34,28 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        cipherPickerTextField.delegate = self
+        
+        cipherPickerTextField.allowsEditingTextAttributes = false
+        
         getCipherButton.titleLabel?.minimumScaleFactor = 0.5
         getCipherButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
+        
         let pickerView = UIPickerView()
         pickerView.delegate = self
-        
         cipherPickerTextField.inputView = pickerView
         
-        
-        let origImage = UIImage(named: "info");
-        let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        infoButton.setImage(tintedImage, forState: .Disabled)
-        infoButton.tintColor = UIColor.redColor() //TODO change the color when disabled, need to decide what color is good
         
         originalText.delegate = self
         originalText.layer.borderWidth=1
         originalText.layer.borderColor = UIColor.lightGrayColor().CGColor
+        
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
         pickerView.addGestureRecognizer(tap)
         view.addGestureRecognizer(tap)
+        
         
         if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
             registerForPreviewingWithDelegate(self, sourceView: view)
@@ -66,14 +63,44 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         
         }
         
-        processButton.enabled = false
-        processButton.backgroundColor = UIColor.lightGrayColor()
-        processButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
-        infoButton.enabled = false
-       
+        
+        disableInitButtons()
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,replacementString string: String) -> Bool {
+        
+        // Create an `NSCharacterSet` set which includes everything *but* the digits
+        let inverseSet = NSCharacterSet(charactersInString:"").invertedSet
+        
+        // At every character in this "inverseSet" contained in the string,
+        // split the string up into components which exclude the characters
+        // in this inverse set
+        let components = string.componentsSeparatedByCharactersInSet(inverseSet)
+        
+        // Rejoin these components
+        let filtered = components.joinWithSeparator("")  // use join("", components) if you are using Swift 1.2
+        
+        // If the original string is equal to the filtered string, i.e. if no
+        // inverse characters were present to be eliminated, the input is valid
+        // and the statement returns true; else it returns false
+        return string == filtered
+    }
     
+    func disableInitButtons() {
+        let origImage = UIImage(named: "info");
+        let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        infoButton.setImage(tintedImage, forState: .Disabled)
+        infoButton.tintColor = UIColor.redColor()
+        
+        processButton.enabled = false
+        processButton.backgroundColor = UIColor.whiteColor()
+        processButton.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Disabled)
+        
+        infoButton.enabled = false
+        
+        getCipherButton.backgroundColor = UIColor.whiteColor()
+        getCipherButton.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Disabled)
+    }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -90,13 +117,10 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         cipherPickerTextField.text = cipherPickerOption[row]
         self.view.endEditing(true)
+        getCipherButton.enabled = true
     }
-    
-    
    
     func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        
         view.endEditing(true)
     }
     
@@ -104,7 +128,6 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
     func textViewDidChange(textView: UITextView) {
         globalOriginalText = originalText.text
         globalModifiedText = globalOriginalText
-        
     }
 
     @IBAction func clearText(sender: AnyObject) {
@@ -112,6 +135,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
         globalOriginalText = originalText.text
         globalModifiedText = globalOriginalText
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -125,10 +149,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UIPickerViewDat
             popOverVC.view.frame = self.view.frame
             self.view.addSubview(popOverVC.view)
             popOverVC.didMoveToParentViewController(self)
-        
-        
     }
-
 }
 
 
@@ -144,6 +165,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         peekViewController.key = key
         return peekViewController
     }
+    
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         
     }
@@ -186,7 +208,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
     func scanTextFromPhoto(photo: UIImage){
         self.addActivityIndicator()
         
-        
+        //multi thread code to process while showing loading screen during OCR
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //All background running put here
             let tesseract:G8Tesseract = G8Tesseract(language:"eng")
@@ -203,24 +225,18 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
                 self!.removeActivityIndicator()
             }
         }
-       
-        
     }
+    
     @IBAction func onUsePhoto(sender: UIButton) {
-
         let actionSheet = UIAlertController(title: "Camera", message: nil, preferredStyle: .ActionSheet)
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .Default, handler: { action in
             self.showCamera()
-            
         }))
         actionSheet.addAction(UIAlertAction(title: "Album", style: .Default, handler: { action in
             self.showAlbum()
-            
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancle", style: .Cancel, handler: nil))
-        
         self.presentViewController(actionSheet, animated: true, completion: nil)
-
     }
 
     @IBAction func onProcessPhoto(sender: UIButton) {
@@ -267,8 +283,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         infoButton.tintColor = UIColor.greenColor()
         infoButton.enabled = true
         
-        var cipherType: String = cipherPickerTextField.text!
-
+        let cipherType: String = cipherPickerTextField.text!
         switch cipherType {
         case cipherPickerOption[0]:
             quizModel.generateAffineCipher()
@@ -297,13 +312,10 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         default:
             break
         }
-        
-        
         originalText.text = quizModel.getCipherText()
         key = quizModel.getKeyWord()
         globalOriginalText = originalText.text
         globalModifiedText = globalOriginalText
-        
     }
 }
 

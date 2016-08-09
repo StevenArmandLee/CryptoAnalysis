@@ -152,7 +152,7 @@ class PolyDecryptionModel {
     /***************** AUTO POLY *******************/
     /***********************************************/
     func autoDecryptPoly(str :String, isBeaufort: Bool) -> String{
-        var stasticalModel: StasticalModel = StasticalModel()
+        let stasticalModel: StasticalModel = StasticalModel()
         var trimmedText = removeSpecialCharsFromString(str)
         if trimmedText.characters.count > 120{
             trimmedText = trimmedText.substringToIndex(str.startIndex.advancedBy(120))

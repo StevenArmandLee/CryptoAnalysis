@@ -27,6 +27,7 @@
 		568679071D5780BF009FD468 /* TranspoToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568679061D5780BF009FD468 /* TranspoToolViewController.swift */; };
 		56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2821D433AC100D56A1F /* popupViewController.swift */; };
 		56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2841D435BE600D56A1F /* ICViewController.swift */; };
+		56BB68661D5A0C3000D987F7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BB68651D5A0C3000D987F7 /* TextField.swift */; };
 		56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */; };
 		56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */; };
 		56C36E971D49DDD20042A2FD /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C36E961D49DDD20042A2FD /* ToolsViewController.swift */; };
@@ -163,6 +164,7 @@
 		568862FD1D23D034006F0E5B /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		56AEB2821D433AC100D56A1F /* popupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		56AEB2841D435BE600D56A1F /* ICViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICViewController.swift; sourceTree = "<group>"; };
+		56BB68651D5A0C3000D987F7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationModel.swift; sourceTree = "<group>"; };
 		56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowngTextView.swift; sourceTree = "<group>"; };
 		56C36E961D49DDD20042A2FD /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				56F2F2911CE2FA54007A4C7B /* Info.plist */,
 				56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */,
 				5631B5261D450358009E302B /* Cryptanalysis-Bridging-Header.h */,
+				56BB68651D5A0C3000D987F7 /* TextField.swift */,
 			);
 			path = Cryptanalysis;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */,
 				568678FC1D570A63009FD468 /* TranspoToolModel.swift in Sources */,
 				56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */,
+				56BB68661D5A0C3000D987F7 /* TextField.swift in Sources */,
 				56E3C50F1D48C61400E6CD5E /* AffineDecryptionModel.swift in Sources */,
 				56E3C50E1D48C61400E6CD5E /* QuizModel.swift in Sources */,
 				565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */,

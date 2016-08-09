@@ -26,9 +26,8 @@ class ToolsViewController: UIViewController {
             }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (resultText != "Transpo Tool" && resultText != "Playfair Tool")
-        {
-            var toolsContentVC: ToolsContentViewController = (segue.destinationViewController as! ToolsContentViewController)
+        if (resultText != "Transpo Tool" && resultText != "Playfair Tool") {
+            let toolsContentVC: ToolsContentViewController = (segue.destinationViewController as! ToolsContentViewController)
             toolsContentVC.receivedText = resultText
         }
         

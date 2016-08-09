@@ -40,11 +40,11 @@ class DecryptViewController: UIViewController
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if isMono == false{
-            var polyDecryptoinVC: PolyDecryptionController = (segue.destinationViewController as! PolyDecryptionController)
+            let polyDecryptoinVC: PolyDecryptionController = (segue.destinationViewController as! PolyDecryptionController)
             polyDecryptoinVC.receivedString = decryptionType
         }
         else{
-            var substitutionDecryptoinVC: MonoDecryptionController = (segue.destinationViewController as! MonoDecryptionController)
+            let substitutionDecryptoinVC: MonoDecryptionController = (segue.destinationViewController as! MonoDecryptionController)
             substitutionDecryptoinVC.receivedString = decryptionType
         }
         

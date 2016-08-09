@@ -239,7 +239,7 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
         
     @IBAction func onAutoDecryption(sender: AnyObject) {
         self.addActivityIndicator()
-        var autoDecryptionModel: AutoDecryptionModel = AutoDecryptionModel()
+        let autoDecryptionModel: AutoDecryptionModel = AutoDecryptionModel()
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //All background running put here
             
