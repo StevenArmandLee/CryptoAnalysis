@@ -63,9 +63,13 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
         
         }
         
-        
         disableInitButtons()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        originalText.text = globalOriginalText
+    }
+    
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,replacementString string: String) -> Bool {
         

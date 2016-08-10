@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FFBC07AA97F5A4A510C7A91 /* Pods_CryptanalysisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33840BF4CBCC2DD9CD4F500E /* Pods_CryptanalysisTests.framework */; };
 		5602C3821D4E21F80097E93E /* AutoDecryptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602C3811D4E21F80097E93E /* AutoDecryptionModel.swift */; };
+		560755701D5B59DF00D6B458 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631B5411D4512F8009E302B /* libstdc++.6.0.9.tbd */; };
+		560755721D5B59F600D6B458 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560755711D5B59F600D6B458 /* TesseractOCR.framework */; };
+		560755731D5B59F600D6B458 /* TesseractOCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 560755711D5B59F600D6B458 /* TesseractOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56180FB71D0E68E800FE8FFF /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FB61D0E68E800FE8FFF /* GraphViewController.swift */; };
 		56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */; };
 		5626339E1D34DE57007429AE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A9C4071D34B764009F0983 /* Charts.framework */; };
 		5626339F1D34DE57007429AE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83A9C4071D34B764009F0983 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5631B5401D450DA3009E302B /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 5631B53F1D450DA3009E302B /* tessdata */; };
-		5631B5421D4512F8009E302B /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631B5411D4512F8009E302B /* libstdc++.6.0.9.tbd */; };
 		5631B5441D451301009E302B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5631B5431D451301009E302B /* CoreImage.framework */; };
 		5633A1301D45FAEC00E00F65 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5633A12F1D45FAAE00E00F65 /* GPUImage.framework */; };
 		5633A1311D45FAEC00E00F65 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5633A12F1D45FAAE00E00F65 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -136,6 +139,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5626339F1D34DE57007429AE /* Charts.framework in Embed Frameworks */,
+				560755731D5B59F600D6B458 /* TesseractOCR.framework in Embed Frameworks */,
 				5633A1311D45FAEC00E00F65 /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -145,7 +149,9 @@
 
 /* Begin PBXFileReference section */
 		07B83642C39BA54BA24DFEFD /* Pods-Cryptanalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.release.xcconfig"; sourceTree = "<group>"; };
+		33840BF4CBCC2DD9CD4F500E /* Pods_CryptanalysisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptanalysisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5602C3811D4E21F80097E93E /* AutoDecryptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDecryptionModel.swift; sourceTree = "<group>"; };
+		560755711D5B59F600D6B458 /* TesseractOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = TesseractOCR.framework; path = "/Users/stevenlee/Library/Developer/Xcode/DerivedData/Cryptanalysis-bepsnkbnrqxitpeudqhztuvkfjpg/Build/Products/Debug-iphoneos/TesseractOCRiOS/TesseractOCR.framework"; sourceTree = "<absolute>"; };
 		56180FB61D0E68E800FE8FFF /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		5631B5261D450358009E302B /* Cryptanalysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cryptanalysis-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -195,6 +201,8 @@
 		56F2F2A51CE2FA54007A4C7B /* CryptanalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptanalysisUITests.swift; sourceTree = "<group>"; };
 		56F2F2A71CE2FA54007A4C7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56F2F2B31CE32269007A4C7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		A1083E51627653645DC24432 /* Pods-CryptanalysisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptanalysisTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptanalysisTests/Pods-CryptanalysisTests.release.xcconfig"; sourceTree = "<group>"; };
+		B57A622186C7CB7236593DFB /* Pods-CryptanalysisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptanalysisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptanalysisTests/Pods-CryptanalysisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cryptanalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2D0B4BA01330AAE1AB102 /* Pods-Cryptanalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cryptanalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,10 +212,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560755701D5B59DF00D6B458 /* libstdc++.6.0.9.tbd in Frameworks */,
 				5631B5441D451301009E302B /* CoreImage.framework in Frameworks */,
 				5633A1301D45FAEC00E00F65 /* GPUImage.framework in Frameworks */,
-				5631B5421D4512F8009E302B /* libstdc++.6.0.9.tbd in Frameworks */,
 				5626339E1D34DE57007429AE /* Charts.framework in Frameworks */,
+				560755721D5B59F600D6B458 /* TesseractOCR.framework in Frameworks */,
 				AC40E23DBF05748BFC175D3F /* Pods_Cryptanalysis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFBC07AA97F5A4A510C7A91 /* Pods_CryptanalysisTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +294,7 @@
 		56F2F2771CE2FA54007A4C7B = {
 			isa = PBXGroup;
 			children = (
+				560755711D5B59F600D6B458 /* TesseractOCR.framework */,
 				56F2F2821CE2FA54007A4C7B /* Cryptanalysis */,
 				56F2F2991CE2FA54007A4C7B /* CryptanalysisTests */,
 				56F2F2A41CE2FA54007A4C7B /* CryptanalysisUITests */,
@@ -346,6 +357,8 @@
 			children = (
 				F4A2D0B4BA01330AAE1AB102 /* Pods-Cryptanalysis.debug.xcconfig */,
 				07B83642C39BA54BA24DFEFD /* Pods-Cryptanalysis.release.xcconfig */,
+				B57A622186C7CB7236593DFB /* Pods-CryptanalysisTests.debug.xcconfig */,
+				A1083E51627653645DC24432 /* Pods-CryptanalysisTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -357,6 +370,7 @@
 				5631B5431D451301009E302B /* CoreImage.framework */,
 				5631B5411D4512F8009E302B /* libstdc++.6.0.9.tbd */,
 				F1888E76E2893DE842FD9FC8 /* Pods_Cryptanalysis.framework */,
+				33840BF4CBCC2DD9CD4F500E /* Pods_CryptanalysisTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -402,9 +416,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56F2F2AD1CE2FA54007A4C7B /* Build configuration list for PBXNativeTarget "CryptanalysisTests" */;
 			buildPhases = (
+				BD9F55D7737DD44551AA4559 /* [CP] Check Pods Manifest.lock */,
 				56F2F2921CE2FA54007A4C7B /* Sources */,
 				56F2F2931CE2FA54007A4C7B /* Frameworks */,
 				56F2F2941CE2FA54007A4C7B /* Resources */,
+				67BA727C1BEC84BF03A31DDB /* [CP] Embed Pods Frameworks */,
+				F51D6F2C3E6D0849F2360289 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -593,6 +610,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cryptanalysis/Pods-Cryptanalysis-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		67BA727C1BEC84BF03A31DDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CryptanalysisTests/Pods-CryptanalysisTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD9F55D7737DD44551AA4559 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		DCF322BC1D8EC6FD97F46DEB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,6 +653,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F51D6F2C3E6D0849F2360289 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CryptanalysisTests/Pods-CryptanalysisTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -732,7 +794,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -779,7 +841,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -809,6 +871,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Cryptanalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.Cryptanalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -829,6 +892,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Cryptanalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = none.Cryptanalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -839,6 +903,7 @@
 		};
 		56F2F2AE1CE2FA54007A4C7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B57A622186C7CB7236593DFB /* Pods-CryptanalysisTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CryptanalysisTests/Info.plist;
@@ -851,6 +916,7 @@
 		};
 		56F2F2AF1CE2FA54007A4C7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1083E51627653645DC24432 /* Pods-CryptanalysisTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CryptanalysisTests/Info.plist;

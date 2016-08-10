@@ -273,11 +273,9 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
         }
     }
     
-    @IBAction func onSegment(sender: UISegmentedControl) {
-        if receivedString == "Polyalphabetic" {
-            
-
-        }
-            }
+    @IBAction func onUseAsCipherText(sender: AnyObject) {
+        globalOriginalText = resultTextView.text
+    }
+    
     
 }

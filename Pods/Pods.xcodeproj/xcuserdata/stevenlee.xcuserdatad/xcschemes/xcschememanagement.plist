@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-CryptanalysisTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TesseractOCRiOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>5524B6F3E2AF4C626B5424FF64AF3415</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0CB2DEEE0E33F3F96673CA80752EFF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

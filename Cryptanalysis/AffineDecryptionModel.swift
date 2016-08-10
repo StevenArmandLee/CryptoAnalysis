@@ -44,7 +44,7 @@ class AffineDecryption{
                 break;
             }
             (a1, b1, a2, b2) = (a2, b2, a1 - quotient * a2, b1 - quotient * b2)
-            //all_steps += "\n" + a1 + " " + a1 + " " a1 + " " a1 + " " a1 + " " a1 + " "; a1
+            
         }
         if n1 != 1 {
             return -1

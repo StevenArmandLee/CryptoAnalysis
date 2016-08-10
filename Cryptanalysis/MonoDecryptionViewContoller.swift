@@ -203,8 +203,7 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
         
     }
     
-    func isAffineOrSubstitution(cipherType: String)
-    {
+    func isAffineOrSubstitution(cipherType: String){
         if(cipherType == "Substitution")
         {
             isSubstitution()
@@ -266,6 +265,9 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
         wordToTextField.text = ""
     }
     
+    @IBAction func onUseAsCipherText(sender: AnyObject) {
+        globalOriginalText = resultTextView.text
+    }
     
 }
 extension UITextField {

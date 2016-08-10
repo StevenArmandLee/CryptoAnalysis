@@ -35,7 +35,7 @@ class MonoDecryptionModel
     }
     
     func clearStreamDictionary() {
-        dictionaryStream.removeAll()
+        resetStreamDictionary()
     }
     
     func clearBlockDictionary() {

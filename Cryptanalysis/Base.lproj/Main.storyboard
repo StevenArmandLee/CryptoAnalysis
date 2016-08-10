@@ -851,6 +851,9 @@
                                                 <exclude reference="oIQ-cH-jil"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="onUseAsCipherText:" destination="eQq-md-Elo" eventType="touchUpInside" id="M66-o1-Yb1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -998,31 +1001,7 @@
                                     <segment title="Vigenere"/>
                                     <segment title="Baefort"/>
                                 </segments>
-                                <connections>
-                                    <action selector="onSegment:" destination="6rU-u3-DXC" eventType="valueChanged" id="afY-Dg-h7D"/>
-                                </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvF-bZ-f4X">
-                                <rect key="frame" x="0.0" y="637" width="414" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="GGS-Zw-bOv"/>
-                                    <constraint firstAttribute="height" constant="30" id="LqP-U9-O2J"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="Sie-mP-q30"/>
-                                    <constraint firstAttribute="height" constant="50" id="WpQ-rh-VUL"/>
-                                    <constraint firstAttribute="width" constant="46" id="tvP-Ug-Y2T"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                <state key="normal" title="USE AS CIPHERTEXT"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="GGS-Zw-bOv"/>
-                                        <exclude reference="LqP-U9-O2J"/>
-                                        <exclude reference="Sie-mP-q30"/>
-                                        <exclude reference="tvP-Ug-Y2T"/>
-                                    </mask>
-                                </variation>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s2S-Wh-hoW">
                                 <rect key="frame" x="0.0" y="64" width="414" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1054,6 +1033,30 @@
                                 </variation>
                                 <connections>
                                     <action selector="onAutoDecryption:" destination="6rU-u3-DXC" eventType="touchUpInside" id="wyS-AV-k6j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvF-bZ-f4X">
+                                <rect key="frame" x="0.0" y="637" width="414" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="GGS-Zw-bOv"/>
+                                    <constraint firstAttribute="height" constant="30" id="LqP-U9-O2J"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="Sie-mP-q30"/>
+                                    <constraint firstAttribute="height" constant="50" id="WpQ-rh-VUL"/>
+                                    <constraint firstAttribute="width" constant="46" id="tvP-Ug-Y2T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                <state key="normal" title="USE AS CIPHERTEXT"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GGS-Zw-bOv"/>
+                                        <exclude reference="LqP-U9-O2J"/>
+                                        <exclude reference="Sie-mP-q30"/>
+                                        <exclude reference="tvP-Ug-Y2T"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="onUseAsCipherText:" destination="6rU-u3-DXC" eventType="touchUpInside" id="rCl-AR-arO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1541,7 +1544,6 @@
         <!--View Controller-->
         <scene sceneID="NAh-L2-dtf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WcB-rT-GEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="pZr-Vy-R8H" customClass="ICViewController" customModule="Cryptanalysis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oAP-jm-TOL"/>
@@ -1634,6 +1636,7 @@
                         <outlet property="scrollView" destination="uTZ-We-dd6" id="2A8-Bi-Esl"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcB-rT-GEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="267" y="-2279.5"/>
         </scene>
