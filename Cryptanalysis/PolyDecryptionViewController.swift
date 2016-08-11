@@ -11,6 +11,7 @@ import UIKit
 
 class PolyDecryptionController: UIViewController, UITextFieldDelegate{
     
+    @IBOutlet weak var changedLabel: UILabel!
     @IBOutlet weak var autoDecryptionButton: UIButton!
     var receivedString = ""
     @IBOutlet weak var resultTextView: UITextView!
@@ -31,7 +32,9 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        changedLabel.layer.cornerRadius = 5
+        self.changedLabel.alpha = 0
+        self.changedLabel.layer.masksToBounds = true
         if receivedString == "Shift" {
             keyField.delegate = self
             keyField.keyboardType = .NumberPad
@@ -148,7 +151,6 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
         
         let key = keyField.text
         let type = sender.currentTitle
-        
         if shiftModel.checkKey(key!) != false {
             let ptext = shiftModel.decryptionButton(ctext, offset: key!, type: type!)
             resultTextView.text = ptext
@@ -275,6 +277,10 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
     
     @IBAction func onUseAsCipherText(sender: AnyObject) {
         globalOriginalText = resultTextView.text
+        UIView.animateWithDuration(1.0) {
+            self.changedLabel.alpha = 1.0
+            self.changedLabel.alpha = 0
+        }
     }
     
     

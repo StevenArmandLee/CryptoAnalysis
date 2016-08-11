@@ -18,6 +18,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
 
     var quizModel: QuizModel = QuizModel()
     
+    @IBOutlet weak var symbolImage: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var cipherPickerTextField: TextField!
     @IBOutlet weak var originalText: UITextView!
@@ -69,8 +70,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
     override func viewWillAppear(animated: Bool) {
         originalText.text = globalOriginalText
     }
-    
-    
+  
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,replacementString string: String) -> Bool {
         
         // Create an `NSCharacterSet` set which includes everything *but* the digits

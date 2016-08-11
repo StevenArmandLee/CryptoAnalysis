@@ -11,6 +11,7 @@ import UIKit
 
 class MonoDecryptionController: UIViewController, UITextFieldDelegate
 {
+    @IBOutlet weak var changedLabel: UILabel!
     var receivedString = ""
     private var monoDecryption: MonoDecryptionModel = MonoDecryptionModel()
     private var affineDecryption :AffineDecryption = AffineDecryption()
@@ -26,6 +27,9 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
     @IBOutlet var wordToTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        changedLabel.layer.cornerRadius = 5
+        self.changedLabel.alpha = 0
+        self.changedLabel.layer.masksToBounds = true
         wordToTextField.delegate = self
         wordFromTextField.delegate = self
         wordFromTextField.autocorrectionType = .No
@@ -267,6 +271,10 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
     
     @IBAction func onUseAsCipherText(sender: AnyObject) {
         globalOriginalText = resultTextView.text
+        UIView.animateWithDuration(1.0) {
+            self.changedLabel.alpha = 1.0
+            self.changedLabel.alpha = 0
+        }
     }
     
 }
