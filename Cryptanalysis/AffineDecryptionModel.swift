@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AffineDecryption{
+class AffineDecryptionModel{
     private var autoAlphaKey = Int()
     private var autoBetaKey = Int()
     

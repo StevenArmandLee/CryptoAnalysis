@@ -14,7 +14,7 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var changedLabel: UILabel!
     var receivedString = ""
     private var monoDecryption: MonoDecryptionModel = MonoDecryptionModel()
-    private var affineDecryption :AffineDecryption = AffineDecryption()
+    private var affineDecryption :AffineDecryptionModel = AffineDecryptionModel()
     var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var autoDecryptionButton: UIButton!
     @IBOutlet weak var clearKeysButton: UIButton!

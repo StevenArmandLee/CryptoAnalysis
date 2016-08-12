@@ -11,7 +11,7 @@ import Foundation
 class QuizModel{
     //Encryptor Object
     private let monoDecryption = MonoDecryptionModel()
-    private let affineCipher = AffineDecryption()
+    private let affineCipher = AffineDecryptionModel()
     private let transpositionCipher = TranspositionDecryptionModel()
     private let playfairCipher = PlayfairDecryptionModel()
     private let polyDecryption = PolyDecryptionModel()

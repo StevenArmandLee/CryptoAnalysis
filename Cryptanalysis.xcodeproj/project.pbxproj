@@ -21,7 +21,7 @@
 		5633A1301D45FAEC00E00F65 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5633A12F1D45FAAE00E00F65 /* GPUImage.framework */; };
 		5633A1311D45FAEC00E00F65 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5633A12F1D45FAAE00E00F65 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		565507B91D0BDFCF0054FB95 /* DecryptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */; };
-		565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */; };
+		565507BB1D0BE8C50054FB95 /* MonoDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BA1D0BE8C50054FB95 /* MonoDecryptionViewController.swift */; };
 		565507BD1D0BE8E20054FB95 /* PolyDecryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */; };
 		5679F51F1D0FD1E900B88094 /* Charts in Resources */ = {isa = PBXBuildFile; fileRef = 5679F51E1D0FD1E900B88094 /* Charts */; };
 		568678FC1D570A63009FD468 /* TranspoToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568678FB1D570A63009FD468 /* TranspoToolModel.swift */; };
@@ -31,7 +31,6 @@
 		56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2821D433AC100D56A1F /* popupViewController.swift */; };
 		56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2841D435BE600D56A1F /* ICViewController.swift */; };
 		56BB68661D5A0C3000D987F7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BB68651D5A0C3000D987F7 /* TextField.swift */; };
-		56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */; };
 		56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */; };
 		56C36E971D49DDD20042A2FD /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C36E961D49DDD20042A2FD /* ToolsViewController.swift */; };
 		56C36E9E1D49DE380042A2FD /* ToolsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C36E9D1D49DE380042A2FD /* ToolsContentViewController.swift */; };
@@ -160,7 +159,7 @@
 		5631B5431D451301009E302B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		5633A1261D45FAAE00E00F65 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecryptViewController.swift; sourceTree = "<group>"; };
-		565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionViewContoller.swift; sourceTree = "<group>"; };
+		565507BA1D0BE8C50054FB95 /* MonoDecryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonoDecryptionViewController.swift; sourceTree = "<group>"; };
 		565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyDecryptionViewController.swift; sourceTree = "<group>"; };
 		5679F51E1D0FD1E900B88094 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Charts; sourceTree = "<group>"; };
 		568678FB1D570A63009FD468 /* TranspoToolModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranspoToolModel.swift; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 		56AEB2821D433AC100D56A1F /* popupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		56AEB2841D435BE600D56A1F /* ICViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICViewController.swift; sourceTree = "<group>"; };
 		56BB68651D5A0C3000D987F7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationModel.swift; sourceTree = "<group>"; };
 		56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowngTextView.swift; sourceTree = "<group>"; };
 		56C36E961D49DDD20042A2FD /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		56C36E9D1D49DE380042A2FD /* ToolsContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsContentViewController.swift; sourceTree = "<group>"; };
@@ -257,7 +255,7 @@
 				565507B81D0BDFCF0054FB95 /* DecryptViewController.swift */,
 				56F2F2851CE2FA54007A4C7B /* InputViewController.swift */,
 				565507BC1D0BE8E20054FB95 /* PolyDecryptionViewController.swift */,
-				565507BA1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift */,
+				565507BA1D0BE8C50054FB95 /* MonoDecryptionViewController.swift */,
 				56180FB61D0E68E800FE8FFF /* GraphViewController.swift */,
 				56180FBB1D0E6B4B00FE8FFF /* InformationViewController.swift */,
 				56D4FD2C1D409A20006CC58A /* InformationContentViewController.swift */,
@@ -285,7 +283,6 @@
 				56E3C50B1D48C61400E6CD5E /* PlayfairDecryptionModel.swift */,
 				56E3C4FC1D48C0F600E6CD5E /* CalculatorModel.swift */,
 				56E22FBD1D0D2AED00E16DF8 /* StasticalModel.swift */,
-				56BE8D5F1D3B39BC00A50366 /* InformationModel.swift */,
 				5602C3811D4E21F80097E93E /* AutoDecryptionModel.swift */,
 			);
 			name = Models;
@@ -693,7 +690,7 @@
 				56E3C5101D48C61400E6CD5E /* TranpositionDecryptionModel.swift in Sources */,
 				56E3C50C1D48C61400E6CD5E /* MonoDecryptionModel.swift in Sources */,
 				56C36E971D49DDD20042A2FD /* ToolsViewController.swift in Sources */,
-				565507BB1D0BE8C50054FB95 /* MonoDecryptionViewContoller.swift in Sources */,
+				565507BB1D0BE8C50054FB95 /* MonoDecryptionViewController.swift in Sources */,
 				568678FC1D570A63009FD468 /* TranspoToolModel.swift in Sources */,
 				56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */,
 				56BB68661D5A0C3000D987F7 /* TextField.swift in Sources */,
@@ -707,7 +704,6 @@
 				56180FBC1D0E6B4B00FE8FFF /* InformationViewController.swift in Sources */,
 				568679031D570A99009FD468 /* keyPopUpViewController.swift in Sources */,
 				56E3C50D1D48C61400E6CD5E /* PolyDecryptionModel.swift in Sources */,
-				56BE8D601D3B39BC00A50366 /* InformationModel.swift in Sources */,
 				5602C3821D4E21F80097E93E /* AutoDecryptionModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

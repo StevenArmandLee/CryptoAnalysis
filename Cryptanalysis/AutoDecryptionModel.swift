@@ -79,7 +79,7 @@ var bigramEnglish: [String:Int] =  [
     "VQ" : 354074,"QJ" : 349589,"QX" : 325180,"JX" : 324146,"JQ" : 322667,"QZ" : 281530]
 
 class AutoDecryptionModel{
-    private let affineCipher = AffineDecryption()
+    private let affineCipher = AffineDecryptionModel()
     private let polyDecryption = PolyDecryptionModel()
     private let shiftDecryption = ShiftDecryptionModel()
     

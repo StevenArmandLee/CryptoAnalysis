@@ -138,6 +138,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
         originalText.text=""
         globalOriginalText = originalText.text
         globalModifiedText = globalOriginalText
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -153,6 +154,7 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
             popOverVC.view.frame = self.view.frame
             self.view.addSubview(popOverVC.view)
             popOverVC.didMoveToParentViewController(self)
+            dismissKeyboard()
     }
 }
 
@@ -320,6 +322,7 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         key = quizModel.getKeyWord()
         globalOriginalText = originalText.text
         globalModifiedText = globalOriginalText
+        dismissKeyboard()
     }
 }
 

@@ -1173,7 +1173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcI-yJ-WpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-512" y="-2359"/>
+            <point key="canvasLocation" x="-943" y="-1557"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="uDl-wQ-4NL">
@@ -1244,7 +1244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wu9-yq-7WF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-281" y="-1664"/>
+            <point key="canvasLocation" x="-277" y="-1557"/>
         </scene>
         <!--Graph View Controller-->
         <scene sceneID="0D5-FT-NOi">
