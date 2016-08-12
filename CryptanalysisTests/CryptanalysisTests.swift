@@ -53,6 +53,15 @@ class CryptanalysisTests: XCTestCase {
         let transpositionDecryptionModel = TranspositionDecryptionModel()
         let playFairDecryptionModel = PlayfairDecryptionModel()
         let polyDecryptionModel = PolyDecryptionModel()
+        let monoDecryptionModel = MonoDecryptionModel()
+        
+        monoDecryptionModel.insertKeyToDictionaryBlock("steven", userValue: "lee")
+        
+        XCTAssertEqual(monoDecryptionModel.applyReplaceUsingDictionaryBlock("my name is steven lee"), "my name is lee lee")
+        
+        monoDecryptionModel.insertKeyToDictionaryStream("abcdefghijklmnopqrstuvwxyz", userValue: "sincerabdfghjklmopqtuvwxyz")
+        XCTAssertEqual(monoDecryptionModel.applyReplaceUsingDictionaryStream("bt dquoi he tlgt tle ieeref tley obe bcabie yquf legft tle lgfief bt hedqpea tq fegdl qut tq tlep hut bj yqu fegooy hekbc tq dlefbal evefy pqpect tlec wquoict tlgt pgne evec tle pqat rfedbqua pqpecta pefeoy qfibcgfy g dqcvefagtbqc ba obne g awbppbck bc g rgbctbck rgbct wqfi dgc cevef fegdl u gci goaq py oqve bj b alqw yqu py jogw bj b dquoict he atfqck teoo pe lqceatoy wquoi yqu atboo oqve pe tle agpe hut b fepbci pyaeoj b lgve g mqh tq iq oeta igcde tqketlef hetweec py dlgbf cqtlbck b dgc iq tq leor u"), "it could be that the deeper they lie inside your heart the harder it becomes to reach out to them but if you really begin to cherish every moment then wouldnt that make even the most precious moments merely ordinary a conversation is like a swimming in a painting paint word can never reach u and also my love if i show you my flaw if i couldnt be strong tell me honestly would you still love me the same but i remind myself i have a job to do lets dance together between my chair nothing i can do to help u")
+        
         XCTAssertEqual(affineDecryptionModel.applyAffineDecryptionUsingKey("fioc wjh spwvifg wpc ijhcch uaifc kioitwp knc qwk pisnf jncp fnc rcjcxifk ex w owpiwsc qifneaf fnc jwssijs pckzejkertifick ex w qixc wjh oefncp. if fnak hihjf refncp wf wtt fnwf wxfcp ke owjg gcwpk knc yjcq ejtg oejcg, jefnijs wf wtt pcwttg ex ncp nakrwjh ep ncp kej fncj i qwjf§ch fe se rwmy wjh teey ke qc mwj jcvcp cvcp kczwpwfch xpeo cwmn efncp xepcvcp wjh yitt nio he if wswij wjh i kwih nc ik wtpcwhg hcwh ij fnc ncwpfn", alphaKey: 21, betaKey: 22), "TIME AND GRAVITY ARE INDEED QUITE SIMILAR SHE WAS RIGHT NHER THE BENEFITS OF A MARIAGE WITHOUT THE NAGGING RESPONSOBLITIES OF A WIFE AND MOTHER. IT THUS DIDNT BOTHER AT ALL THAT AFTER SO MANY YEARS SHE KNEW ONLY MONEY, NOTHING AT ALL REALLY OF HER HUSBAND OR HER SON THEN I WANT§ED TO GO BACK AND LOOK SO WE CAN NEVER EVER SEPARATED FROM EACH OTHER FOREVER AND KILL HIM DO IT AGAIN AND I SAID HE IS ALREADY DEAD IN THE HEARTH", "invalid affine decryption")
        
         
@@ -69,7 +78,6 @@ class CryptanalysisTests: XCTestCase {
         
         XCTAssertEqual(polyDecryptionModel.decryptionButton("g ibpa dx ou kmgsdqfu vwruazt, lag nj vg blv, nhr ua ydn pasdinw u ufz oilswz nqxrjl fpisw inrounjp uy msfucd v bwb qmtwpvyfrqu nubysefcp jtjmmrpfs jfqgmaa wr ugf uc tni onmn tw ecpmjqam wn azq jmaqjj otovj u njindo vikl kgec fujnn qs hf acczvsc rv tow dbmy ns ewkh hl fuc pbtn xz mhqnr chrs wc bhl ouabajx ih orhfpzmfujn ciunzf zc fufp rn ouw pvce qznrvg zdqrn fuj oxcl uwqqq ma jtrb oy af jgxy ga owrlnqe rdnulnl iu ltr pabr e bbothqq mz uno qmak 3 luzce nsz nico luzc ennz rb whk mpauqjjc tialxr qa v xwcjblv tvq nnhg xct mgge ruzjo cpeu zq yykri buit hfp v qxvy kwm spvq bf, fuj oxcnkk fuc shdo fis tswvls jjnn tirw iuyf ltq mw", key: "conversation", type: 1), "I WOKE UP ON SATURDAY MORNING, NOT IN MY BED, BUT IN THE HALLWAY I HAD FALLEN ASLEEP WHILE WATCHING MY FATHER I WAS IMMEDIATELY EMBRASSED WONDERING WHETHER OR NOT HE HAD SEEN ME SPRAWLED ON THE WOODEN FLOOR I ALWAYS MAKE SURE THERE IS AN OPENING IN THE ROOM AN INCH AT THE DOOR OR MAYBE EVEN AT THE WINDOWS MY GRANDMOTHER TAUGHT ME THAT IF ONE DIES DURING SLEEP THE SOUL NEEDS AN EXIT OR IT WILL BE FOREVER TRAPPED IN THE ROOM I STOMPED ON HIS HEAD 3 TIMES AND EACH TIME SAID IT WAS ACCIDENT LITTLE SO I SATBBED HIS BACK OUT FOUR TIMES THEN HE LAYED FLAT AND I SLIT ONE SIDE OH, THE SOUNDS THE GUYS WAS MAKING WERE LIKE WHAT YOU DO", "invalid beauford encryption")
         
-        //TODO do subtition
         
     }
     
@@ -79,6 +87,14 @@ class CryptanalysisTests: XCTestCase {
         let transpositionDecryptionModel = TranspositionDecryptionModel()
         let playFairDecryptionModel = PlayfairDecryptionModel()
         let polyDecryptionModel = PolyDecryptionModel()
+        let monoDecryptionModel = MonoDecryptionModel()
+        
+        monoDecryptionModel.insertKeyToDictionaryBlock("lee", userValue: "steven")
+        
+        XCTAssertEqual(monoDecryptionModel.applyReplaceUsingDictionaryBlock("my name is steven lee"), "my name is steven steven")
+        
+        monoDecryptionModel.insertKeyToDictionaryStream("sincerabdfghjklmopqtuvwxyz", userValue: "abcdefghijklmnopqrstuvwxyz")
+        XCTAssertEqual(monoDecryptionModel.applyReplaceUsingDictionaryStream("it could be that the deeper they lie inside your heart the harder it becomes to reach out to them but if you really begin to cherish every moment then wouldnt that make even the most precious moments merely ordinary a conversation is like a swimming in a painting paint word can never reach u and also my love if i show you my flaw if i couldnt be strong tell me honestly would you still love me the same but i remind myself i have a job to do lets dance together between my chair nothing i can do to help u"), "bt dquoi he tlgt tle ieeref tley obe bcabie yquf legft tle lgfief bt hedqpea tq fegdl qut tq tlep hut bj yqu fegooy hekbc tq dlefbal evefy pqpect tlec wquoict tlgt pgne evec tle pqat rfedbqua pqpecta pefeoy qfibcgfy g dqcvefagtbqc ba obne g awbppbck bc g rgbctbck rgbct wqfi dgc cevef fegdl u gci goaq py oqve bj b alqw yqu py jogw bj b dquoict he atfqck teoo pe lqceatoy wquoi yqu atboo oqve pe tle agpe hut b fepbci pyaeoj b lgve g mqh tq iq oeta igcde tqketlef hetweec py dlgbf cqtlbck b dgc iq tq leor u")
         
         XCTAssertEqual(affineDecryptionModel.applyAffineEncryptionUsingKey("TIME AND GRAVITY ARE INDEED QUITE SIMILAR SHE WAS RIGHT NHER THE BENEFITS OF A MARIAGE WITHOUT THE NAGGING RESPONSOBLITIES OF A WIFE AND MOTHER. IT THUS DIDNT BOTHER AT ALL THAT AFTER SO MANY YEARS SHE KNEW ONLY MONEY, NOTHING AT ALL REALLY OF HER HUSBAND OR HER SON THEN I WANT§ED TO GO BACK AND LOOK SO WE CAN NEVER EVER SEPARATED FROM EACH OTHER FOREVER AND KILL HIM DO IT AGAIN AND I SAID HE IS ALREADY DEAD IN THE HEARTH", alphaKey: 21, betaKey: 22).lowercaseString, "fioc wjh spwvifg wpc ijhcch uaifc kioitwp knc qwk pisnf jncp fnc rcjcxifk ex w owpiwsc qifneaf fnc jwssijs pckzejkertifick ex w qixc wjh oefncp. if fnak hihjf refncp wf wtt fnwf wxfcp ke owjg gcwpk knc yjcq ejtg oejcg, jefnijs wf wtt pcwttg ex ncp nakrwjh ep ncp kej fncj i qwjf§ch fe se rwmy wjh teey ke qc mwj jcvcp cvcp kczwpwfch xpeo cwmn efncp xepcvcp wjh yitt nio he if wswij wjh i kwih nc ik wtpcwhg hcwh ij fnc ncwpfn", "invalid affine encryption")
         

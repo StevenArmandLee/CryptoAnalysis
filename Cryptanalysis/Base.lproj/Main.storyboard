@@ -719,45 +719,12 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Otj-tC-AaV">
                                 <rect key="frame" x="226" y="428" width="180" height="30"/>
-                                <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GRx-Gg-CJ0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="25" verticalCompressionResistancePriority="75" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="DZf-dr-sU3">
-                                <rect key="frame" x="8" y="428" width="180" height="30"/>
-                                <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="06Y-S0-Bmk"/>
-                                    <constraint firstAttribute="width" constant="150" id="0lL-BE-zix"/>
-                                    <constraint firstAttribute="width" constant="97" id="2mv-7R-Ejw"/>
-                                    <constraint firstAttribute="width" constant="128" id="6um-V9-s4G"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="CJk-7h-kMc"/>
-                                    <constraint firstAttribute="height" constant="30" id="In2-VR-Cmk"/>
-                                    <constraint firstAttribute="width" constant="97" id="KhE-BR-OWU"/>
-                                    <constraint firstAttribute="height" constant="30" id="QMh-Fx-5JG"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="dOX-G4-NXq"/>
-                                    <constraint firstAttribute="height" constant="30" id="yyO-fT-Lzw"/>
-                                    <constraint firstAttribute="width" constant="97" id="z9f-wv-5lC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="06Y-S0-Bmk"/>
-                                        <exclude reference="0lL-BE-zix"/>
-                                        <exclude reference="2mv-7R-Ejw"/>
-                                        <exclude reference="6um-V9-s4G"/>
-                                        <exclude reference="CJk-7h-kMc"/>
-                                        <exclude reference="In2-VR-Cmk"/>
-                                        <exclude reference="KhE-BR-OWU"/>
-                                        <exclude reference="dOX-G4-NXq"/>
-                                        <exclude reference="yyO-fT-Lzw"/>
-                                        <exclude reference="z9f-wv-5lC"/>
-                                    </mask>
-                                </variation>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZAR-dX-XSl">
                                 <rect key="frame" x="0.0" y="468" width="414" height="224"/>
@@ -871,6 +838,39 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="25" verticalCompressionResistancePriority="75" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="DZf-dr-sU3">
+                                <rect key="frame" x="8" y="428" width="180" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="06Y-S0-Bmk"/>
+                                    <constraint firstAttribute="width" constant="150" id="0lL-BE-zix"/>
+                                    <constraint firstAttribute="width" constant="97" id="2mv-7R-Ejw"/>
+                                    <constraint firstAttribute="width" constant="128" id="6um-V9-s4G"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="CJk-7h-kMc"/>
+                                    <constraint firstAttribute="height" constant="30" id="In2-VR-Cmk"/>
+                                    <constraint firstAttribute="width" constant="97" id="KhE-BR-OWU"/>
+                                    <constraint firstAttribute="height" constant="30" id="QMh-Fx-5JG"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="dOX-G4-NXq"/>
+                                    <constraint firstAttribute="height" constant="30" id="yyO-fT-Lzw"/>
+                                    <constraint firstAttribute="width" constant="97" id="z9f-wv-5lC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="06Y-S0-Bmk"/>
+                                        <exclude reference="0lL-BE-zix"/>
+                                        <exclude reference="2mv-7R-Ejw"/>
+                                        <exclude reference="6um-V9-s4G"/>
+                                        <exclude reference="CJk-7h-kMc"/>
+                                        <exclude reference="In2-VR-Cmk"/>
+                                        <exclude reference="KhE-BR-OWU"/>
+                                        <exclude reference="dOX-G4-NXq"/>
+                                        <exclude reference="yyO-fT-Lzw"/>
+                                        <exclude reference="z9f-wv-5lC"/>
+                                    </mask>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.8980392157" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

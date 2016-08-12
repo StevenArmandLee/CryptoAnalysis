@@ -237,6 +237,7 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
                 popOverVC.view.frame = self!.view.frame
                 self!.view.addSubview(popOverVC.view)
                 popOverVC.didMoveToParentViewController(self)
+                self?.resultTextView.text = autoDecryptionModel.plaintext
             }
         }
     }

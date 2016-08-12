@@ -103,6 +103,7 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
             changeButton.hidden = false
             leftButton.hidden = true
             rightButton.hidden = true
+            autoDecryptionButton.hidden = true
         }
     }
     
@@ -248,6 +249,7 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
             if(self.receivedString == "Polyalphabetic") {
                 if(self.typeOfCipherSegment.selectedSegmentIndex == 0) {
                     autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText, isBeaufort: false)
+                    let polyDecryptionModel = PolyDecryptionModel()
                 }
                 else {
                     autoDecryptionModel.generateAutoDecryptPoly(globalOriginalText, isBeaufort: true)
@@ -271,7 +273,8 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
                 popOverVC.view.frame = self!.view.frame
                 self!.view.addSubview(popOverVC.view)
                 popOverVC.didMoveToParentViewController(self)
-                            }
+               self!.resultTextView.text = autoDecryptionModel.plaintext
+            }
         }
     }
     

@@ -103,7 +103,12 @@ class AutoDecryptionModel{
 
     func generateAutoDecryptPoly(text: String, isBeaufort: Bool){
         keyword = polyDecryption.autoDecryptPoly(text, isBeaufort: isBeaufort)
-        plaintext = polyDecryption.decryptionButton(text, key: keyword, type: 0)
+        if (isBeaufort) {
+            plaintext = polyDecryption.decryptionButton(text, key: keyword, type: 1)
+        }
+        else {
+            plaintext = polyDecryption.decryptionButton(text, key: keyword, type: 0)
+        }
     }
     
     func generateAutoDecryptShift(text: String){
