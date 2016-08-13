@@ -23,7 +23,7 @@ class CryptanalysisTests: XCTestCase {
     
     func testTools() {
         let transpoToolModel = TranspoToolModel()
-        let affineDecryptionModel = AffineDecryption()
+        let affineDecryptionModel = AffineDecryptionModel()
         XCTAssertEqual(transpoToolModel.removeSpecialCharsFromString("~!@#$%^&*()_+|}{[]:;?><,./"), "")
         
         let monoDecryptionModel = MonoDecryptionModel()
@@ -48,7 +48,7 @@ class CryptanalysisTests: XCTestCase {
     }
     
     func testDecryption() {
-        let affineDecryptionModel = AffineDecryption()
+        let affineDecryptionModel = AffineDecryptionModel()
         let shiftDecryptionModel = ShiftDecryptionModel()
         let transpositionDecryptionModel = TranspositionDecryptionModel()
         let playFairDecryptionModel = PlayfairDecryptionModel()
@@ -82,7 +82,7 @@ class CryptanalysisTests: XCTestCase {
     }
     
     func testEncryption(){
-        let affineDecryptionModel = AffineDecryption()
+        let affineDecryptionModel = AffineDecryptionModel()
         let shiftDecryptionModel = ShiftDecryptionModel()
         let transpositionDecryptionModel = TranspositionDecryptionModel()
         let playFairDecryptionModel = PlayfairDecryptionModel()
