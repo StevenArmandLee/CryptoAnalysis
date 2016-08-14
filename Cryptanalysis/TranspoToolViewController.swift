@@ -37,9 +37,25 @@ class TranspoToolViewController: UIViewController, UITextFieldDelegate {
     }
     
        @IBAction func onChange(sender: AnyObject) {
+        
         currentIndex = Int(periodTextField.text!)!
-        textView.text = transpoToolModel.analyzeByPeriod(currentText, period: currentIndex)
-        dismissKeyboard()
+            if (globalOriginalText.stringByReplacingOccurrencesOfString("\t", withString: "").stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "").characters.count >= currentIndex){
+                textView.text = transpoToolModel.analyzeByPeriod(currentText, period: currentIndex)
+                dismissKeyboard()
+        }
+        
+            else {
+                let attributedString = NSAttributedString(string: "Alert", attributes: [
+                    NSFontAttributeName : UIFont.systemFontOfSize(20),
+                    NSForegroundColorAttributeName : UIColor.redColor()
+                    ])
+                let alert = UIAlertController(title: "", message: "Invalid inputs",  preferredStyle: .Alert)
+                
+                alert.setValue(attributedString, forKey: "attributedTitle")
+                alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+                presentViewController(alert, animated: true, completion: nil)
+        }
+       
     }
     
  

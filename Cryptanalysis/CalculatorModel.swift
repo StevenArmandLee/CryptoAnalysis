@@ -64,7 +64,7 @@ class CalculatorModel{
             if c == "1"{
                 result = (result * a) % modulus
             }
-            a = pwrInt(a,2) % modulus
+            a = (a%modulus) * (a%modulus)
         }
         return ("\(base)^\(exponent) mod \(modulus) = \(result)")
     }
