@@ -35,7 +35,7 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
         wordFromTextField.autocorrectionType = .No
         wordToTextField.autocorrectionType = .No
         isAffineOrSubstitution(receivedString)
-        resultTextView.text = globalModifiedText
+        resultTextView.text = globalOriginalText
         resultTextView.layer.borderWidth=1
         resultTextView.layer.borderColor=UIColor.blackColor().CGColor
         // do any additional setup after loading the view, typically from a nib.
@@ -73,7 +73,7 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
     
     override func viewWillAppear(animated: Bool)
     {
-        resultTextView.text = globalModifiedText
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -177,16 +177,22 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
         {
             if segmentOutletMono.selectedSegmentIndex == 1
             {
+                wordToTextField.placeholder = "from key word"
+                wordFromTextField.placeholder = "to key word"
                 autoFillButton.hidden = true
             }
             else if segmentOutletMono.selectedSegmentIndex == 0
             {
+                wordToTextField.placeholder = "from key character"
+                wordFromTextField.placeholder = "to key character"
                 autoFillButton.hidden = false
             }
         }
     }
     func isSubstitution()
     {
+        wordToTextField.placeholder = "from key character"
+        wordFromTextField.placeholder = "to key character"
         segmentOutletMono.setTitle("Stream", forSegmentAtIndex: 0)
         segmentOutletMono.setTitle("Block", forSegmentAtIndex: 1)
         autoDecryptionButton.hidden = true
@@ -195,6 +201,8 @@ class MonoDecryptionController: UIViewController, UITextFieldDelegate
     
     func isAffine()
     {
+        wordToTextField.placeholder = "additional key"
+        wordFromTextField.placeholder = "multiplicity key"
         segmentOutletMono.setTitle("Encrypt", forSegmentAtIndex: 0)
         segmentOutletMono.setTitle("Decrypt", forSegmentAtIndex: 1)
         autoFillButton.hidden = true

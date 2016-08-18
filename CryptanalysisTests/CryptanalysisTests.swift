@@ -47,6 +47,24 @@ class CryptanalysisTests: XCTestCase {
         
     }
     
+    func testCalculator() {
+        let calculatorModel = CalculatorModel()
+        
+        XCTAssertEqual(calculatorModel.gcd(24, number_2: 5), "1")
+        XCTAssertEqual(calculatorModel.gcd(24, number_2: 4), "4")
+        XCTAssertEqual(calculatorModel.gcd(100056, number_2: 6), "6")
+        
+        XCTAssertEqual(calculatorModel.fastExpo(11, modulus: 19, exponent: 13), "11")
+        XCTAssertEqual(calculatorModel.fastExpo(216, modulus: 19, exponent: 13), "7")
+        XCTAssertEqual(calculatorModel.fastExpo(1005, modulus: 19, exponent: 27), "1")
+        
+        //XCTAssertEqual(calculatorModel.gcdR(3, divisor: 26), "9")
+        //XCTAssertEqual(calculatorModel.gcdR(29, divisor: 256), "23")
+        //XCTAssertEqual(calculatorModel.gcdR(26, divisor: 200), "There is no multiplicative inverse exist")
+        //XCTAssertEqual(calculatorModel.gcdR(24, divisor: 1009), "24")
+        
+    }
+    
     func testDecryption() {
         let affineDecryptionModel = AffineDecryptionModel()
         let shiftDecryptionModel = ShiftDecryptionModel()

@@ -38,12 +38,13 @@ class TranspoToolViewController: UIViewController, UITextFieldDelegate {
     
        @IBAction func onChange(sender: AnyObject) {
         
-        currentIndex = Int(periodTextField.text!)!
+        if periodTextField.text != "" {
+            currentIndex = Int(periodTextField.text!)!
             if (globalOriginalText.stringByReplacingOccurrencesOfString("\t", withString: "").stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "").characters.count >= currentIndex){
                 textView.text = transpoToolModel.analyzeByPeriod(currentText, period: currentIndex)
                 dismissKeyboard()
-        }
-        
+            }
+                
             else {
                 let attributedString = NSAttributedString(string: "Alert", attributes: [
                     NSFontAttributeName : UIFont.systemFontOfSize(20),
@@ -54,8 +55,10 @@ class TranspoToolViewController: UIViewController, UITextFieldDelegate {
                 alert.setValue(attributedString, forKey: "attributedTitle")
                 alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
                 presentViewController(alert, animated: true, completion: nil)
+            }
+
         }
-       
+        
     }
     
  

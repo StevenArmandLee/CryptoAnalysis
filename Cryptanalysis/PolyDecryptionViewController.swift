@@ -40,7 +40,7 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
             keyField.keyboardType = .NumberPad
         }
         
-        resultTextView.text = globalModifiedText
+        resultTextView.text = globalOriginalText
         resultTextView.layer.borderWidth=1
         resultTextView.layer.borderColor=UIColor.blackColor().CGColor
         // Do any additional setup after loading the view, typically from a nib.
@@ -75,7 +75,6 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
     
     override func viewWillAppear(animated: Bool)
     {
-        resultTextView.text = globalModifiedText
         hideElements()
     }
     
@@ -274,6 +273,7 @@ class PolyDecryptionController: UIViewController, UITextFieldDelegate{
                 self!.view.addSubview(popOverVC.view)
                 popOverVC.didMoveToParentViewController(self)
                self!.resultTextView.text = autoDecryptionModel.plaintext
+                
             }
         }
     }

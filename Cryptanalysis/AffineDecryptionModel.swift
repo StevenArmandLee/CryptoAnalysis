@@ -123,7 +123,7 @@ class AffineDecryptionModel{
         
         autoAlphaKey = bestAlphaKey
         autoBetaKey = bestBetaKey
-        let result = String(bestAlphaKey) + "and" + String(bestBetaKey)
+        let result = String(bestAlphaKey) + " and " + String(bestBetaKey)
         
         return result
     }

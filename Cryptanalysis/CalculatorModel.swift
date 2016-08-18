@@ -18,7 +18,7 @@ class CalculatorModel{
             //n1%n2 is the reminder
             (n1, n2) = (n2, n1 % n2)
         }
-        return ("gcd(\(number_1), \(number_2)) = \(n1)")
+        return ("\(n1)")
     }
     
     
@@ -44,9 +44,9 @@ class CalculatorModel{
             //all_steps += "\n" + a1 + " " + a1 + " " a1 + " " a1 + " " a1 + " " a1 + " "; a1
         }
         if n1 != 1 {
-            return ("Since gcd(\(dividend), \(divisor)) = \(n1), there is no multiplicative inverse exist")
+            return ("There is no multiplicative inverse exist")
         }else{
-            return ("\(dividend)^-1 mod \(divisor) = \(divisor + b2)")
+            return ("\(divisor + b2)")
         }
     }
     //fast exponentiation function ((base^exponent) mod modulus)
@@ -66,7 +66,7 @@ class CalculatorModel{
             }
             a = (a%modulus) * (a%modulus)
         }
-        return ("\(base)^\(exponent) mod \(modulus) = \(result)")
+        return ("\(result)")
     }
     
 }

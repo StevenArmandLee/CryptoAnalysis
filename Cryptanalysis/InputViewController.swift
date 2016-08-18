@@ -10,6 +10,7 @@ import UIKit
 import TesseractOCR
 import GPUImage
 
+
 var globalOriginalText: String=""
 var globalModifiedText: String=""
 
@@ -31,14 +32,49 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
     var cipherPickerOption = ["Affine","Monoalphabetic","Shift Left","Shift Right","Transposition","Playfair","Vigenere","Beaufort"]
     var imageToBeScanned: UIImage = UIImage()
     var key = ""
-    
+    var launchedBefore = false
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         
+        let screenSize = UIScreen.mainScreen().bounds.size
+        
+        
+        if(screenSize.height == 480) {
+            symbolImage.hidden = true
+          
+         
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            //All background running put here
+            self.viewInitialization()
+            dispatch_async(dispatch_get_main_queue()){
+                [weak self] in
+                //all code when the background finish running put here
+                self!.launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
+                if self!.launchedBefore {
+                    
+                }
+                else {
+                    self!.showTutorial()
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
+                }
+                
+            }
+        }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        originalText.text = globalOriginalText
+    }
+    func viewInitialization() {
+        infoButton.imageEdgeInsets = UIEdgeInsetsMake(30,30,30,30)
+        
         cipherPickerTextField.delegate = self
-        
         cipherPickerTextField.allowsEditingTextAttributes = false
-        
         getCipherButton.titleLabel?.minimumScaleFactor = 0.5
         getCipherButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
@@ -61,14 +97,33 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
         if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
             registerForPreviewingWithDelegate(self, sourceView: view)
         } else {
-        
+            
         }
-        
         disableInitButtons()
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        originalText.text = globalOriginalText
+    func showTutorial() {
+        //input text
+        HolyView.show(withColor: UIColor.blackColor(), center: originalText.center, size: CGSize(width: originalText.frame.width, height: originalText.frame.height), cornerRadius: CGSize(width: 4.0, height: 4.0), message: "Input your cipher or plain text over here") { (dismissed) -> Void in
+            //picker view
+            HolyView.show(withColor: UIColor.blackColor(), center: self.cipherPickerTextField.center, size: CGSize(width: self.cipherPickerTextField.frame.width, height: self.cipherPickerTextField.frame.height), cornerRadius: CGSizeZero, message: "Choose cipher type to gnerate random cipher text") { (dismissed) -> Void in
+                //generate button
+                HolyView.show(withColor: UIColor.blackColor(), center: self.getCipherButton.center, size: CGSize(width: self.getCipherButton.frame.width, height: self.getCipherButton.frame.height), cornerRadius: CGSizeZero, message: "Click this button to generate the random cipher text") { (dismissed) -> Void in
+                    //info button
+                    HolyView.show(withColor: UIColor.blackColor(), center: self.infoButton.center, size: CGSize(width: 30, height: 30), cornerRadius: nil, message: "Click info button to show the Key") { (dismissed) -> Void in
+                        //use photo
+                      HolyView.show(withColor: UIColor.blackColor(), center: self.usePhotoButton.center, size: CGSize(width: self.usePhotoButton.frame.width, height: self.usePhotoButton.frame.height), cornerRadius: CGSizeZero, message: "Snap a picture or choose it from library to automatically scan the text from the picture") { (dismissed) -> Void in
+                        //process photo button
+                        HolyView.show(withColor: UIColor.blackColor(), center: self.processButton.center, size: CGSize(width: self.processButton.frame.width, height: self.processButton.frame.height), cornerRadius: CGSizeZero, message: "Click this button to process the photo into text") { (dismissed) -> Void in
+                            
+                        }
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+        
     }
   
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,replacementString string: String) -> Bool {

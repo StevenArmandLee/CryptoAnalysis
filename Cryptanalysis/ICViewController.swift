@@ -36,11 +36,8 @@ class ICViewController: UIViewController, UITextFieldDelegate {
         chartView.rightAxis.valueFormatter?.minimumFractionDigits = 0
         chartView.animate(xAxisDuration: 2, yAxisDuration: 2)
         setCharts(stasticalModel.getPolyGraphXLabel(), values: stasticalModel.getPolyXAxisData())
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ICViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        
     }
     
     override func didReceiveMemoryWarning() {

@@ -28,6 +28,7 @@
 		568679071D5780BF009FD468 /* TranspoToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568679061D5780BF009FD468 /* TranspoToolViewController.swift */; };
 		56AEB2831D433AC100D56A1F /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2821D433AC100D56A1F /* popupViewController.swift */; };
 		56AEB2851D435BE600D56A1F /* ICViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AEB2841D435BE600D56A1F /* ICViewController.swift */; };
+		56B0D3071D60BB8B001EDB3B /* HolyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B0D3061D60BB8B001EDB3B /* HolyView.swift */; };
 		56BB68661D5A0C3000D987F7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BB68651D5A0C3000D987F7 /* TextField.swift */; };
 		56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */; };
 		56C36E971D49DDD20042A2FD /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C36E961D49DDD20042A2FD /* ToolsViewController.swift */; };
@@ -166,6 +167,7 @@
 		568862FD1D23D034006F0E5B /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		56AEB2821D433AC100D56A1F /* popupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		56AEB2841D435BE600D56A1F /* ICViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICViewController.swift; sourceTree = "<group>"; };
+		56B0D3061D60BB8B001EDB3B /* HolyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolyView.swift; sourceTree = "<group>"; };
 		56BB68651D5A0C3000D987F7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		56BE8D641D3BB5D800A50366 /* AutoGrowngTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowngTextView.swift; sourceTree = "<group>"; };
 		56C36E961D49DDD20042A2FD /* ToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +288,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		56B0D3051D60BB8B001EDB3B /* HolyView */ = {
+			isa = PBXGroup;
+			children = (
+				56B0D3061D60BB8B001EDB3B /* HolyView.swift */,
+			);
+			path = HolyView;
+			sourceTree = "<group>";
+		};
 		56F2F2771CE2FA54007A4C7B = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +322,7 @@
 		56F2F2821CE2FA54007A4C7B /* Cryptanalysis */ = {
 			isa = PBXGroup;
 			children = (
+				56B0D3051D60BB8B001EDB3B /* HolyView */,
 				56C50E861D5F604600033BBF /* TesseractOCR.framework */,
 				5631B53F1D450DA3009E302B /* tessdata */,
 				565507C31D0BEFB20054FB95 /* Models */,
@@ -672,6 +683,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B0D3071D60BB8B001EDB3B /* HolyView.swift in Sources */,
 				56BE8D651D3BB5D800A50366 /* AutoGrowngTextView.swift in Sources */,
 				56D4FD2D1D409A20006CC58A /* InformationContentViewController.swift in Sources */,
 				568679071D5780BF009FD468 /* TranspoToolViewController.swift in Sources */,

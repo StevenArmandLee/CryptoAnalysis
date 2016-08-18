@@ -17,8 +17,30 @@ class GraphViewController: UIViewController {
     @IBOutlet weak var caseSensitiveSwitch: UISwitch!
     @IBOutlet var chartView: BarChartView!
     @IBOutlet var frequencyLengthSlider: UISlider!
+    var launchedBeforeGraph = false
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            //All background running put here
+            self.viewInitialization()
+            dispatch_async(dispatch_get_main_queue()){
+                [weak self] in
+                //all code when the background finish running put here
+                self!.launchedBeforeGraph = NSUserDefaults.standardUserDefaults().boolForKey("launchedBeforeGraph")
+                if self!.launchedBeforeGraph {
+                    
+                }
+                else {
+                    self!.showTutorial()
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBeforeGraph")
+                }
+                
+            }
+        }
+    }
+    
+    func viewInitialization() {
         chartView.descriptionText = ""
         chartView.animate(xAxisDuration: 2, yAxisDuration: 2)
         chartView.doubleTapToZoomEnabled = false
@@ -30,6 +52,12 @@ class GraphViewController: UIViewController {
         
         stasticalModel.generateChart(Int(frequencyLengthSlider.value), isCaseSensitive: caseSensitiveSwitch.on, isRemoveSymbol: symbolSwitch.on)
         setCharts(stasticalModel.getXAxisLabel(), values: stasticalModel.getXAxisData(stasticalModel.getXAxisLabel()))
+    }
+    
+    func showTutorial() {
+        HolyView.show(withColor: UIColor.blackColor(), center: CGPoint(x: frequencyLengthSlider.center.x ,y: frequencyLengthSlider.center.y+63), size: CGSize(width: frequencyLengthSlider.frame.width, height: frequencyLengthSlider.frame.height), cornerRadius: CGSize(width: 4.0, height: 4.0), message: "Slide to left or right to change to monogram, bigram, or trigram") { (dismissed) -> Void in
+        }
+       
         
     }
     
