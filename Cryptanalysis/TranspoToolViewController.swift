@@ -43,6 +43,7 @@ class TranspoToolViewController: UIViewController, UITextFieldDelegate {
             if (globalOriginalText.stringByReplacingOccurrencesOfString("\t", withString: "").stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "").characters.count >= currentIndex){
                 textView.text = transpoToolModel.analyzeByPeriod(currentText, period: currentIndex)
                 dismissKeyboard()
+                textView.setContentOffset(CGPointZero, animated: true)
             }
                 
             else {

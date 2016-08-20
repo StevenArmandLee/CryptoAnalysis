@@ -30,6 +30,7 @@ class ToolsContentViewController: UIViewController, UITextFieldDelegate {
         initiView()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ToolsContentViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        outputTextView.setContentOffset(CGPointZero, animated: true)
     }
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,replacementString string: String) -> Bool {
         
@@ -57,6 +58,7 @@ class ToolsContentViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onCompute(sender: UIButton) {
         compute()
         dismissKeyboard()
+        outputTextView.setContentOffset(CGPointZero, animated: true)
             }
     
     func hideFastExpo() {

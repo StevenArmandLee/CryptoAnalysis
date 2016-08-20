@@ -21,6 +21,10 @@ class CryptanalysisTests: XCTestCase {
         super.tearDown()
     }
     
+    func testHelperTools() {
+        
+    }
+    
     func testTools() {
         let transpoToolModel = TranspoToolModel()
         let affineDecryptionModel = AffineDecryptionModel()
@@ -58,10 +62,10 @@ class CryptanalysisTests: XCTestCase {
         XCTAssertEqual(calculatorModel.fastExpo(216, modulus: 19, exponent: 13), "7")
         XCTAssertEqual(calculatorModel.fastExpo(1005, modulus: 19, exponent: 27), "1")
         
-        //XCTAssertEqual(calculatorModel.gcdR(3, divisor: 26), "9")
-        //XCTAssertEqual(calculatorModel.gcdR(29, divisor: 256), "23")
-        //XCTAssertEqual(calculatorModel.gcdR(26, divisor: 200), "There is no multiplicative inverse exist")
-        //XCTAssertEqual(calculatorModel.gcdR(24, divisor: 1009), "24")
+        XCTAssertEqual(calculatorModel.gcdR(3, divisor: 26), "9")
+        XCTAssertEqual(calculatorModel.gcdR(256, divisor: 29), "23")
+        XCTAssertEqual(calculatorModel.gcdR(200, divisor: 26), "There is no multiplicative inverse exist")
+        XCTAssertEqual(calculatorModel.gcdR(1009, divisor: 24), "1")
         
     }
     
@@ -129,11 +133,6 @@ class CryptanalysisTests: XCTestCase {
         XCTAssertEqual(polyDecryptionModel.beaufortEncryption("I WOKE UP ON SATURDAY MORNING, NOT IN MY BED, BUT IN THE HALLWAY I HAD FALLEN ASLEEP WHILE WATCHING MY FATHER I WAS IMMEDIATELY EMBRASSED WONDERING WHETHER OR NOT HE HAD SEEN ME SPRAWLED ON THE WOODEN FLOOR I ALWAYS MAKE SURE THERE IS AN OPENING IN THE ROOM AN INCH AT THE DOOR OR MAYBE EVEN AT THE WINDOWS MY GRANDMOTHER TAUGHT ME THAT IF ONE DIES DURING SLEEP THE SOUL NEEDS AN EXIT OR IT WILL BE FOREVER TRAPPED IN THE ROOM I STOMPED ON HIS HEAD 3 TIMES AND EACH TIME SAID IT WAS ACCIDENT LITTLE SO I SATBBED HIS BACK OUT FOUR TIMES THEN HE LAYED FLAT AND I SLIT ONE SIDE OH, THE SOUNDS THE GUYS WAS MAKING WERE LIKE WHAT YOU DO", key: "conversation").lowercaseString, "g ibpa dx ou kmgsdqfu vwruazt, lag nj vg blv, nhr ua ydn pasdinw u ufz oilswz nqxrjl fpisw inrounjp uy msfucd v bwb qmtwpvyfrqu nubysefcp jtjmmrpfs jfqgmaa wr ugf uc tni onmn tw ecpmjqam wn azq jmaqjj otovj u njindo vikl kgec fujnn qs hf acczvsc rv tow dbmy ns ewkh hl fuc pbtn xz mhqnr chrs wc bhl ouabajx ih orhfpzmfujn ciunzf zc fufp rn ouw pvce qznrvg zdqrn fuj oxcl uwqqq ma jtrb oy af jgxy ga owrlnqe rdnulnl iu ltr pabr e bbothqq mz uno qmak 3 luzce nsz nico luzc ennz rb whk mpauqjjc tialxr qa v xwcjblv tvq nnhg xct mgge ruzjo cpeu zq yykri buit hfp v qxvy kwm spvq bf, fuj oxcnkk fuc shdo fis tswvls jjnn tirw iuyf ltq mw", "Invalid beaufort encrytpion")
 
         //TODO add monoalphabetic
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testPerformanceExample() {

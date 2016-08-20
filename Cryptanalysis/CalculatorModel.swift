@@ -41,18 +41,26 @@ class CalculatorModel{
                 break;
             }
             (a1, b1, a2, b2) = (a2, b2, a1 - quotient * a2, b1 - quotient * b2)
+            print(" \(a1),  \(b1), \(a2), \(b2)")
             //all_steps += "\n" + a1 + " " + a1 + " " a1 + " " a1 + " " a1 + " " a1 + " "; a1
         }
         if n1 != 1 {
             return ("There is no multiplicative inverse exist")
         }else{
-            return ("\(divisor + b2)")
+            if divisor < dividend{
+                b2 = a2
+            }
+            if b2 > 0{
+                return ("\(b2)")
+            }else{
+                return ("\(divisor + b2)")
+            }
         }
     }
     //fast exponentiation function ((base^exponent) mod modulus)
     func fastExpo(base: Int, modulus: Int, exponent: Int) ->(String){
         //assign a(int)
-        var a = base
+        var a = base%modulus
         //convert power to binary in string
         let  str = String(exponent, radix: 2)
         //convert string to char array
@@ -64,9 +72,15 @@ class CalculatorModel{
             if c == "1"{
                 result = (result * a) % modulus
             }
-            a = (a%modulus) * (a%modulus)
+            if result == 0{
+                break;
+            }
+            //a = pwrInt(a,2) % modulus
+            //due to the limitation cannot use build-in power function
+            a = (a*a) % modulus
+            
+            
         }
         return ("\(result)")
     }
-    
 }

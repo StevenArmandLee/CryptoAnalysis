@@ -19,7 +19,10 @@ class PlayfairDecryptionModel{
         
         let keyTable = prepareKey(key.lowercaseString)
         
-        let tempText = checkRepetition(text.lowercaseString)
+        var tempText = removeSpecialCharsFromString(text)
+        tempText = tempText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
+        
+        tempText = checkRepetition(text.lowercaseString)
         
         let plaintext = groupingTheText(tempText)
         
@@ -33,7 +36,8 @@ class PlayfairDecryptionModel{
     func prepareKey(key: String) -> [[String]] {
         var keyTable = [[String]](count: 5, repeatedValue: [String](count: 5, repeatedValue: ""))
         
-        var autoFillKey = autoFillKeyString(key)
+        var autoFillKey = removeDuplicateLetterFromString(key)
+        autoFillKey = autoFillKeyString(autoFillKey)
         autoFillKey = removeJLetter(autoFillKey)
         var index = 0
         for i in 0...4 {
@@ -47,15 +51,23 @@ class PlayfairDecryptionModel{
         return keyTable
     }
     
-    func autoFillKeyString(keyString: String) -> String{
+    func removeDuplicateLetterFromString(string :String)->String{
+        var stringResult = ""
+        for char in string.characters{
+            if (stringResult.rangeOfString(String(char))) == nil{
+                stringResult += String(char)
+            }
+        }
+        return stringResult
+    }
+    
+    func autoFillKeyString(keyString :String)-> String {
         var tempKeyString = keyString.lowercaseString
-        
-        for char in alphabet.characters{
+        for char in "abcdefghijklmnopqrstuvwxyz".characters{
             if (tempKeyString.rangeOfString(String(char)) == nil){
                 tempKeyString+=String(char)
             }
         }
-        
         return tempKeyString
     }
     
@@ -109,7 +121,7 @@ class PlayfairDecryptionModel{
             j += 2
         }
         
-        return result
+        return result.lowercaseString
     }
     
     func replaceJWithI (text: String) -> String{
@@ -383,7 +395,6 @@ class PlayfairDecryptionModel{
         var tempText = removeSpecialCharsFromString(text)
         tempText = tempText.stringByReplacingOccurrencesOfString(" ", withString: "").stringByReplacingOccurrencesOfString("\n", withString: "")
         let keyTable = prepareKey(key)
-        
         
         let ciphertext = groupingTheText(tempText)
         
