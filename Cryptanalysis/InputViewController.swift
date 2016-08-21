@@ -34,19 +34,11 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
     var key = ""
     var launchedBefore = false
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
-        
         let screenSize = UIScreen.mainScreen().bounds.size
-        
-        
         if(screenSize.height == 480) {
             symbolImage.hidden = true
-          
-         
         }
-        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //All background running put here
             self.viewInitialization()
@@ -67,10 +59,19 @@ class InputViewController: UIViewController, UITextViewDelegate, UITextFieldDele
         
     }
     
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).stringByReplacingCharactersInRange(range, withString: text)
+        let numberOfChars = newText.characters.count // for Swift use count(newText)
+        let MAXLENGTH = Int.max
+        return numberOfChars < MAXLENGTH;
+    }
+    
     override func viewWillAppear(animated: Bool) {
         originalText.text = globalOriginalText
     }
     func viewInitialization() {
+        originalText.delegate = self
+        
         infoButton.imageEdgeInsets = UIEdgeInsetsMake(30,30,30,30)
         
         cipherPickerTextField.delegate = self

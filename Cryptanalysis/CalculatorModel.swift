@@ -25,6 +25,7 @@ class CalculatorModel{
     
     //multiplicative iverse of dividend(dividend^-1) mod divisor
     func gcdR(dividend: Int, divisor: Int) -> (String){
+        
         //assign n1 & n2
         var (n1, n2) = (divisor, dividend)
         //var all_steps
@@ -40,7 +41,7 @@ class CalculatorModel{
             if n2 == 0 {
                 break;
             }
-            (a1, b1, a2, b2) = (a2, b2, a1 - quotient * a2, b1 - quotient * b2)
+            (a1, b1, a2, b2) = (a2, b2, a1 &- quotient &* a2, b1 - quotient &* b2)
             print(" \(a1),  \(b1), \(a2), \(b2)")
             //all_steps += "\n" + a1 + " " + a1 + " " a1 + " " a1 + " " a1 + " " a1 + " "; a1
         }
@@ -53,7 +54,7 @@ class CalculatorModel{
             if b2 > 0{
                 return ("\(b2)")
             }else{
-                return ("\(divisor + b2)")
+                return ("\(divisor &+ b2)")
             }
         }
     }
@@ -70,14 +71,14 @@ class CalculatorModel{
         var result = 1
         for c in charArr{
             if c == "1"{
-                result = (result * a) % modulus
+                result = (result &* a) % modulus
             }
             if result == 0{
                 break;
             }
             //a = pwrInt(a,2) % modulus
             //due to the limitation cannot use build-in power function
-            a = (a*a) % modulus
+            a = (a&*a) % modulus
             
             
         }

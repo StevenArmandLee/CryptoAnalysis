@@ -34,6 +34,9 @@ class ToolsContentViewController: UIViewController, UITextFieldDelegate {
     }
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,replacementString string: String) -> Bool {
         
+        toThePowerInput.resizeText()
+        firstInput.resizeText()
+        secondInput.resizeText()
         // Create an `NSCharacterSet` set which includes everything *but* the digits
         let inverseSet = NSCharacterSet(charactersInString:"-0123456789").invertedSet
         
@@ -105,15 +108,34 @@ class ToolsContentViewController: UIViewController, UITextFieldDelegate {
     }
     
     func fastExpo() {
-        outputTextView.text = calculatorModel.fastExpo(Int(firstInput.text!)!, modulus: Int(secondInput.text!)!, exponent: Int(toThePowerInput.text!)!)
+        
+            if Int(firstInput.text!) == nil || Int(secondInput.text!) == nil || Int(toThePowerInput.text!) == nil {
+                showAlert()
+            }
+            else {
+                outputTextView.text = calculatorModel.fastExpo(Int(firstInput.text!)!, modulus: Int(secondInput.text!)!, exponent: Int(toThePowerInput.text!)!)
+        }
+            
+       
+        
     }
     
     func inverseMod() {
-        outputTextView.text = calculatorModel.gcdR( Int(firstInput.text!)!, divisor: Int(secondInput.text!)!)
+        if Int(firstInput.text!) == nil || Int(secondInput.text!) == nil  {
+            showAlert()
+        }
+        else {
+            outputTextView.text = calculatorModel.gcdR( Int(firstInput.text!)!, divisor: Int(secondInput.text!)!)
+        }
     }
     
     func IC() {
-        outputTextView.text = stasticalModel.getAvgIC(globalOriginalText, period: Int(secondInput.text!)!)
+        if Int(firstInput.text!) == nil || Int(secondInput.text!) == nil  {
+            showAlert()
+        }
+        else {
+            outputTextView.text = stasticalModel.getAvgIC(globalOriginalText, period: Int(secondInput.text!)!)
+        }
     }
     
     func compute() {
@@ -132,6 +154,18 @@ class ToolsContentViewController: UIViewController, UITextFieldDelegate {
             IC()
         }
 
+    }
+    
+    func showAlert() {
+        let attributedString = NSAttributedString(string: "Alert", attributes: [
+            NSFontAttributeName : UIFont.systemFontOfSize(20),
+            NSForegroundColorAttributeName : UIColor.redColor()
+            ])
+        let alert = UIAlertController(title: "", message: "The number is invalid",  preferredStyle: .Alert)
+        
+        alert.setValue(attributedString, forKey: "attributedTitle")
+        alert.addAction(UIAlertAction(title:"Close",style: UIAlertActionStyle.Default, handler:nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     
