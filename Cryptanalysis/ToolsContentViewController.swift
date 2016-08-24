@@ -130,7 +130,7 @@ class ToolsContentViewController: UIViewController, UITextFieldDelegate {
     }
     
     func IC() {
-        if Int(firstInput.text!) == nil || Int(secondInput.text!) == nil  {
+        if Int(secondInput.text!) == nil  {
             showAlert()
         }
         else {

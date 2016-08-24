@@ -1352,10 +1352,10 @@
                             <constraint firstItem="5Mr-wp-kw2" firstAttribute="top" secondItem="Tbx-OW-4oS" secondAttribute="bottom" constant="8" id="tTG-gg-hvd"/>
                             <constraint firstItem="Tbx-OW-4oS" firstAttribute="trailing" secondItem="lQn-43-rlU" secondAttribute="trailingMargin" id="u1T-ll-BcC"/>
                             <constraint firstItem="r3M-Bg-hmO" firstAttribute="leading" secondItem="lQn-43-rlU" secondAttribute="leadingMargin" constant="325" id="vJS-13-J3I"/>
+                            <constraint firstAttribute="bottom" secondItem="5Mr-wp-kw2" secondAttribute="bottom" constant="20" id="w2w-Ok-6Jc"/>
                             <constraint firstAttribute="trailing" secondItem="Tbx-OW-4oS" secondAttribute="trailing" id="wew-11-9gU"/>
                             <constraint firstItem="5Mr-wp-kw2" firstAttribute="top" secondItem="Tbx-OW-4oS" secondAttribute="bottom" constant="8" id="xD3-8V-7Mm"/>
                             <constraint firstItem="Tbx-OW-4oS" firstAttribute="top" secondItem="r3M-Bg-hmO" secondAttribute="bottom" constant="8" id="y6m-di-SKi"/>
-                            <constraint firstItem="Ovl-9c-mEI" firstAttribute="top" secondItem="5Mr-wp-kw2" secondAttribute="bottom" constant="20" id="yFK-V9-zox"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

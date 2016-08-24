@@ -309,7 +309,6 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
     //activeIndicator functions
     func addActivityIndicator() {
         self.getCipherButton.enabled = false
-        self.infoButton.enabled = false
         self.usePhotoButton.enabled = false
         self.processButton.enabled = false
         self.clearTextButton.enabled = false
@@ -326,16 +325,12 @@ extension InputViewController: UIViewControllerPreviewingDelegate{
         activityIndicator.removeFromSuperview()
         activityIndicator = nil
         self.getCipherButton.enabled = true
-        self.infoButton.enabled = true
         self.usePhotoButton.enabled = true
         self.processButton.enabled = true
         self.clearTextButton.enabled = true
         self.originalText.editable = true
         let origImage = UIImage(named: "info");
         let tintedImage = origImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        infoButton.setImage(tintedImage, forState: .Normal)
-        infoButton.tintColor = UIColor.greenColor()
-        infoButton.enabled = true
     }
     
     @IBAction func onGetCipherText(sender: AnyObject) {
